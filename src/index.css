@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/**
+ * Brand color tokens — keep in sync with src/theme/colors.js
+ *
+ * Active usage:
+ *   bg-primary            — all dark section backgrounds
+ *   bg-primary-dark       — footer only (deepest surface)
+ *   bg-accent             — CTA buttons
+ *   hover:bg-accent-dark  — button hover
+ *   bg-surface            — light section alternates
+ *   text-accent           — icons, labels, highlights
+ *
+ * Reserved (not used in components, available for future use):
+ *   primary-mid, primary-light, primary-bright, accent-light, accent-muted
+ */
+@theme {
+  /* Primary — Forest Green (#006241) */
+  --color-primary:        #006241;
+  --color-primary-dark:   #004530;
+  --color-primary-mid:    #007A52;
+  --color-primary-light:  #00956A;
+  --color-primary-bright: #00C087;
+
+  /* Accent — Amber Gold */
+  --color-accent:         #D4900A;
+  --color-accent-dark:    #B87808;
+  --color-accent-light:   #E8A830;
+  --color-accent-muted:   #FEF6E4;
+
+  /* Surface */
+  --color-surface:        #F1F5F9;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 3px;
+}
