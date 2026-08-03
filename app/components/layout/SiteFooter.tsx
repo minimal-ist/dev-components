@@ -70,6 +70,12 @@ export function SiteFooter() {
                   >
                     {company.phone}
                   </a>
+                  <a
+                    href={company.emailHref}
+                    className="inline-flex min-h-11 items-center font-mono transition-colors hover:text-sheet"
+                  >
+                    {company.email}
+                  </a>
                   <span className="leading-relaxed">
                     {company.primaryAddress.street}
                     <br />

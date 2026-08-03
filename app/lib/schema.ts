@@ -15,6 +15,7 @@ export const organizationSchema = {
   founder: { "@type": "Person", name: company.founder.name },
   description: company.description,
   telephone: company.phone,
+  email: company.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: company.primaryAddress.street,

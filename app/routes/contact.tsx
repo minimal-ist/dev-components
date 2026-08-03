@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 
 import { EnquiryForm } from "~/components/contact/EnquiryForm";
 import { Container } from "~/components/ui/Container";
@@ -52,6 +52,13 @@ export default function Contact() {
                   >
                     <MessageCircle className="size-4" aria-hidden="true" />
                     WhatsApp
+                  </a>
+                  <a
+                    href={company.emailHref}
+                    className="flex min-h-12 items-center gap-3 border border-steel-400 px-5 font-mono text-sm tracking-[0.08em] text-ink transition-colors hover:border-ink"
+                  >
+                    <Mail className="size-4" aria-hidden="true" />
+                    {company.email}
                   </a>
                 </div>
               </div>

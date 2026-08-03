@@ -96,11 +96,11 @@ the sitemap. `app/lib/meta.ts` holds the same value for canonical and OG tags.
 
 ## Outstanding
 
-- `company.email` in `app/data/company.ts` is a placeholder. The live site
-  obfuscates the address with Cloudflare, so it could not be read. Confirm before
-  launch — nothing links to it yet.
 - The client logo wall lists only the five names legible in the old page source.
-  The live site shows fifteen.
+  The full list of sixteen is legible in the company brochure.
+- `app/lib/meta.ts` sets `SITE_URL` to `https://stampinglaminations.com`, which
+  drives every canonical and OG URL. The company email is on `devcomponents.in`
+  — if the site is moving to that domain, change `SITE_URL` before launch.
 - Product photography is reused from the old site and is low resolution. Images
   render with `mix-blend-multiply` so their white backgrounds drop out; higher
   resolution files can be swapped into `public/images/products/` under the same

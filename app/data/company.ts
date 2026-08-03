@@ -1,10 +1,4 @@
-/**
- * Company facts. All transcribed from stampinglaminations.com.
- *
- * TODO(content): the email address is obfuscated by Cloudflare on every page
- * of the live site and could not be read. `email` below is a placeholder —
- * confirm the real address before launch. Nothing links to it until then.
- */
+/** Company facts. All transcribed from stampinglaminations.com. */
 
 export const company = {
   name: "Dev Components Pvt. Ltd.",
@@ -29,7 +23,8 @@ export const company = {
   phone: "+91 99456 71218",
   phoneHref: "tel:+919945671218",
   whatsappHref: "https://wa.me/919945671218",
-  email: "info@stampinglaminations.com", // TODO(content): unverified — see note above
+  email: "info@devcomponents.in",
+  emailHref: "mailto:info@devcomponents.in",
 
   addresses: [
     {
