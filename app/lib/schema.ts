@@ -10,7 +10,7 @@ export const organizationSchema = {
   name: company.name,
   alternateName: company.shortName,
   url: SITE_URL,
-  logo: `${SITE_URL}/images/brand/logo-round.png`,
+  logo: `${SITE_URL}/images/brand/logo.svg`,
   foundingDate: String(company.founded),
   founder: { "@type": "Person", name: company.founder.name },
   description: company.description,

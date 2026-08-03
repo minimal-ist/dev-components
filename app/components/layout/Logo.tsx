@@ -1,14 +1,14 @@
 import { Link } from "react-router";
 
-import { DevMark } from "~/components/layout/DevMark";
+import { BrandMark } from "~/components/layout/BrandMark";
 import { cn } from "~/lib/cn";
 
 /**
- * The lockup: the company's own swoosh, set against the wordmark in Archivo.
+ * The lockup: the company's supplied mark, set against the wordmark in Archivo.
  *
- * The mark is vector now (see DevMark), so it stays crisp at any size and
- * recolours with the site rather than carrying its own white oval into every
- * background it sits on.
+ * The wordmark stays live text rather than the supplied text.svg — it selects,
+ * scales, reads to a screen reader, and picks up the site's colours on the
+ * navy footer, none of which artwork does.
  */
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
@@ -17,7 +17,7 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
       className="group flex min-h-11 items-center gap-2.5"
       aria-label="Dev Components, home"
     >
-      <DevMark tone={tone} className="h-7 shrink-0" />
+      <BrandMark tone={tone} className="h-8 shrink-0" />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
