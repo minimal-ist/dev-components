@@ -9,7 +9,7 @@ const base =
   "tracking-[0.14em] uppercase transition-colors duration-200 ease-(--ease-out-quint)";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-white hover:bg-accent-deep",
+  primary: "bg-accent text-ink hover:bg-accent-deep",
   outline: "border border-steel-400 text-ink hover:border-ink hover:bg-ink hover:text-sheet",
   ghost: "text-ink underline decoration-steel-400 underline-offset-[6px] hover:decoration-accent",
 };

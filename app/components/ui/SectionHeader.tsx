@@ -30,7 +30,7 @@ export function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <span className={cn("eyebrow", tone === "light" ? "text-accent" : "text-accent-soft")}>
+        <span className={cn("eyebrow", tone === "light" ? "text-accent-ink" : "text-accent")}>
           {eyebrow}
         </span>
       ) : null}

@@ -30,7 +30,7 @@ export function HeroSection() {
       <Container className="relative">
         <div className="grid items-center gap-12 py-20 sm:py-24 lg:min-h-[38rem] lg:grid-cols-12 lg:py-32">
           <div className="lg:col-span-7">
-            <p className="eyebrow text-accent">
+            <p className="eyebrow text-accent-ink">
               Est. {company.founded} — Bangalore, India
             </p>
 

@@ -3,41 +3,68 @@
 /* ---------------------------------------------------------------------------
    Dev Components — design tokens
 
+   Colours are taken from the company's own brand book (DEV final.pdf), read
+   straight out of its content streams rather than sampled by eye:
+
+     orange  #ff6f00      navy  #0e2251 · #072466 · #051243
+     blue    #1335ff      paper #e6edec · #d1dcdb
+
    The product is a lamination: a sheet of silicon steel 0.20–0.50 mm thick,
-   punched to a precise profile and stacked into a core. Two ideas drive the
-   system:
+   punched to a profile and stacked into a core. Two ideas drive the system:
 
-     1. Material. The base is not paper-cream, it is cold-rolled steel — a
-        cool, faintly blue gray. Ink is a cool near-black, not brown-black.
-     2. Tolerance. Every number on this site is a manufacturing claim, so
-        numbers are set in mono and given the same weight as headlines.
+     1. Material. The base is the brand's cool off-white and the ink is its
+        deep navy — not a neutral near-black. Everything greys through navy.
+     2. Tolerance. Every number here is a manufacturing claim, so numbers are
+        set in mono and carry the same weight as headlines.
 
-   One accent only: a saturated electric blue standing for the current these
-   cores are built to carry. It marks state and sequence, never decoration.
+   ACCESSIBILITY — read before reaching for --color-accent on text.
+   The brand orange is a *fill*, not a text colour on light surfaces:
+
+     #ff6f00 on #e6edec ....... 2.27:1   fails AA
+     white   on #ff6f00 ....... 2.77:1   fails AA
+     #0e2251 on #ff6f00 ....... 5.66:1   passes  <- orange buttons take navy
+     #ff6f00 on #0e2251 ....... 5.66:1   passes  <- orange text on dark only
+     #9a4100 on #e6edec ....... 5.48:1   passes  <- --color-accent-ink
+
+   So: orange fills, rules, marks and icons anywhere; orange *text* only on
+   navy; --color-accent-ink for orange text on light.
 --------------------------------------------------------------------------- */
 
 @theme {
   /* --- Surfaces: the stack, lightest layer on top --------------------- */
-  --color-sheet: #edeff2;
-  --color-sheet-raised: #f7f8fa;
-  --color-sheet-sunk: #e2e6ea;
+  --color-sheet: #e6edec;
+  --color-sheet-raised: #f1f5f4;
+  --color-sheet-sunk: #d1dcdb;
 
-  /* --- Ink and steel scale -------------------------------------------- */
-  --color-ink: #0e1116;
-  --color-steel-900: #1a1f26;
-  --color-steel-800: #2b323b;
-  --color-steel-700: #3e4753;
-  --color-steel-600: #5a6473;
-  --color-steel-500: #7d8795;
-  --color-steel-400: #a2abb7;
-  --color-steel-300: #c3cad3;
-  --color-steel-200: #d8dee5;
-  --color-steel-100: #e8ecf0;
+  /* --- Ink and the navy-tinted neutral ramp ---------------------------
+     Every step is the brand navy mixed toward the brand paper, so the greys
+     belong to the palette instead of sitting beside it.
 
-  /* --- Accent: electric blue ------------------------------------------ */
-  --color-accent: #1b4dff;
-  --color-accent-deep: #0b2ed9;
-  --color-accent-soft: #dfe6ff;
+     900–500 are solved against WCAG contrast targets and are safe for text.
+     400–100 are decorative — borders, rules, dividers — and must never carry
+     text on a light surface. Contrast on --color-sheet:
+
+       ink  12.95   800  9.02   700  7.01   600  5.47   500  4.65
+       400   2.23   300  1.77   200  1.49   100  1.26   <- borders only  */
+  --color-ink: #0e2251;
+  --color-steel-900: #1c2e5b;
+  --color-steel-800: #2b3d66;
+  --color-steel-700: #3c4e72;
+  --color-steel-600: #4e5e7f;
+  --color-steel-500: #5a6987;
+  --color-steel-400: #94a0b1;
+  --color-steel-300: #aab4c1;
+  --color-steel-200: #bbc4cd;
+  --color-steel-100: #ccd5d9;
+
+  /* --- Accent: brand orange ------------------------------------------- */
+  --color-accent: #ff6f00;
+  --color-accent-deep: #cc5800;
+  --color-accent-ink: #9a4100;
+  --color-accent-soft: #ffd9b3;
+
+  /* --- Brand blue: the mark, and nothing else -------------------------- */
+  --color-brand-blue: #1335ff;
 
   /* --- Type ------------------------------------------------------------
      Archivo is a grotesque with a real width axis (62–125). Wide + heavy

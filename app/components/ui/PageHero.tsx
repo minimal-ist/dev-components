@@ -22,7 +22,7 @@ export function PageHero({ eyebrow, title, lede, children }: PageHeroProps) {
       </div>
 
       <Container className="relative py-16 sm:py-20 lg:py-28">
-        <span className="eyebrow text-accent">{eyebrow}</span>
+        <span className="eyebrow text-accent-ink">{eyebrow}</span>
         <h1 className="mt-5 max-w-4xl text-display-lg text-ink">{title}</h1>
         {lede ? <p className="mt-6 max-w-2xl text-lg text-steel-600">{lede}</p> : null}
         {children}

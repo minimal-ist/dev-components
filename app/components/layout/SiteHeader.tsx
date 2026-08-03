@@ -60,7 +60,7 @@ export function SiteHeader() {
                 aria-expanded={productsOpen}
                 className={cn(
                   "flex min-h-11 items-center gap-1.5 px-4 font-mono text-xs tracking-[0.12em] uppercase transition-colors",
-                  productsOpen ? "text-accent" : "text-steel-700 hover:text-ink",
+                  productsOpen ? "text-accent-ink" : "text-steel-700 hover:text-ink",
                 )}
               >
                 Products
@@ -91,7 +91,7 @@ export function SiteHeader() {
                   </div>
                   <Link
                     to="/products"
-                    className="mt-1 flex items-center justify-between border-t border-steel-200 px-4 py-3 font-mono text-[0.6875rem] tracking-[0.14em] text-accent uppercase"
+                    className="mt-1 flex items-center justify-between border-t border-steel-200 px-4 py-3 font-mono text-[0.6875rem] tracking-[0.14em] text-accent-ink uppercase"
                   >
                     View all products
                     <span aria-hidden="true">→</span>
@@ -109,7 +109,7 @@ export function SiteHeader() {
                   className={({ isActive }) =>
                     cn(
                       "flex min-h-11 items-center px-4 font-mono text-xs tracking-[0.12em] uppercase transition-colors",
-                      isActive ? "text-accent" : "text-steel-700 hover:text-ink",
+                      isActive ? "text-accent-ink" : "text-steel-700 hover:text-ink",
                     )
                   }
                 >
@@ -121,7 +121,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <a
               href={company.phoneHref}
-              className="hidden min-h-11 items-center bg-accent px-5 font-mono text-xs tracking-[0.14em] text-white uppercase transition-colors hover:bg-accent-deep lg:flex"
+              className="hidden min-h-11 items-center bg-accent px-5 font-mono text-xs tracking-[0.14em] text-ink uppercase transition-colors hover:bg-accent-deep lg:flex"
             >
               {company.phone}
             </a>

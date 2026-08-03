@@ -78,7 +78,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <p className="font-mono text-sm tracking-widest text-steel-500 uppercase">Error</p>
       <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-ink">{heading}</h1>
       <p className="mt-4 text-steel-600">{detail}</p>
-      <a href="/" className="mt-8 font-mono text-sm text-accent underline underline-offset-4">
+      <a href="/" className="mt-8 font-mono text-sm text-accent-ink underline underline-offset-4">
         Return home
       </a>
     </main>

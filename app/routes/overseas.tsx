@@ -69,7 +69,7 @@ export default function Overseas() {
         <Container>
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <p className="eyebrow text-accent">Compliance</p>
+              <p className="eyebrow text-accent-ink">Compliance</p>
               <h2 className="mt-5 text-display-sm text-ink">
                 Certified to {company.certifications.join(" and ")}.
               </h2>

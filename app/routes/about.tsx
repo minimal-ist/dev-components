@@ -50,7 +50,7 @@ export default function About() {
 
             <div className="lg:col-span-5">
               <div className="border border-steel-300 bg-sheet-raised p-8">
-                <p className="eyebrow text-accent">Founder</p>
+                <p className="eyebrow text-accent-ink">Founder</p>
                 <p className="mt-4 text-xl font-bold text-ink">{company.founder.name}</p>
                 <p className="mt-2 font-mono text-xs leading-relaxed text-steel-600">
                   {company.founder.credentials}
@@ -101,7 +101,7 @@ export default function About() {
                     className="absolute -top-[3px] left-0 h-[5px] w-8 bg-accent"
                     aria-hidden="true"
                   />
-                  <p className="eyebrow text-accent-soft">{item.label}</p>
+                  <p className="eyebrow text-accent">{item.label}</p>
                   <p className="mt-5 text-lg leading-relaxed text-steel-300">{item.body}</p>
                 </div>
               </Reveal>
@@ -122,7 +122,7 @@ export default function About() {
             {company.addresses.map((address, index) => (
               <Reveal key={address.label} index={index} className="flex">
                 <li className="flex w-full flex-col gap-3 bg-sheet-raised p-6">
-                  <p className="eyebrow text-accent">{address.label}</p>
+                  <p className="eyebrow text-accent-ink">{address.label}</p>
                   <address className="text-sm leading-relaxed text-steel-700 not-italic">
                     {address.lines.map((line) => (
                       <span key={line} className="block">

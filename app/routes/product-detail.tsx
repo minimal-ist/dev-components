@@ -40,7 +40,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
     return (
       <Section edge={false}>
         <Container width="text">
-          <p className="eyebrow text-accent">404</p>
+          <p className="eyebrow text-accent-ink">404</p>
           <h1 className="mt-4 text-display-md text-ink">Product not found</h1>
           <p className="mt-4 text-steel-600">
             That product page does not exist. All ten current lines are listed on the products
@@ -67,7 +67,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
         <Container className="py-10 lg:py-14">
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.12em] text-steel-600 uppercase transition-colors hover:text-accent"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.12em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
           >
             <ArrowLeft className="size-3.5" aria-hidden="true" />
             All products
@@ -76,7 +76,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-7">
               <h1 className="text-display-lg text-ink">{product.name}</h1>
-              <p className="mt-5 font-mono text-sm text-accent">{product.tagline}</p>
+              <p className="mt-5 font-mono text-sm text-accent-ink">{product.tagline}</p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-steel-700">
                 {product.summary}
               </p>
@@ -134,7 +134,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
             <div className="lg:col-span-5">
               {product.specs.length > 0 ? (
                 <div className="border border-steel-300 bg-sheet-raised p-7">
-                  <p className="eyebrow mb-2 text-accent">Specification</p>
+                  <p className="eyebrow mb-2 text-accent-ink">Specification</p>
                   <SpecTable specs={product.specs} />
                   <p className="mt-5 text-xs leading-relaxed text-steel-500">
                     Values as supplied by Dev Components. Anything outside this range is a tooling
@@ -183,7 +183,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
 
       <Section tone="sunk">
         <Container>
-          <p className="eyebrow mb-8 text-steel-500">Other lines</p>
+          <p className="eyebrow mb-8 text-steel-600">Other lines</p>
           <ul className="grid gap-6 sm:grid-cols-3">
             {others.map((other) => (
               <li key={other.slug}>
@@ -192,7 +192,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                   className="group flex flex-col gap-2 border-t border-steel-400 pt-5 transition-colors hover:border-accent"
                 >
                   <span className="text-lg leading-tight font-bold text-ink">{other.name}</span>
-                  <span className="font-mono text-xs text-steel-500">{other.tagline}</span>
+                  <span className="font-mono text-xs text-steel-600">{other.tagline}</span>
                 </Link>
               </li>
             ))}

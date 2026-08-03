@@ -16,7 +16,7 @@ export default function NotFound() {
   return (
     <Section edge={false}>
       <Container>
-        <p className="eyebrow text-accent">Error 404</p>
+        <p className="eyebrow text-accent-ink">Error 404</p>
         <h1 className="mt-5 max-w-2xl text-display-lg text-ink">
           That page came off the line wrong.
         </h1>

@@ -35,11 +35,11 @@ export default function Contact() {
 
             <div className="lg:col-span-5">
               <div className="border border-steel-300 bg-sheet-raised p-7">
-                <p className="eyebrow text-accent">Faster than the form</p>
+                <p className="eyebrow text-accent-ink">Faster than the form</p>
                 <div className="mt-6 flex flex-col gap-3">
                   <a
                     href={company.phoneHref}
-                    className="flex min-h-12 items-center gap-3 bg-accent px-5 font-mono text-sm tracking-[0.08em] text-white transition-colors hover:bg-accent-deep"
+                    className="flex min-h-12 items-center gap-3 bg-accent px-5 font-mono text-sm tracking-[0.08em] text-ink transition-colors hover:bg-accent-deep"
                   >
                     <Phone className="size-4" aria-hidden="true" />
                     {company.phone}
@@ -65,7 +65,7 @@ export default function Contact() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex min-h-11 items-center font-mono text-xs tracking-[0.1em] text-steel-600 uppercase transition-colors hover:text-accent"
+                        className="inline-flex min-h-11 items-center font-mono text-xs tracking-[0.1em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
                       >
                         {item.name}
                       </a>
@@ -85,7 +85,7 @@ export default function Contact() {
             {company.addresses.map((address, index) => (
               <Reveal key={address.label} index={index} className="flex">
                 <li className="flex w-full flex-col gap-3 bg-sheet-raised p-6">
-                  <p className="eyebrow text-accent">{address.label}</p>
+                  <p className="eyebrow text-accent-ink">{address.label}</p>
                   <address className="text-sm leading-relaxed text-steel-700 not-italic">
                     {address.lines.map((line) => (
                       <span key={line} className="block">

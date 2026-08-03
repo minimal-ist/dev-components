@@ -35,7 +35,7 @@ export function ProcessSection() {
                   className="absolute -top-[3px] left-0 h-[5px] w-8 bg-accent"
                   aria-hidden="true"
                 />
-                <span className="font-mono text-sm font-medium text-accent-soft">
+                <span className="font-mono text-sm font-medium text-accent">
                   {String(stage.id).padStart(2, "0")}
                 </span>
                 <h3 className="text-lg leading-tight font-bold text-sheet">{stage.name}</h3>

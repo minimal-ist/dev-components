@@ -29,7 +29,7 @@ export function SiteFooter() {
 
           <div className="grid gap-10 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-[1fr_1fr]">
             <nav aria-label="Products">
-              <p className="eyebrow mb-5 text-steel-500">Products</p>
+              <p className="eyebrow mb-5 text-steel-300">Products</p>
               <ul className="flex flex-col gap-2.5">
                 {productNav.map((link) => (
                   <li key={link.to}>
@@ -46,7 +46,7 @@ export function SiteFooter() {
 
             <div className="flex flex-col gap-10">
               <nav aria-label="Company">
-                <p className="eyebrow mb-5 text-steel-500">Company</p>
+                <p className="eyebrow mb-5 text-steel-300">Company</p>
                 <ul className="flex flex-col gap-2.5">
                   {primaryNav.map((link) => (
                     <li key={link.to}>
@@ -62,7 +62,7 @@ export function SiteFooter() {
               </nav>
 
               <div>
-                <p className="eyebrow mb-5 text-steel-500">Reach us</p>
+                <p className="eyebrow mb-5 text-steel-300">Reach us</p>
                 <address className="flex flex-col gap-3 text-sm text-steel-300 not-italic">
                   <a
                     href={company.phoneHref}
@@ -99,10 +99,10 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-steel-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[0.6875rem] tracking-[0.1em] text-steel-500">
+          <p className="font-mono text-[0.6875rem] tracking-[0.1em] text-steel-300">
             © {new Date().getFullYear()} {company.name}
           </p>
-          <p className="font-mono text-[0.6875rem] tracking-[0.1em] text-steel-500">
+          <p className="font-mono text-[0.6875rem] tracking-[0.1em] text-steel-300">
             Manufacturing in Bangalore since {company.founded}
           </p>
         </div>

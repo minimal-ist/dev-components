@@ -1,13 +1,14 @@
 import { Link } from "react-router";
 
+import { DevMark } from "~/components/layout/DevMark";
 import { cn } from "~/lib/cn";
 
 /**
- * Typographic lockup.
+ * The lockup: the company's own swoosh, set against the wordmark in Archivo.
  *
- * The mark is a punched square — an accent block with a bore knocked out of
- * it, which is the simplest true description of what this company does. It
- * stays legible down to 20px, which the original glossy oval badge does not.
+ * The mark is vector now (see DevMark), so it stays crisp at any size and
+ * recolours with the site rather than carrying its own white oval into every
+ * background it sits on.
  */
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
@@ -16,13 +17,7 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
       className="group flex min-h-11 items-center gap-2.5"
       aria-label="Dev Components, home"
     >
-      <svg viewBox="0 0 24 24" className="size-6 shrink-0" aria-hidden="true">
-        <path
-          d="M0 0h24v24H0z M12 7.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6z"
-          fillRule="evenodd"
-          className="fill-accent"
-        />
-      </svg>
+      <DevMark tone={tone} className="h-7 shrink-0" />
       <span className="flex flex-col leading-none">
         <span
           className={cn(

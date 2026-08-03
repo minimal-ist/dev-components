@@ -36,7 +36,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
       <div className="flex flex-1 flex-col gap-2 border-t border-steel-200 p-5 sm:p-6">
         <h3 className="text-lg leading-tight font-bold text-ink">{product.name}</h3>
         <p className="font-mono text-xs leading-relaxed text-steel-600">{product.tagline}</p>
-        <span className="mt-auto flex items-center gap-1.5 pt-4 font-mono text-[0.6875rem] tracking-[0.14em] text-accent uppercase">
+        <span className="mt-auto flex items-center gap-1.5 pt-4 font-mono text-[0.6875rem] tracking-[0.14em] text-accent-ink uppercase">
           View specs
           <ArrowUpRight
             className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

@@ -33,7 +33,7 @@ export function TestimonialsSection() {
           <p className="eyebrow text-steel-500">Supplying, among others</p>
           <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
             {clients.map((client) => (
-              <li key={client} className="wide text-xl font-extrabold text-steel-400">
+              <li key={client} className="wide text-xl font-extrabold text-steel-500">
                 {client}
               </li>
             ))}
