@@ -1,0 +1,30 @@
+{
+  "name": "dev-components",
+  "private": true,
+  "type": "module",
+  "description": "Dev Components Pvt. Ltd. — electrical stampings and laminations",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "node scripts/generate-sitemap.mjs && react-router build",
+    "preview": "vite preview --outDir build/client",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "isbot": "^5",
+    "lucide-react": "^1.28.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^8.3.0",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^8.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.0"
+  }
+}
