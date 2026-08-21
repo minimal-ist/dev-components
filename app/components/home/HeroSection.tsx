@@ -1,3 +1,4 @@
+import { GearField } from "~/components/GearField";
 import { StatorMark } from "~/components/StatorMark";
 import { ButtonLink } from "~/components/ui/Button";
 import { Container } from "~/components/ui/Container";
@@ -18,7 +19,7 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-sheet-raised">
-      <div className="blueprint pointer-events-none absolute inset-0" aria-hidden="true" />
+      <GearField />
       <div className="accent-wash pointer-events-none absolute inset-0" aria-hidden="true" />
       {/* The part itself, cropped by the viewport the way a drawing crops to
           the detail that matters. */}
