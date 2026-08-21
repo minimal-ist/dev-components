@@ -67,6 +67,32 @@ export function WelcomeSection() {
                     and defense programmes.
                   </p>
 
+                  {company.certificationMarks.length > 0 ? (
+                    <ul className="mt-6 flex flex-wrap items-center gap-4">
+                      {company.certificationMarks.map((mark) => (
+                        <li key={mark.name} className="flex flex-col gap-1.5">
+                          {/* Registrar marks are issued on white and must not be
+                              recoloured or clipped, so each sits on its own plate. */}
+                          <span className="flex items-center justify-center bg-white p-2.5">
+                            <img
+                              src={mark.src}
+                              alt={`${mark.name} certification mark${mark.registrar ? `, issued by ${mark.registrar}` : ""}`}
+                              width={mark.width}
+                              height={mark.height}
+                              loading="lazy"
+                              className="h-12 w-auto"
+                            />
+                          </span>
+                          {mark.certificateNumber ? (
+                            <span className="font-mono text-[0.625rem] tracking-[0.08em] text-steel-300">
+                              {mark.certificateNumber}
+                            </span>
+                          ) : null}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+
                   <ul className="mt-6 flex flex-wrap gap-2">
                     {otherCerts.map((cert) => (
                       <li

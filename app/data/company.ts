@@ -51,6 +51,35 @@ export const company = {
    */
   certifications: ["AS 9100 Rev. D", "ISO 9001:2015", "ISO 14001:2015"],
 
+  /**
+   * Certification marks — the registrar-issued artwork, when supplied.
+   *
+   * Deliberately empty rather than drawn. There is no generic ISO 9001 logo a
+   * company may display: ISO forbids use of its own logo by certified
+   * organisations, and what a certified firm actually shows is the accredited
+   * mark of the registrar that issued the certificate (TUV, BSI, DNV, Bureau
+   * Veritas and so on), used under that registrar's licence and usually
+   * carrying the certificate number. AS9100 works the same way under the IAQG
+   * scheme.
+   *
+   * A lookalike drawn here would be a fabricated credential, not a design
+   * shortcut. Drop the real files into public/images/certifications/ and add
+   * an entry — WelcomeSection renders marks when this list has entries and
+   * falls back to the typographic treatment when it is empty.
+   */
+  certificationMarks: [] as Array<{
+    /** Standard the mark attests to, e.g. "AS 9100 Rev. D". */
+    name: string;
+    /** Path under public/, e.g. "/images/certifications/as9100-tuv.png". */
+    src: string;
+    /** Body that issued the certificate. Shown as the caption. */
+    registrar?: string;
+    /** Certificate number, if the registrar requires it beside the mark. */
+    certificateNumber?: string;
+    width: number;
+    height: number;
+  }>,
+
   phone: "+91 99456 71218",
   phoneHref: "tel:+919945671218",
   whatsappHref: "https://wa.me/919945671218",
