@@ -2,6 +2,7 @@ import { ButtonLink } from "~/components/ui/Button";
 import { Container } from "~/components/ui/Container";
 import { Section } from "~/components/ui/Section";
 import { company } from "~/data/company";
+import { asset } from "~/lib/asset";
 
 /**
  * The welcome block, set as a certificate.
@@ -43,7 +44,7 @@ export function WelcomeSection() {
             <div className="relative flex flex-col items-center">
               {medal ? (
                 <img
-                  src={medal.src}
+                  src={asset(medal.src)}
                   alt={`${medal.name} — certified company medal`}
                   width={medal.width}
                   height={medal.height}

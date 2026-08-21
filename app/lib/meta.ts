@@ -1,10 +1,13 @@
 /**
  * Per-route document metadata.
  *
- * TODO(deploy): set SITE_URL to the production origin once hosting is chosen.
- * Canonical and og:url are built from it.
+ * Set VITE_SITE_URL at build time to the origin being deployed to; canonical
+ * and og:url are built from it, and a wrong value here points every crawler at
+ * the wrong host. Falls back to the live domain.
  */
-export const SITE_URL = "https://stampinglaminations.com";
+export const SITE_URL = (
+  import.meta.env.VITE_SITE_URL ?? "https://stampinglaminations.com"
+).replace(/\/$/, "");
 
 type MetaInput = {
   title: string;

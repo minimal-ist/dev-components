@@ -9,6 +9,7 @@ import { SectionHeader } from "~/components/ui/SectionHeader";
 import { SpecTable } from "~/components/ui/SpecTable";
 import { company } from "~/data/company";
 import { productBySlug, products } from "~/data/products";
+import { asset } from "~/lib/asset";
 import { meta as buildMeta } from "~/lib/meta";
 import { productSchema } from "~/lib/schema";
 
@@ -90,7 +91,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
 
             <div className="lg:col-span-5">
               <img
-                src={product.image}
+                src={asset(product.image)}
                 alt={`${product.name} manufactured by Dev Components`}
                 width={1000}
                 height={750}

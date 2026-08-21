@@ -1,0 +1,81 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish; queue at most one behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        env:
+          # A project page is served from /<repo>/, so assets need that prefix.
+          # Derived rather than hardcoded, so renaming the repo cannot silently
+          # break every asset path.
+          BASE_PATH: /${{ github.event.repository.name }}/
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: npm run build
+
+      - name: Lay out the artifact for Pages
+        env:
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          cd build/client
+
+          # With a basename set, React Router pre-renders routes into a
+          # ./<repo>/ directory while assets stay at the root, and the root
+          # index.html is the SPA shell rather than the real home page.
+          # Pages serves the artifact root AT /<repo>/, so the routes have to
+          # come up a level to meet the asset paths already baked into them.
+
+          # The shell is what should answer unknown URLs.
+          mv index.html 404.html
+
+          # Real pre-rendered routes move up, overwriting nothing that matters.
+          cp -r "$REPO"/. .
+          rm -rf "$REPO"
+
+          # Stop Pages running the output through Jekyll.
+          touch .nojekyll
+
+          test -f index.html || { echo "no index.html at artifact root"; exit 1; }
+          grep -q "The core of the machine" index.html \
+            || { echo "index.html is not the pre-rendered home page"; exit 1; }
+          echo "artifact root:"
+          ls
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

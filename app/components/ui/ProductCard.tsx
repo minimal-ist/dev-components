@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 
 import type { Product } from "~/data/products";
+import { asset } from "~/lib/asset";
 import { cn } from "~/lib/cn";
 
 /**
@@ -20,7 +21,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
     >
       <div className="relative aspect-4/3 overflow-hidden bg-sheet-raised">
         <img
-          src={product.image}
+          src={asset(product.image)}
           alt={`${product.name} manufactured by Dev Components`}
           loading="lazy"
           width={1000}

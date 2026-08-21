@@ -17,3 +17,6 @@ Thumbs.db
 # every build shows a diff, because lastmod is stamped with the build date.
 /public/sitemap.xml
 /public/robots.txt
+
+# Local dev server logs
+*.log
