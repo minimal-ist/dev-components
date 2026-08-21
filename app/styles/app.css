@@ -47,6 +47,9 @@
        ink  12.95   800  9.02   700  7.01   600  5.47   500  4.65
        400   2.23   300  1.77   200  1.49   100  1.26   <- borders only  */
   --color-ink: #0e2251;
+  /* The footer's far end: the brand navy desaturated down to almost black,
+     so the page closes on something heavier than the bands above it. */
+  --color-ink-deep: #060a14;
   --color-steel-900: #1c2e5b;
   --color-steel-800: #2b3d66;
   --color-steel-700: #3c4e72;
@@ -266,6 +269,19 @@
     radial-gradient(ellipse 90% 70% at 12% 0%, color-mix(in oklab, var(--color-brand-blue) 22%, transparent) 0%, transparent 60%),
     radial-gradient(ellipse 80% 60% at 92% 100%, color-mix(in oklab, var(--color-accent) 18%, transparent) 0%, transparent 62%),
     linear-gradient(165deg, #0e2251 0%, #071634 55%, #0a1c42 100%);
+}
+
+/* The footer runs from a navy deeper than any band above it down to almost
+   black, so the page closes rather than simply continuing. The gradient is
+   what separates it from the dark section it follows — a flat fill at this
+   value would read as one continuous block. */
+@utility band-footer {
+  background-image: linear-gradient(
+    to bottom,
+    #0c1c42 0%,
+    #09142e 42%,
+    var(--color-ink-deep) 100%
+  );
 }
 
 @utility band-accent {
