@@ -211,6 +211,44 @@
   }
 }
 
+
+/* Blueprint rule — the grid a part gets drawn on. Faint enough to read as
+   paper texture rather than as a graphic; masked so it fades out and never
+   competes with the content sitting on it. */
+@utility blueprint {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-steel-400) 26%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-steel-400) 26%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+}
+
+/* A warm wash of the accent, used once per page at very low strength to stop
+   large light areas reading as empty. */
+@utility accent-wash {
+  background-image: radial-gradient(
+    ellipse 70% 55% at 85% 0%,
+    color-mix(in oklab, var(--color-accent) 14%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+/* Client marquee. The track holds the list twice, so translating it by half
+   its width loops seamlessly. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee-track {
+  animation: marquee 42s linear infinite;
+}
+
 @layer utilities {
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -220,6 +258,13 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    /* The global rule above would fast-forward the marquee to its end frame;
+       stop it where it stands instead. */
+    .marquee-track {
+      animation: none !important;
+      transform: none !important;
     }
   }
 }

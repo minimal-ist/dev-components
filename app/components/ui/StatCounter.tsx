@@ -65,6 +65,7 @@ export function StatCounter({ stat }: { stat: Stat }) {
 
   return (
     <div ref={ref} className="flex flex-col gap-2">
+      <span className="mb-1 block h-[3px] w-8 bg-accent" aria-hidden="true" />
       <span className="font-mono text-3xl leading-none font-medium text-ink sm:text-4xl">
         {stat.prefix}
         {/* Years are a label, not a quantity — never grouped with separators. */}
