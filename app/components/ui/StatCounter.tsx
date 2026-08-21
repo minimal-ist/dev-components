@@ -16,7 +16,7 @@ const easeOutQuint = (t: number) => 1 - Math.pow(1 - t, 5);
  * Years are never animated: watching "1991" spin up from zero reads as a
  * quantity rather than a date, which is the wrong meaning.
  */
-export function StatCounter({ stat }: { stat: Stat }) {
+export function StatCounter({ stat, tone = "light" }: { stat: Stat; tone?: "light" | "dark" }) {
   const ref = useRef<HTMLDivElement>(null);
   const [display, setDisplay] = useState(stat.value);
 
@@ -66,13 +66,21 @@ export function StatCounter({ stat }: { stat: Stat }) {
   return (
     <div ref={ref} className="flex flex-col gap-2">
       <span className="mb-1 block h-[3px] w-8 bg-accent" aria-hidden="true" />
-      <span className="font-mono text-3xl leading-none font-medium text-ink sm:text-4xl">
+      <span
+        className={
+          tone === "light"
+            ? "font-mono text-3xl leading-none font-medium text-ink sm:text-4xl"
+            : "font-mono text-3xl leading-none font-medium text-sheet sm:text-4xl"
+        }
+      >
         {stat.prefix}
         {/* Years are a label, not a quantity — never grouped with separators. */}
         {isYear ? display : display.toLocaleString("en-IN")}
         {stat.suffix}
       </span>
-      <span className="text-sm text-steel-600">{stat.label}</span>
+      <span className={tone === "light" ? "text-sm text-steel-600" : "text-sm text-steel-300"}>
+        {stat.label}
+      </span>
     </div>
   );
 }

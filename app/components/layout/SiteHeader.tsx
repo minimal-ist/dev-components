@@ -4,6 +4,7 @@ import { NavLink, Link, useLocation } from "react-router";
 
 import { Logo } from "~/components/layout/Logo";
 import { MobileMenu } from "~/components/layout/MobileMenu";
+import { ScrollProgress } from "~/components/layout/ScrollProgress";
 import { Container } from "~/components/ui/Container";
 import { company } from "~/data/company";
 import { primaryNav } from "~/data/navigation";
@@ -137,6 +138,7 @@ export function SiteHeader() {
             </button>
           </div>
         </Container>
+        <ScrollProgress />
       </header>
 
       <MobileMenu open={menuOpen} onClose={closeMenu} />

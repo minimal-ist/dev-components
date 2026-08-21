@@ -14,8 +14,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
     <Link
       to={`/products/${product.slug}`}
       className={cn(
-        "group relative flex flex-col border border-steel-300 bg-sheet-raised",
-        "transition-colors duration-300 ease-(--ease-out-quint) hover:border-ink",
+        "group lift relative flex flex-col border border-steel-300 bg-sheet-raised",        "hover:-translate-y-1 hover:border-ink hover:shadow-[0_18px_40px_-24px_rgba(14,34,81,0.55)]",
         className,
       )}
     >

@@ -17,10 +17,9 @@ import { processStages } from "~/data/process";
  */
 export function ProcessSection() {
   return (
-    <Section tone="ink">
+    <Section tone="raised">
       <Container>
         <SectionHeader
-          tone="dark"
           eyebrow={`${processStages.length} stages — coil to dispatch`}
           title="Nothing leaves without passing all eight"
           lede="Slitting, sampling, punching, checking, packing. Tools come off the line on a schedule so the tolerance holds across the whole run, not just the first tray."
@@ -29,17 +28,17 @@ export function ProcessSection() {
         <ol className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {processStages.map((stage, index) => (
             <Reveal key={stage.id} index={index % 4}>
-              <li className="relative flex flex-col gap-3 border-t border-steel-700 pt-6">
+              <li className="relative flex flex-col gap-3 border-t border-steel-300 pt-6">
                 {/* Node on the rail. */}
                 <span
                   className="absolute -top-[3px] left-0 h-[5px] w-8 bg-accent"
                   aria-hidden="true"
                 />
-                <span className="font-mono text-sm font-medium text-accent">
+                <span className="font-mono text-sm font-medium text-accent-ink">
                   {String(stage.id).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg leading-tight font-bold text-sheet">{stage.name}</h3>
-                <p className="text-sm leading-relaxed text-steel-400">{stage.body}</p>
+                <h3 className="text-lg leading-tight font-bold text-ink">{stage.name}</h3>
+                <p className="text-sm leading-relaxed text-steel-600">{stage.body}</p>
               </li>
             </Reveal>
           ))}

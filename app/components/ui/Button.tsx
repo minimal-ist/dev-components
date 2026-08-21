@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 import { cn } from "~/lib/cn";
 
-type Variant = "primary" | "outline" | "ghost";
+type Variant = "primary" | "outline" | "outlineDark" | "ghost";
 
 const base =
   "inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 font-mono text-xs " +
@@ -11,6 +11,8 @@ const base =
 const variants: Record<Variant, string> = {
   primary: "bg-accent text-ink hover:bg-accent-deep",
   outline: "border border-steel-400 text-ink hover:border-ink hover:bg-ink hover:text-sheet",
+  // On a dark band the navy outline text disappears; this one inverts.
+  outlineDark: "border border-white/30 text-sheet hover:border-white hover:bg-sheet hover:text-ink",
   ghost: "text-ink underline decoration-steel-400 underline-offset-[6px] hover:decoration-accent",
 };
 

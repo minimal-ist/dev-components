@@ -249,6 +249,67 @@
   animation: marquee 42s linear infinite;
 }
 
+
+/* ---------------------------------------------------------------------------
+   Dark bands and glass
+
+   The page alternates light and dark rather than running as one pale sheet.
+   Dark bands are a navy gradient, not flat fill, so large areas keep some
+   depth; glass panels sit on top of them.
+
+   Glass only works over something. Never put .glass on a light surface — the
+   translucency has nothing to pick up and the border reads as a stray hairline.
+--------------------------------------------------------------------------- */
+
+@utility band-ink {
+  background-image:
+    radial-gradient(ellipse 90% 70% at 12% 0%, color-mix(in oklab, var(--color-brand-blue) 22%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 92% 100%, color-mix(in oklab, var(--color-accent) 18%, transparent) 0%, transparent 62%),
+    linear-gradient(165deg, #0e2251 0%, #071634 55%, #0a1c42 100%);
+}
+
+@utility band-accent {
+  background-image:
+    radial-gradient(ellipse 70% 90% at 90% 10%, color-mix(in oklab, var(--color-accent) 34%, transparent) 0%, transparent 60%),
+    linear-gradient(150deg, #0e2251 0%, #14264f 60%, #1b2c55 100%);
+}
+
+/* Frosted panel for use on a dark band. */
+@utility glass {
+  background-color: color-mix(in oklab, #ffffff 7%, transparent);
+  border: 1px solid color-mix(in oklab, #ffffff 14%, transparent);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+
+/* A one-pixel gradient sheen along the top edge, the way light catches a
+   bevel. Applied with ::before so it does not need an extra element. */
+@utility sheen {
+  position: relative;
+}
+@utility sheen-line {
+  content: ;
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    color-mix(in oklab, var(--color-accent) 70%, transparent) 22%,
+    color-mix(in oklab, #ffffff 55%, transparent) 55%,
+    transparent 100%
+  );
+}
+
+/* Cards rise slightly on hover. Transform only, so it stays on the compositor. */
+@utility lift {
+  transition:
+    transform 400ms var(--ease-out-quint),
+    box-shadow 400ms var(--ease-out-quint),
+    border-color 300ms var(--ease-out-quint);
+}
+
 @layer utilities {
   @media (prefers-reduced-motion: reduce) {
     *,
