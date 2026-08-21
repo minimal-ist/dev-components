@@ -37,7 +37,19 @@ export const company = {
     pullQuote: "Wherever there is a conversion of electricity, our products are needed.",
   },
 
-  certifications: ["ISO 9001:2015", "ISO 14001:2015"],
+  /**
+   * Certifications.
+   *
+   * AS 9100 Rev. D is the aerospace quality standard and is the strongest
+   * credential here — it is why the aerospace and defense sectors are on the
+   * list at all. Taken from the certification seal on the welcome section of
+   * the source site.
+   *
+   * TODO(content): ISO 14001:2015 came from an earlier reading of the live
+   * site and does not appear on that seal. Confirm it is current before
+   * launch; a lapsed certification claim is worse than a missing one.
+   */
+  certifications: ["AS 9100 Rev. D", "ISO 9001:2015", "ISO 14001:2015"],
 
   phone: "+91 99456 71218",
   phoneHref: "tel:+919945671218",

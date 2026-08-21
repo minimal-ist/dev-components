@@ -24,8 +24,8 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <StatsBar />
       <WelcomeSection />
+      <StatsBar />
       <ProductsSection />
       <CapabilitiesSection />
       <ProcessSection />
