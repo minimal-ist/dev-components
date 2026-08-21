@@ -63,8 +63,8 @@ export const company = {
    * scheme.
    *
    * The seal currently listed is the company's own artwork, taken from the
-   * live site (wp-content/uploads/2024/12/90019100D-Logo.png) and optimised
-   * from 951 KB to 25 KB. It is a decorative "certified company" badge rather
+   * client as a cut-out PNG on transparency. It is a decorative "certified
+   * company" badge rather
    * than an accredited registrar mark; swapping in the registrar's artwork
    * later is a one-line change here.
    *
@@ -76,7 +76,7 @@ export const company = {
   certificationMarks: [
     {
       name: "AS 9100 Rev. D and ISO 9001:2015",
-      src: "/images/certifications/as9100-iso9001-seal.webp",
+      src: "/images/certifications/as9100-iso9001-medal.webp",
       width: 360,
       height: 360,
     },

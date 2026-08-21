@@ -1,5 +1,9 @@
 # Certification marks
 
+ is the company's own "certified company" medal,
+supplied as a cut-out PNG on transparency and converted to WebP. It is a
+decorative badge, not an accredited registrar mark.
+
 Drop the registrar-issued artwork here, then add an entry to
 `certificationMarks` in `app/data/company.ts`. The welcome panel renders the
 marks when that list has entries and falls back to a typographic treatment
