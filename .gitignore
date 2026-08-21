@@ -12,3 +12,8 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Generated at build time by scripts/generate-sitemap.mjs. Tracking them means
+# every build shows a diff, because lastmod is stamped with the build date.
+/public/sitemap.xml
+/public/robots.txt
