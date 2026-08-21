@@ -73,14 +73,14 @@ export function WelcomeSection() {
                         <li key={mark.name} className="flex flex-col gap-1.5">
                           {/* Registrar marks are issued on white and must not be
                               recoloured or clipped, so each sits on its own plate. */}
-                          <span className="flex items-center justify-center bg-white p-2.5">
+                          <span className="flex items-center justify-center bg-white p-2">
                             <img
                               src={mark.src}
                               alt={`${mark.name} certification mark${mark.registrar ? `, issued by ${mark.registrar}` : ""}`}
                               width={mark.width}
                               height={mark.height}
                               loading="lazy"
-                              className="h-12 w-auto"
+                              className="h-32 w-auto sm:h-36"
                             />
                           </span>
                           {mark.certificateNumber ? (

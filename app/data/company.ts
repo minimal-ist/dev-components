@@ -62,12 +62,25 @@ export const company = {
    * carrying the certificate number. AS9100 works the same way under the IAQG
    * scheme.
    *
+   * The seal currently listed is the company's own artwork, taken from the
+   * live site (wp-content/uploads/2024/12/90019100D-Logo.png) and optimised
+   * from 951 KB to 25 KB. It is a decorative "certified company" badge rather
+   * than an accredited registrar mark; swapping in the registrar's artwork
+   * later is a one-line change here.
+   *
    * A lookalike drawn here would be a fabricated credential, not a design
    * shortcut. Drop the real files into public/images/certifications/ and add
    * an entry — WelcomeSection renders marks when this list has entries and
    * falls back to the typographic treatment when it is empty.
    */
-  certificationMarks: [] as Array<{
+  certificationMarks: [
+    {
+      name: "AS 9100 Rev. D and ISO 9001:2015",
+      src: "/images/certifications/as9100-iso9001-seal.webp",
+      width: 360,
+      height: 360,
+    },
+  ] as Array<{
     /** Standard the mark attests to, e.g. "AS 9100 Rev. D". */
     name: string;
     /** Path under public/, e.g. "/images/certifications/as9100-tuv.png". */
