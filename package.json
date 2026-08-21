@@ -7,7 +7,9 @@
     "dev": "react-router dev",
     "build": "node scripts/generate-sitemap.mjs && react-router build",
     "preview": "vite preview --outDir build/client",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "dev:host": "react-router dev --host",
+    "preview:host": "vite preview --outDir build/client --host"
   },
   "dependencies": {
     "clsx": "^2.1.1",
