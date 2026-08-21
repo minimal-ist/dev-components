@@ -249,21 +249,6 @@
   animation: marquee 42s linear infinite;
 }
 
-
-/* Gear train behind the hero. Small gears turn fastest, the way a real train
-   behaves — see GearField for the pairing of size to duration. */
-@keyframes gear-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes gear-spin-reverse {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
 @layer utilities {
   @media (prefers-reduced-motion: reduce) {
     *,
