@@ -7,6 +7,7 @@ import { ProductsSection } from "~/components/home/ProductsSection";
 import { StatsBar } from "~/components/home/StatsBar";
 import { TestimonialsSection } from "~/components/home/TestimonialsSection";
 import { WhyDevSection } from "~/components/home/WhyDevSection";
+import { WelcomeSection } from "~/components/home/WelcomeSection";
 import { company } from "~/data/company";
 import { meta as buildMeta } from "~/lib/meta";
 
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <HeroSection />
       <StatsBar />
+      <WelcomeSection />
       <ProductsSection />
       <CapabilitiesSection />
       <ProcessSection />

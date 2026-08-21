@@ -18,6 +18,25 @@ export const company = {
   values:
     "Set high standards of business and transaction, practise the highest principles of work ethics, maintain transparency, and persistently strive for excellence.",
 
+  /**
+   * The welcome copy from stampinglaminations.com, kept in the company's own
+   * voice. Mechanical errors in the source are corrected — a stray comma in
+   * "submersible, pumps", the hyphenation artifact "auto- motive", and
+   * "built wide and huge client base over since" — but nothing is reworded.
+   *
+   * `pullQuote` is the strongest line they have written about themselves and
+   * is set large rather than buried mid-paragraph.
+   */
+  welcome: {
+    heading: "Welcome to Dev Components",
+    paragraphs: [
+      "Dev Components, a Private Limited Company, was incorporated in 1991 by Mr. Dhananjaya A, a B.E. (Mech) graduate from R.V. College of Engineering, Bangalore, to manufacture electrical stampings, laminations and other allied activities — catering quality products to various industries including large OEMs across the world.",
+      "Dev Components is highly experienced in manufacturing precision electrical stampings and laminations for a wide range of applications such as fans, motors, submersible pumps, transformers, chokes, ballasts, tacho generators, alternators and electric motors for the automobile industry, and serves a wide range of industries including automotive, consumer products, appliances and heavy industrial electric capital equipment among others.",
+      "Dev Components has built a wide client base since its inception in 1991 by supplying quality products used across a large majority of manufacturing industries. Our products form the core of electrical appliances — motors, fans, mixer grinders, household appliances, electric vehicle motors, and motors for automotive and industrial capital equipment. That has enabled Dev Components to evolve into one of the best stamping and lamination punching set-ups in the whole of India, and to extend supplies to customers across the globe.",
+    ],
+    pullQuote: "Wherever there is a conversion of electricity, our products are needed.",
+  },
+
   certifications: ["ISO 9001:2015", "ISO 14001:2015"],
 
   phone: "+91 99456 71218",

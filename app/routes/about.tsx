@@ -32,20 +32,17 @@ export default function About() {
             <div className="lg:col-span-7">
               <SectionHeader eyebrow="The founder" title="Started by an engineer, on purpose" />
               <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-steel-700">
-                <p>
-                  Dev Components was established in {company.founded} by {company.founder.name},
-                  a mechanical engineering graduate of R.V. College of Engineering, Bangalore.
-                </p>
-                <p>
-                  The company was created to manufacture electrical stampings, laminations and
-                  allied products — supplying quality parts to industries and large OEMs across
-                  the world.
-                </p>
-                <p>
-                  Capacity today runs past 400 tons a month, with the ability to take bulk orders
-                  at short notice.
-                </p>
+                {company.welcome.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
+
+              <figure className="mt-12 border-t border-steel-300 pt-10">
+                <span className="block h-[5px] w-16 bg-accent" aria-hidden="true" />
+                <blockquote className="mt-8 text-display-sm text-balance text-ink">
+                  {company.welcome.pullQuote}
+                </blockquote>
+              </figure>
             </div>
 
             <div className="lg:col-span-5">
