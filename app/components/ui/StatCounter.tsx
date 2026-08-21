@@ -65,7 +65,7 @@ export function StatCounter({ stat, tone = "light" }: { stat: Stat; tone?: "ligh
 
   return (
     <div ref={ref} className="flex flex-col gap-2">
-      <span className="mb-1 block h-[3px] w-8 bg-accent" aria-hidden="true" />
+      <span className="mb-1 block h-[3px] w-8 accent-bar" aria-hidden="true" />
       <span
         className={
           tone === "light"

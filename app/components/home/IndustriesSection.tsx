@@ -57,7 +57,7 @@ export function IndustriesSection() {
                 <li className="group relative flex w-full flex-col gap-4 bg-sheet-raised p-6 transition-colors duration-300 ease-(--ease-out-quint) hover:bg-ink sm:min-h-40 sm:p-7">
                   {/* Corner tick: the accent only appears on the active tile. */}
                   <span
-                    className="absolute top-0 right-0 h-[3px] w-0 bg-accent transition-[width] duration-300 ease-(--ease-out-quint) group-hover:w-10"
+                    className="absolute top-0 right-0 h-[3px] w-0 accent-bar transition-[width] duration-300 ease-(--ease-out-quint) group-hover:w-10"
                     aria-hidden="true"
                   />
                   <span className="flex size-12 shrink-0 items-center justify-center bg-accent/12 transition-colors duration-300 ease-(--ease-out-quint) group-hover:bg-accent">

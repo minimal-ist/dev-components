@@ -72,7 +72,7 @@ export function WelcomeSection() {
             </div>
 
             <figure className="relative mx-auto mt-12 max-w-3xl text-center">
-              <span className="mx-auto block h-[5px] w-16 bg-accent" aria-hidden="true" />
+              <span className="mx-auto block h-[5px] w-16 accent-bar" aria-hidden="true" />
               <blockquote className="mt-7 text-display-sm text-balance text-ink">
                 {company.welcome.pullQuote}
               </blockquote>

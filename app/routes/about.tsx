@@ -38,7 +38,7 @@ export default function About() {
               </div>
 
               <figure className="mt-12 border-t border-steel-300 pt-10">
-                <span className="block h-[5px] w-16 bg-accent" aria-hidden="true" />
+                <span className="block h-[5px] w-16 accent-bar" aria-hidden="true" />
                 <blockquote className="mt-8 text-display-sm text-balance text-ink">
                   {company.welcome.pullQuote}
                 </blockquote>
@@ -95,7 +95,7 @@ export default function About() {
               <Reveal key={item.label} index={index}>
                 <div className="relative border-t border-steel-700 pt-6">
                   <span
-                    className="absolute -top-[3px] left-0 h-[5px] w-8 bg-accent"
+                    className="absolute -top-[3px] left-0 h-[5px] w-8 accent-bar"
                     aria-hidden="true"
                   />
                   <p className="eyebrow text-accent">{item.label}</p>

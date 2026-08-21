@@ -6,10 +6,10 @@ type Variant = "primary" | "outline" | "outlineDark" | "ghost";
 
 const base =
   "inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 font-mono text-xs " +
-  "tracking-[0.14em] uppercase transition-colors duration-200 ease-(--ease-out-quint)";
+  "tracking-[0.14em] uppercase transition-[color,background-color,border-color,filter] duration-200 ease-(--ease-out-quint)";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-ink hover:bg-accent-deep",
+  primary: "accent-fill text-ink hover:brightness-95",
   outline: "border border-steel-400 text-ink hover:border-ink hover:bg-ink hover:text-sheet",
   // On a dark band the navy outline text disappears; this one inverts.
   outlineDark: "border border-white/30 text-sheet hover:border-white hover:bg-sheet hover:text-ink",

@@ -65,6 +65,12 @@
   --color-accent-deep: #cc5800;
   --color-accent-ink: #9a4100;
   --color-accent-soft: #ffd9b3;
+  /* The warm end of the accent gradient. Amber rather than white: white
+     collapses to 1.19:1 against the paper and the light end of every rule
+     would disappear, where amber holds at 1.51:1. It also lifts navy-on-
+     accent contrast from 5.51:1 to 8.56:1, so buttons get safer, not
+     riskier, across the sweep. */
+  --color-accent-warm: #ffb300;
 
   /* --- Brand blue: the mark, and nothing else -------------------------- */
   --color-brand-blue: #1335ff;
@@ -275,6 +281,19 @@
    black, so the page closes rather than simply continuing. The gradient is
    what separates it from the dark section it follows — a flat fill at this
    value would read as one continuous block. */
+/* Decorative accent rules — the short bars that open a section or mark a
+   step. Swept from the brand orange to amber, which reads as heated metal
+   and picks up the gold in the certificate medal. */
+@utility accent-bar {
+  background-image: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent-warm) 100%);
+}
+
+/* Solid accent surfaces: buttons and chips. Angled so the sweep reads
+   across the shape rather than along it. */
+@utility accent-fill {
+  background-image: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-warm) 100%);
+}
+
 @utility band-footer {
   background-image: linear-gradient(
     to bottom,

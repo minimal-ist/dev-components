@@ -40,7 +40,7 @@ export default function Operation() {
               <Reveal key={stage.id} index={index % 4}>
                 <li className="relative flex flex-col gap-3 border-t border-steel-300 pt-6">
                   <span
-                    className="absolute -top-[3px] left-0 h-[5px] w-8 bg-accent"
+                    className="absolute -top-[3px] left-0 h-[5px] w-8 accent-bar"
                     aria-hidden="true"
                   />
                   <span className="font-mono text-sm font-medium text-accent-ink">
