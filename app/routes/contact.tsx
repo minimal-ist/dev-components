@@ -39,7 +39,7 @@ export default function Contact() {
                 <div className="mt-6 flex flex-col gap-3">
                   <a
                     href={company.phoneHref}
-                    className="flex min-h-12 items-center gap-3 accent-fill px-5 font-mono text-sm tracking-[0.08em] text-ink transition-[filter] hover:brightness-95"
+                    className="flex min-h-12 items-center gap-3 accent-fill px-5 font-mono text-sm tracking-[0.08em] text-white transition-[filter] hover:brightness-95"
                   >
                     <Phone className="size-4" aria-hidden="true" />
                     {company.phone}

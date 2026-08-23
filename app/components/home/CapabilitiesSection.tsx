@@ -34,7 +34,7 @@ export function CapabilitiesSection() {
             />
 
             <div className="mt-10 border-t border-white/15 pt-8">
-              <p className="eyebrow mb-4 text-accent">Checked against</p>
+              <p className="eyebrow mb-4 text-accent-light">Checked against</p>
               <ul className="flex flex-col gap-2">
                 {qualityControl.instruments.map((instrument) => (
                   <li key={instrument} className="flex gap-3 text-sm text-steel-300">

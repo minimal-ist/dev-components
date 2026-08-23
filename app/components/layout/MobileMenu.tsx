@@ -128,7 +128,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <div className="mt-8 flex flex-col gap-3">
             <a
               href={company.phoneHref}
-              className="flex min-h-11 items-center justify-center accent-fill px-6 font-mono text-xs tracking-[0.14em] text-ink uppercase"
+              className="flex min-h-11 items-center justify-center accent-fill px-6 font-mono text-xs tracking-[0.14em] text-white uppercase"
             >
               Call {company.phone}
             </a>

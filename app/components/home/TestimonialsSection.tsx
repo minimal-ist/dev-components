@@ -33,7 +33,7 @@ export function TestimonialsSection() {
           tidy paragraph. The track holds the list twice so it loops. */}
       <div className="band-ink relative mt-16 border-y border-steel-800 py-8 text-sheet">
         <Container className="mb-5">
-          <p className="eyebrow text-accent">Supplying, among others</p>
+          <p className="eyebrow text-accent-light">Supplying, among others</p>
         </Container>
 
         <div className="group relative flex overflow-hidden">

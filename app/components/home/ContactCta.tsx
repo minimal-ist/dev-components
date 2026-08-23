@@ -9,7 +9,7 @@ export function ContactCta() {
       <Container>
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="eyebrow text-accent">Send a drawing</p>
+            <p className="eyebrow text-accent-light">Send a drawing</p>
             <h2 className="mt-5 text-display-md text-sheet">
               Tell us the profile, the grade and the volume.
             </h2>

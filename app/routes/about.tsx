@@ -98,7 +98,7 @@ export default function About() {
                     className="absolute -top-[3px] left-0 h-[5px] w-8 accent-bar"
                     aria-hidden="true"
                   />
-                  <p className="eyebrow text-accent">{item.label}</p>
+                  <p className="eyebrow text-accent-light">{item.label}</p>
                   <p className="mt-5 text-lg leading-relaxed text-steel-300">{item.body}</p>
                 </div>
               </Reveal>

@@ -94,7 +94,7 @@ export default function Operation() {
 
             <div className="grid gap-10 sm:grid-cols-2">
               <div>
-                <p className="eyebrow mb-5 text-accent">Instruments</p>
+                <p className="eyebrow mb-5 text-accent-light">Instruments</p>
                 <ul className="flex flex-col gap-3">
                   {qualityControl.instruments.map((instrument) => (
                     <li key={instrument} className="flex gap-3 text-sm text-steel-300">
@@ -105,7 +105,7 @@ export default function Operation() {
                 </ul>
               </div>
               <div>
-                <p className="eyebrow mb-5 text-accent">Practices</p>
+                <p className="eyebrow mb-5 text-accent-light">Practices</p>
                 <ul className="flex flex-col gap-3">
                   {qualityControl.practices.map((practice) => (
                     <li key={practice} className="flex gap-3 text-sm text-steel-300">

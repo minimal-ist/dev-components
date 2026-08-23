@@ -26,7 +26,7 @@ export function WhyDevSection() {
           </div>
 
           <div className="lg:col-span-7">
-            <p className="eyebrow text-accent">Our pledge</p>
+            <p className="eyebrow text-accent-light">Our pledge</p>
             <ul className="mt-6 grid gap-4 sm:grid-cols-2">
               {company.pledge.map((item, index) => (
                 <Reveal key={item.title} index={index} className="flex">

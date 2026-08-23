@@ -62,7 +62,7 @@ export function IndustriesSection() {
                   />
                   <span className="flex size-12 shrink-0 items-center justify-center bg-accent/12 transition-colors duration-300 ease-(--ease-out-quint) group-hover:bg-accent">
                     <Icon
-                      className="size-6 text-accent-ink transition-colors duration-300 group-hover:text-ink"
+                      className="size-6 text-accent-ink transition-colors duration-300 group-hover:text-white"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />

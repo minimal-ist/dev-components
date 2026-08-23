@@ -3,76 +3,66 @@
 /* ---------------------------------------------------------------------------
    Dev Components — design tokens
 
-   Colours are taken from the company's own brand book (DEV final.pdf), read
-   straight out of its content streams rather than sampled by eye:
+   Palette supplied by the client:
 
-     orange  #ff6f00      navy  #0e2251 · #072466 · #051243
-     blue    #1335ff      paper #e6edec · #d1dcdb
+     #0e2931  darkest teal      #12484c  deep teal      #2b7574  mid teal
+     #8e1b22  crimson           #e9e9e7  paper
 
-   The product is a lamination: a sheet of silicon steel 0.20–0.50 mm thick,
-   punched to a profile and stacked into a core. Two ideas drive the system:
+   The crimson and paper values are read off the supplied swatch image, whose
+   labels were obscured; the three teals are its stated hexes.
 
-     1. Material. The base is the brand's cool off-white and the ink is its
-        deep navy — not a neutral near-black. Everything greys through navy.
-     2. Tolerance. Every number here is a manufacturing claim, so numbers are
-        set in mono and carry the same weight as headlines.
+   ACCESSIBILITY — this palette inverts two rules the previous orange one had.
 
-   ACCESSIBILITY — read before reaching for --color-accent on text.
-   The brand orange is a *fill*, not a text colour on light surfaces:
+     crimson on paper .......... 7.41:1  passes, so crimson IS a text colour
+     white on crimson .......... 9.01:1  passes, so accent buttons take WHITE
+     crimson on dark teal ...... 1.69:1  FAILS — invisible on the dark bands
+     #ff8a8f on dark teal ...... 6.73:1  passes  <- --color-accent-light
+     mid teal on paper ......... 4.43:1  just short; fills and rules only
 
-     #ff6f00 on #e6edec ....... 2.27:1   fails AA
-     white   on #ff6f00 ....... 2.77:1   fails AA
-     #0e2251 on #ff6f00 ....... 5.66:1   passes  <- orange buttons take navy
-     #ff6f00 on #0e2251 ....... 5.66:1   passes  <- orange text on dark only
-     #9a4100 on #e6edec ....... 5.48:1   passes  <- --color-accent-ink
-
-   So: orange fills, rules, marks and icons anywhere; orange *text* only on
-   navy; --color-accent-ink for orange text on light.
+   So: crimson for accent text on light and for fills with white text on top;
+   --color-accent-light for accent text on the dark bands, where crimson dies.
 --------------------------------------------------------------------------- */
 
 @theme {
-  /* --- Surfaces: the stack, lightest layer on top --------------------- */
-  --color-sheet: #e6edec;
-  --color-sheet-raised: #f1f5f4;
-  --color-sheet-sunk: #d1dcdb;
+  /* --- Surfaces --------------------------------------------------------- */
+  --color-sheet: #e9e9e7;
+  --color-sheet-raised: #f2f2f0;
+  --color-sheet-sunk: #d8d9d6;
 
-  /* --- Ink and the navy-tinted neutral ramp ---------------------------
-     Every step is the brand navy mixed toward the brand paper, so the greys
-     belong to the palette instead of sitting beside it.
+  /* --- Ink and the teal-tinted neutral ramp ----------------------------
+     Each step is the darkest teal mixed toward the paper, solved against
+     contrast targets. 900–500 are safe for text; 400–100 are borders only.
+     Contrast on --color-sheet:
 
-     900–500 are solved against WCAG contrast targets and are safe for text.
-     400–100 are decorative — borders, rules, dividers — and must never carry
-     text on a light surface. Contrast on --color-sheet:
+       ink 12.52   900 11.11   800 9.02   700 7.11   600 5.45   500 4.66
+       400  2.20   300  1.75   200 1.47   100 1.25   <- borders only  */
+  --color-ink: #0e2931;
+  --color-steel-900: #183239;
+  --color-steel-800: #284047;
+  --color-steel-700: #3a4f55;
+  --color-steel-600: #4c6065;
+  --color-steel-500: #586a6f;
+  --color-steel-400: #96a0a2;
+  --color-steel-300: #acb3b4;
+  --color-steel-200: #bdc3c3;
+  --color-steel-100: #cfd2d1;
 
-       ink  12.95   800  9.02   700  7.01   600  5.47   500  4.65
-       400   2.23   300  1.77   200  1.49   100  1.26   <- borders only  */
-  --color-ink: #0e2251;
-  /* The footer's far end: the brand navy desaturated down to almost black,
-     so the page closes on something heavier than the bands above it. */
-  --color-ink-deep: #060a14;
-  --color-steel-900: #1c2e5b;
-  --color-steel-800: #2b3d66;
-  --color-steel-700: #3c4e72;
-  --color-steel-600: #4e5e7f;
-  --color-steel-500: #5a6987;
-  --color-steel-400: #94a0b1;
-  --color-steel-300: #aab4c1;
-  --color-steel-200: #bbc4cd;
-  --color-steel-100: #ccd5d9;
+  /* --- Accent: crimson -------------------------------------------------- */
+  --color-accent: #8e1b22;
+  --color-accent-deep: #6f141a;
+  /* Crimson already clears 7.41:1 on paper, so accent-ink is the same value.
+     The token stays so light-surface intent remains explicit in the markup. */
+  --color-accent-ink: #8e1b22;
+  --color-accent-light: #ff8a8f;
+  --color-accent-warm: #c2454b;
+  --color-accent-soft: #f4dadb;
 
-  /* --- Accent: brand orange ------------------------------------------- */
-  --color-accent: #ff6f00;
-  --color-accent-deep: #cc5800;
-  --color-accent-ink: #9a4100;
-  --color-accent-soft: #ffd9b3;
-  /* The warm end of the accent gradient. Amber rather than white: white
-     collapses to 1.19:1 against the paper and the light end of every rule
-     would disappear, where amber holds at 1.51:1. It also lifts navy-on-
-     accent contrast from 5.51:1 to 8.56:1, so buttons get safer, not
-     riskier, across the sweep. */
-  --color-accent-warm: #ffb300;
+  /* --- Teals: the bands and their supporting tones ---------------------- */
+  --color-teal-deep: #12484c;
+  --color-teal: #2b7574;
+  --color-ink-deep: #071a20;
 
-  /* --- Brand blue: the mark, and nothing else -------------------------- */
+  /* Kept so the logo can still be drawn in its own blue if wanted. */
   --color-brand-blue: #1335ff;
 
   /* --- Type ------------------------------------------------------------
@@ -270,43 +260,45 @@
    translucency has nothing to pick up and the border reads as a stray hairline.
 --------------------------------------------------------------------------- */
 
+/* The dark bands. Teal gradients rather than flat fills, so a large area
+   keeps some depth, with a crimson bloom in one corner to carry the accent
+   into the dark without relying on crimson text, which dies there. */
 @utility band-ink {
   background-image:
-    radial-gradient(ellipse 90% 70% at 12% 0%, color-mix(in oklab, var(--color-brand-blue) 22%, transparent) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 60% at 92% 100%, color-mix(in oklab, var(--color-accent) 18%, transparent) 0%, transparent 62%),
-    linear-gradient(165deg, #0e2251 0%, #071634 55%, #0a1c42 100%);
-}
-
-/* The footer runs from a navy deeper than any band above it down to almost
-   black, so the page closes rather than simply continuing. The gradient is
-   what separates it from the dark section it follows — a flat fill at this
-   value would read as one continuous block. */
-/* Decorative accent rules — the short bars that open a section or mark a
-   step. Swept from the brand orange to amber, which reads as heated metal
-   and picks up the gold in the certificate medal. */
-@utility accent-bar {
-  background-image: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent-warm) 100%);
-}
-
-/* Solid accent surfaces: buttons and chips. Angled so the sweep reads
-   across the shape rather than along it. */
-@utility accent-fill {
-  background-image: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-warm) 100%);
-}
-
-@utility band-footer {
-  background-image: linear-gradient(
-    to bottom,
-    #0c1c42 0%,
-    #09142e 42%,
-    var(--color-ink-deep) 100%
-  );
+    radial-gradient(ellipse 90% 70% at 12% 0%, color-mix(in oklab, var(--color-teal) 22%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 92% 100%, color-mix(in oklab, var(--color-accent) 26%, transparent) 0%, transparent 62%),
+    linear-gradient(165deg, #0f3c40 0%, #0e2931 55%, #103539 100%);
 }
 
 @utility band-accent {
   background-image:
-    radial-gradient(ellipse 70% 90% at 90% 10%, color-mix(in oklab, var(--color-accent) 34%, transparent) 0%, transparent 60%),
-    linear-gradient(150deg, #0e2251 0%, #14264f 60%, #1b2c55 100%);
+    radial-gradient(ellipse 70% 90% at 90% 10%, color-mix(in oklab, var(--color-accent) 30%, transparent) 0%, transparent 62%),
+    linear-gradient(150deg, #0e2931 0%, #0e3438 60%, #0f3c40 100%);
+}
+
+/* The footer runs from the deep teal down to almost black, so the page closes
+   rather than simply continuing. The gradient is what separates it from the
+   dark section above; a flat fill would read as one continuous block. */
+@utility band-footer {
+  background-image: linear-gradient(
+    to bottom,
+    #0f3c40 0%,
+    #0b2429 42%,
+    var(--color-ink-deep) 100%
+  );
+}
+
+/* Decorative accent rules — the short bars that open a section or mark a
+   step. Crimson swept to a lighter brick so the mark has some life in it. */
+@utility accent-bar {
+  background-image: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent-warm) 100%);
+}
+
+/* Solid accent surfaces: buttons and chips. Angled so the sweep reads across
+   the shape rather than along it. White text sits on these — see the header
+   note; navy-on-accent was the previous palette's rule, not this one. */
+@utility accent-fill {
+  background-image: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-warm) 100%);
 }
 
 /* Frosted panel for use on a dark band. */
