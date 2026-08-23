@@ -37,8 +37,14 @@ export function CapabilitiesSection() {
               <p className="eyebrow mb-4 text-accent-light">Checked against</p>
               <ul className="flex flex-col gap-2">
                 {qualityControl.instruments.map((instrument) => (
-                  <li key={instrument} className="flex gap-3 text-sm text-steel-300">
-                    <span className="mt-2 size-1 shrink-0 bg-accent" aria-hidden="true" />
+                  <li
+                    key={instrument}
+                    className="flex gap-3 text-sm text-steel-300"
+                  >
+                    <span
+                      className="mt-2 size-1 shrink-0 bg-accent"
+                      aria-hidden="true"
+                    />
                     {instrument}
                   </li>
                 ))}
@@ -55,11 +61,15 @@ export function CapabilitiesSection() {
                       className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"
                       aria-hidden="true"
                     />
-                    <dt className="eyebrow text-steel-300">{capability.label}</dt>
+                    <dt className="eyebrow text-steel-300">
+                      {capability.label}
+                    </dt>
                     <dd className="font-mono text-2xl leading-none font-medium text-sheet">
                       {capability.value}
                       {capability.unit ? (
-                        <span className="ml-1.5 text-lg text-steel-400">{capability.unit}</span>
+                        <span className="ml-1.5 text-lg text-steel-400">
+                          {capability.unit}
+                        </span>
                       ) : null}
                     </dd>
                     {capability.note ? (

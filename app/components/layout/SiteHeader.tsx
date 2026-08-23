@@ -29,7 +29,8 @@ export function SiteHeader() {
       if (event.key === "Escape") setProductsOpen(false);
     };
     const onPointerDown = (event: PointerEvent) => {
-      if (!productsRef.current?.contains(event.target as Node)) setProductsOpen(false);
+      if (!productsRef.current?.contains(event.target as Node))
+        setProductsOpen(false);
     };
 
     document.addEventListener("keydown", onKeyDown);
@@ -49,11 +50,17 @@ export function SiteHeader() {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-40 border-b border-steel-300 bg-sheet/90 backdrop-blur-md">
+      <header
+        style={{ viewTransitionName: "site-header" }}
+        className="sticky top-0 z-40 border-b border-steel-300 bg-sheet/90 backdrop-blur-md"
+      >
         <Container className="flex h-16 items-center justify-between gap-4 lg:h-20">
           <Logo />
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <nav
+            className="hidden items-center gap-1 lg:flex"
+            aria-label="Primary"
+          >
             <div ref={productsRef} className="relative">
               <button
                 type="button"
@@ -61,7 +68,9 @@ export function SiteHeader() {
                 aria-expanded={productsOpen}
                 className={cn(
                   "flex min-h-11 items-center gap-1.5 px-4 font-mono text-xs tracking-[0.12em] uppercase transition-colors",
-                  productsOpen ? "text-accent-ink" : "text-steel-700 hover:text-ink",
+                  productsOpen
+                    ? "text-accent-ink"
+                    : "text-steel-700 hover:text-ink",
                 )}
               >
                 Products
@@ -81,9 +90,12 @@ export function SiteHeader() {
                       <Link
                         key={product.slug}
                         to={`/products/${product.slug}`}
+                        viewTransition
                         className="group flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-sheet-sunk"
                       >
-                        <span className="text-sm font-semibold text-ink">{product.name}</span>
+                        <span className="text-sm font-semibold text-ink">
+                          {product.name}
+                        </span>
                         <span className="font-mono text-[0.6875rem] text-steel-500">
                           {product.tagline}
                         </span>
@@ -92,6 +104,7 @@ export function SiteHeader() {
                   </div>
                   <Link
                     to="/products"
+                    viewTransition
                     className="mt-1 flex items-center justify-between border-t border-steel-200 px-4 py-3 font-mono text-[0.6875rem] tracking-[0.14em] text-accent-ink uppercase"
                   >
                     View all products
@@ -107,10 +120,13 @@ export function SiteHeader() {
                 <NavLink
                   key={link.to}
                   to={link.to}
+                  viewTransition
                   className={({ isActive }) =>
                     cn(
                       "flex min-h-11 items-center px-4 font-mono text-xs tracking-[0.12em] uppercase transition-colors",
-                      isActive ? "text-accent-ink" : "text-steel-700 hover:text-ink",
+                      isActive
+                        ? "text-accent-ink"
+                        : "text-steel-700 hover:text-ink",
                     )
                   }
                 >

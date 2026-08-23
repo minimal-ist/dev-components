@@ -106,6 +106,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             <Link
               key={link.to}
               to={link.to}
+              viewTransition
               className="flex min-h-11 items-center border-b border-steel-200 py-3 text-xl font-bold text-ink"
             >
               {link.label}
@@ -118,6 +119,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               <Link
                 key={link.to}
                 to={link.to}
+                viewTransition
                 className="flex min-h-11 items-center border-b border-steel-200 py-2.5 text-sm text-steel-700"
               >
                 {link.label}

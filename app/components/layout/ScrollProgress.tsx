@@ -46,7 +46,10 @@ export function ScrollProgress() {
   }, []);
 
   return (
-    <div className="absolute inset-x-0 bottom-0 h-[2px] overflow-hidden" aria-hidden="true">
+    <div
+      className="absolute inset-x-0 bottom-0 h-[2px] overflow-hidden"
+      aria-hidden="true"
+    >
       <div
         ref={ref}
         className="h-full w-full origin-left bg-gradient-to-r from-accent to-accent-warm"

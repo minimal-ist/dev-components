@@ -16,7 +16,11 @@ export function ProductsSection() {
             title="What comes off the press"
             lede="Every line below is punched on tooling designed and built in house. If the profile is not here, it is a drawing away."
           />
-          <ButtonLink to="/products" variant="ghost" className="shrink-0 self-start sm:self-end">
+          <ButtonLink
+            to="/products"
+            variant="ghost"
+            className="shrink-0 self-start sm:self-end"
+          >
             All products
           </ButtonLink>
         </div>

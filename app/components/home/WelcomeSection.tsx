@@ -25,7 +25,10 @@ export function WelcomeSection() {
         {/* Outer rule, inner rule, and a hairline gap between them. */}
         <div className="relative border border-steel-400 p-2 sm:p-2.5">
           <div className="relative overflow-hidden border border-steel-300 bg-sheet-raised px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-            <div className="blueprint pointer-events-none absolute inset-0" aria-hidden="true" />
+            <div
+              className="blueprint pointer-events-none absolute inset-0"
+              aria-hidden="true"
+            />
 
             {/* Corner ticks, the way an engraved border turns a corner. */}
             {[
@@ -73,7 +76,10 @@ export function WelcomeSection() {
             </div>
 
             <figure className="relative mx-auto mt-12 max-w-3xl text-center">
-              <span className="mx-auto block h-[5px] w-16 accent-bar" aria-hidden="true" />
+              <span
+                className="mx-auto block h-[5px] w-16 accent-bar"
+                aria-hidden="true"
+              />
               <blockquote className="mt-7 text-display-sm text-balance text-ink">
                 {company.welcome.pullQuote}
               </blockquote>
@@ -81,7 +87,9 @@ export function WelcomeSection() {
 
             {/* Foot of the certificate: the standards, ruled off. */}
             <div className="relative mx-auto mt-14 max-w-3xl border-t border-steel-300 pt-8">
-              <p className="eyebrow text-center text-steel-500">Registered to</p>
+              <p className="eyebrow text-center text-steel-500">
+                Registered to
+              </p>
               <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
                 {company.certifications.map((cert) => (
                   <li

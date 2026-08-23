@@ -30,7 +30,10 @@ export default function About() {
         <Container>
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-7">
-              <SectionHeader eyebrow="The founder" title="Started by an engineer, on purpose" />
+              <SectionHeader
+                eyebrow="The founder"
+                title="Started by an engineer, on purpose"
+              />
               <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-steel-700">
                 {company.welcome.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -38,7 +41,10 @@ export default function About() {
               </div>
 
               <figure className="mt-12 border-t border-steel-300 pt-10">
-                <span className="block h-[5px] w-16 accent-bar" aria-hidden="true" />
+                <span
+                  className="block h-[5px] w-16 accent-bar"
+                  aria-hidden="true"
+                />
                 <blockquote className="mt-8 text-display-sm text-balance text-ink">
                   {company.welcome.pullQuote}
                 </blockquote>
@@ -48,7 +54,9 @@ export default function About() {
             <div className="lg:col-span-5">
               <div className="border border-steel-300 bg-sheet-raised p-8">
                 <p className="eyebrow text-accent-ink">Founder</p>
-                <p className="mt-4 text-xl font-bold text-ink">{company.founder.name}</p>
+                <p className="mt-4 text-xl font-bold text-ink">
+                  {company.founder.name}
+                </p>
                 <p className="mt-2 font-mono text-xs leading-relaxed text-steel-600">
                   {company.founder.credentials}
                 </p>
@@ -99,7 +107,9 @@ export default function About() {
                     aria-hidden="true"
                   />
                   <p className="eyebrow text-accent-light">{item.label}</p>
-                  <p className="mt-5 text-lg leading-relaxed text-steel-300">{item.body}</p>
+                  <p className="mt-5 text-lg leading-relaxed text-steel-300">
+                    {item.body}
+                  </p>
                 </div>
               </Reveal>
             ))}

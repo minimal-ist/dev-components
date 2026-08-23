@@ -8,7 +8,8 @@ import { meta as buildMeta } from "~/lib/meta";
 
 export function meta() {
   return buildMeta({
-    title: "Products — Electrical Laminations, Motor Stampings & Cores | Dev Components",
+    title:
+      "Products — Electrical Laminations, Motor Stampings & Cores | Dev Components",
     description:
       "Ten product lines: E&I laminations, motor stampings, epoxy coated cores, bonded cores, linear motor stampings, contactor cores, strip laminations, CRGO miter cut, slit and master coils, and progressive tooling.",
     path: "/products",

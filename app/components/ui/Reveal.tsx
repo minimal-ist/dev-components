@@ -72,7 +72,9 @@ export function Reveal({ children, index = 0, className }: RevealProps) {
         className,
       )}
       style={
-        state === "shown" ? { transitionDelay: `${Math.min(index, 6) * 60}ms` } : undefined
+        state === "shown"
+          ? { transitionDelay: `${Math.min(index, 6) * 60}ms` }
+          : undefined
       }
     >
       {children}

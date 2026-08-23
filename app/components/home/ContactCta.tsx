@@ -14,8 +14,8 @@ export function ContactCta() {
               Tell us the profile, the grade and the volume.
             </h2>
             <p className="mt-5 text-lg text-steel-300">
-              Quotes come back against your drawing, not a catalogue page. Bulk orders are
-              accepted at short notice.
+              Quotes come back against your drawing, not a catalogue page. Bulk
+              orders are accepted at short notice.
             </p>
           </div>
 

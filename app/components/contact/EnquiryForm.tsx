@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Button } from "~/components/ui/Button";
 import { cn } from "~/lib/cn";
 
-const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as
+  string | undefined;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -35,7 +36,8 @@ export function EnquiryForm() {
     if (!email) nextErrors.email = "Enter an email address for the quote.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       nextErrors.email = "That email address does not look complete.";
-    if (!message) nextErrors.message = "Describe the part, the grade and the volume.";
+    if (!message)
+      nextErrors.message = "Describe the part, the grade and the volume.";
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
@@ -54,7 +56,10 @@ export function EnquiryForm() {
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
           subject: `Website enquiry from ${name}`,
@@ -66,7 +71,8 @@ export function EnquiryForm() {
         }),
       });
 
-      if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+      if (!response.ok)
+        throw new Error(`Request failed with ${response.status}`);
 
       setStatus("success");
       form.reset();
@@ -84,10 +90,15 @@ export function EnquiryForm() {
         <p className="eyebrow text-accent-deep">Enquiry sent</p>
         <h3 className="mt-4 text-xl font-bold text-ink">We have it.</h3>
         <p className="mt-3 text-steel-700">
-          Someone from the team will come back to you with a quote. If it is urgent, call the
-          number below — that reaches a person faster than email.
+          Someone from the team will come back to you with a quote. If it is
+          urgent, call the number below — that reaches a person faster than
+          email.
         </p>
-        <Button variant="outline" className="mt-6" onClick={() => setStatus("idle")}>
+        <Button
+          variant="outline"
+          className="mt-6"
+          onClick={() => setStatus("idle")}
+        >
           Send another
         </Button>
       </div>
@@ -99,7 +110,13 @@ export function EnquiryForm() {
       {/* Honeypot. Hidden from people and from screen readers, visible to bots. */}
       <div className="absolute left-[-9999px]" aria-hidden="true">
         <label htmlFor="company_website">Company website</label>
-        <input id="company_website" name="company_website" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="company_website"
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
       <Field id="name" label="Name" error={errors.name}>
@@ -147,19 +164,30 @@ export function EnquiryForm() {
           name="message"
           rows={5}
           placeholder="Part profile, grade, thickness, annual volume. Attach a drawing by email if you have one."
-          className={cn(fieldClass, "resize-y", errors.message && "border-red-600")}
+          className={cn(
+            fieldClass,
+            "resize-y",
+            errors.message && "border-red-600",
+          )}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
         />
       </Field>
 
       {failure ? (
-        <p role="alert" className="border border-red-600 bg-red-50 px-4 py-3 text-sm text-red-800">
+        <p
+          role="alert"
+          className="border border-red-600 bg-red-50 px-4 py-3 text-sm text-red-800"
+        >
           {failure}
         </p>
       ) : null}
 
-      <Button type="submit" disabled={status === "submitting"} className="self-start disabled:opacity-60">
+      <Button
+        type="submit"
+        disabled={status === "submitting"}
+        className="self-start disabled:opacity-60"
+      >
         {status === "submitting" ? "Sending…" : "Send enquiry"}
       </Button>
     </form>
@@ -181,9 +209,16 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="flex items-baseline gap-2 text-sm font-semibold text-ink">
+      <label
+        htmlFor={id}
+        className="flex items-baseline gap-2 text-sm font-semibold text-ink"
+      >
         {label}
-        {hint ? <span className="font-mono text-xs font-normal text-steel-500">{hint}</span> : null}
+        {hint ? (
+          <span className="font-mono text-xs font-normal text-steel-500">
+            {hint}
+          </span>
+        ) : null}
       </label>
       {children}
       {error ? (

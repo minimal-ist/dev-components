@@ -14,6 +14,7 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <Link
       to="/"
+      viewTransition
       className="group flex min-h-11 items-center gap-2.5"
       aria-label="Dev Components, home"
     >

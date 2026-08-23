@@ -7,7 +7,10 @@ import { primaryNav, productNav } from "~/data/navigation";
 
 export function SiteFooter() {
   return (
-    <footer className="band-footer border-t border-steel-800 text-sheet">
+    <footer
+      style={{ viewTransitionName: "site-footer" }}
+      className="band-footer border-t border-steel-800 text-sheet"
+    >
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr] lg:gap-16">
           <div className="flex flex-col gap-6">
@@ -35,6 +38,7 @@ export function SiteFooter() {
                   <li key={link.to}>
                     <Link
                       to={link.to}
+                      viewTransition
                       className="inline-flex min-h-6 items-center py-1 text-sm text-steel-300 transition-colors hover:text-sheet"
                     >
                       {link.label}
@@ -52,6 +56,7 @@ export function SiteFooter() {
                     <li key={link.to}>
                       <Link
                         to={link.to}
+                        viewTransition
                         className="inline-flex min-h-6 items-center py-1 text-sm text-steel-300 transition-colors hover:text-sheet"
                       >
                         {link.label}
@@ -81,7 +86,8 @@ export function SiteFooter() {
                     <br />
                     {company.primaryAddress.locality}
                     <br />
-                    {company.primaryAddress.city} – {company.primaryAddress.postalCode}
+                    {company.primaryAddress.city} –{" "}
+                    {company.primaryAddress.postalCode}
                   </span>
                 </address>
 

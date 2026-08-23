@@ -55,7 +55,8 @@ export const products: Product[] = [
     variants: [
       {
         name: "EI Transformer Laminations",
-        description: "The standard interleaved E and I profile across the full type range.",
+        description:
+          "The standard interleaved E and I profile across the full type range.",
         application: "Distribution and control transformers",
       },
       {
@@ -65,12 +66,14 @@ export const products: Product[] = [
       },
       {
         name: "Inverter Laminations",
-        description: "Punched to hold 20,000 Gs saturation magnetic induction intensity.",
+        description:
+          "Punched to hold 20,000 Gs saturation magnetic induction intensity.",
         application: "Inverters and converters",
       },
       {
         name: "Medical Grade Isolation Transformer Laminations",
-        description: "Cores for isolation transformers built to medical supply requirements.",
+        description:
+          "Cores for isolation transformers built to medical supply requirements.",
         application: "Medical isolation transformers",
       },
       {
@@ -80,7 +83,8 @@ export const products: Product[] = [
       },
       {
         name: "3 Phase Lamination Cores",
-        description: "Three-limb cores for three-phase transformer construction.",
+        description:
+          "Three-limb cores for three-phase transformer construction.",
         application: "Industrial and power generation",
       },
     ],
@@ -115,12 +119,14 @@ export const products: Product[] = [
     variants: [
       {
         name: "EV Motor Stampings",
-        description: "Made of electrical steel for traction motors in electric vehicles.",
+        description:
+          "Made of electrical steel for traction motors in electric vehicles.",
         application: "EV automotive industry",
       },
       {
         name: "Induction Motor Stampings",
-        description: "Rotors and stators made of electrical steel for alternating current machines.",
+        description:
+          "Rotors and stators made of electrical steel for alternating current machines.",
         application: "Pumps, compressors, electrical appliances",
       },
       {
@@ -131,7 +137,8 @@ export const products: Product[] = [
       {
         name: "Stepper Motor Stampings",
         description: "Stepper motor cores made of electrical steel.",
-        application: "Scanners, printers, CNC, 3D printers, intelligent lighting",
+        application:
+          "Scanners, printers, CNC, 3D printers, intelligent lighting",
       },
       {
         name: "Servo Motor Stampings",
@@ -140,7 +147,8 @@ export const products: Product[] = [
       },
       {
         name: "Alternator Stator Stampings",
-        description: "Stator cores made of electrical steel for alternator assemblies.",
+        description:
+          "Stator cores made of electrical steel for alternator assemblies.",
         application: "Internal combustion automotives, locomotives",
       },
       {
@@ -163,7 +171,8 @@ export const products: Product[] = [
       {
         name: "Washing Machine Motor Stampings",
         description: "Square in profile rather than the traditional round.",
-        application: "Washing machines, cooler pumps and motors, air conditioner motors",
+        application:
+          "Washing machines, cooler pumps and motors, air conditioner motors",
       },
       {
         name: "Submersible Pump Stampings",
@@ -173,7 +182,8 @@ export const products: Product[] = [
       {
         name: "Shaded Pole Motor Stampings",
         description: "Small format cores, ratings from 20 watts upward.",
-        application: "Toys, hair dryers, desk fans, cooling fans, projectors, displays",
+        application:
+          "Toys, hair dryers, desk fans, cooling fans, projectors, displays",
       },
       {
         name: "Pole Shoe Stampings",
@@ -222,9 +232,15 @@ export const products: Product[] = [
       "Bonding varnish does not disturb magnetic flux. It applies no stress and does not deform the material, so the magnetic properties remain entirely intact.",
     ],
     specs: [
-      { label: "Cleat strip thickness", value: "Up to 2 mm, galvanized or cold rolled" },
+      {
+        label: "Cleat strip thickness",
+        value: "Up to 2 mm, galvanized or cold rolled",
+      },
       { label: "Cleats per stator", value: "2 – 16, by motor size" },
-      { label: "Bonding methods", value: "Glue, varnish, TIG weld, cleat, die interlock" },
+      {
+        label: "Bonding methods",
+        value: "Glue, varnish, TIG weld, cleat, die interlock",
+      },
     ],
     variants: [
       {
@@ -258,7 +274,11 @@ export const products: Product[] = [
         application: "Almost all industrial applications",
       },
     ],
-    applications: ["Electric vehicle motors", "High-efficiency industrial motors", "Large stators"],
+    applications: [
+      "Electric vehicle motors",
+      "High-efficiency industrial motors",
+      "Large stators",
+    ],
     image: "/images/products/bonded-special-purpose-cores.png",
   },
   {
@@ -306,7 +326,11 @@ export const products: Product[] = [
         application: "Switching assemblies",
       },
     ],
-    applications: ["Remote circuit switching", "AC motor control", "Electrical appliances"],
+    applications: [
+      "Remote circuit switching",
+      "AC motor control",
+      "Electrical appliances",
+    ],
     image: "/images/products/contactor-cores.png",
   },
   {
@@ -326,7 +350,10 @@ export const products: Product[] = [
       { label: "Max sheet width", value: "300 mm" },
       { label: "Hole size", value: "ø8 – 25 mm" },
       { label: "Cut angle", value: "90°, automatic" },
-      { label: "Step configuration", value: "3, 5 or 7 — vertical and horizontal" },
+      {
+        label: "Step configuration",
+        value: "3, 5 or 7 — vertical and horizontal",
+      },
       { label: "Cutter", value: "Tungsten carbide steel" },
     ],
     variants: [],
@@ -348,7 +375,10 @@ export const products: Product[] = [
       { label: "Thickness", value: "0.35 mm, 0.50 mm" },
       { label: "Auto stacking", value: "Up to 20 columns" },
       { label: "Simultaneous operations", value: "2 × O-punch + 1 × V-notch" },
-      { label: "Step configuration", value: "3, 5 or 7 — vertical and horizontal" },
+      {
+        label: "Step configuration",
+        value: "3, 5 or 7 — vertical and horizontal",
+      },
     ],
     variants: [],
     applications: ["Large transformer cores"],
@@ -366,14 +396,19 @@ export const products: Product[] = [
       "Coils are typically supplied with an insulating coating applied at the mill.",
     ],
     specs: [
-      { label: "Condition", value: "Fully-Processed (FP) or Semi-Processed (SP)" },
+      {
+        label: "Condition",
+        value: "Fully-Processed (FP) or Semi-Processed (SP)",
+      },
       { label: "Anneal", value: "QDA for SP, SRA for FP" },
       { label: "Mill coating", value: "C3, C4, C5" },
       { label: "Standard roll", value: "1000 mm" },
       { label: "Coil weight", value: "Up to 4 – 5 tons" },
     ],
     variants: [],
-    applications: ["Supplied slit or in master form against specific industrial requirement"],
+    applications: [
+      "Supplied slit or in master form against specific industrial requirement",
+    ],
     image: "/images/products/crngo-crgo-slit-master-coils.png",
   },
   {
@@ -388,12 +423,18 @@ export const products: Product[] = [
       "Dies are made by skilled die makers and designed using CAD to create highly accurate, unambiguous designs.",
     ],
     specs: [
-      { label: "Tool types", value: "Progressive, blanking, compound, riveting" },
+      {
+        label: "Tool types",
+        value: "Progressive, blanking, compound, riveting",
+      },
       { label: "Design method", value: "CAD" },
       { label: "Scope", value: "Design, development, testing, certification" },
     ],
     variants: [],
-    applications: ["Lamination punching tools", "Motor and stator production tooling"],
+    applications: [
+      "Lamination punching tools",
+      "Motor and stator production tooling",
+    ],
     image: "/images/products/progressive-tool-die-designing-making.png",
   },
 ];

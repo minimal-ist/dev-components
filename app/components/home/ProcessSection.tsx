@@ -37,8 +37,12 @@ export function ProcessSection() {
                 <span className="font-mono text-sm font-medium text-accent-ink">
                   {String(stage.id).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg leading-tight font-bold text-ink">{stage.name}</h3>
-                <p className="text-sm leading-relaxed text-steel-600">{stage.body}</p>
+                <h3 className="text-lg leading-tight font-bold text-ink">
+                  {stage.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-steel-600">
+                  {stage.body}
+                </p>
               </li>
             </Reveal>
           ))}

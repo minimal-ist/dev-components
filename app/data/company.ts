@@ -34,7 +34,8 @@ export const company = {
       "Dev Components is highly experienced in manufacturing precision electrical stampings and laminations for a wide range of applications such as fans, motors, submersible pumps, transformers, chokes, ballasts, tacho generators, alternators and electric motors for the automobile industry, and serves a wide range of industries including automotive, consumer products, appliances and heavy industrial electric capital equipment among others.",
       "Dev Components has built a wide client base since its inception in 1991 by supplying quality products used across a large majority of manufacturing industries. Our products form the core of electrical appliances — motors, fans, mixer grinders, household appliances, electric vehicle motors, and motors for automotive and industrial capital equipment. That has enabled Dev Components to evolve into one of the best stamping and lamination punching set-ups in the whole of India, and to extend supplies to customers across the globe.",
     ],
-    pullQuote: "Wherever there is a conversion of electricity, our products are needed.",
+    pullQuote:
+      "Wherever there is a conversion of electricity, our products are needed.",
   },
 
   /**
@@ -145,10 +146,22 @@ export const company = {
   },
 
   social: [
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/DevStampingLaminations/" },
-    { name: "YouTube", href: "https://www.youtube.com/@DevStampingLaminations" },
-    { name: "Facebook", href: "https://www.facebook.com/DevStampingLaminations" },
-    { name: "Instagram", href: "https://www.instagram.com/devstampinglaminatons/" },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/DevStampingLaminations/",
+    },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/@DevStampingLaminations",
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/DevStampingLaminations",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/devstampinglaminatons/",
+    },
   ],
 
   export: {

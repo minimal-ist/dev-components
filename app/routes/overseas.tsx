@@ -21,7 +21,11 @@ export default function Overseas() {
 
   return (
     <>
-      <PageHero eyebrow="Export" title="Past the Indian frontier." lede={summary} />
+      <PageHero
+        eyebrow="Export"
+        title="Past the Indian frontier."
+        lede={summary}
+      />
 
       <Section edge={false}>
         <Container>
@@ -74,7 +78,8 @@ export default function Overseas() {
                 Certified to {company.certifications.join(" and ")}.
               </h2>
               <p className="mt-5 text-lg text-steel-600">
-                Export orders ship water-resistant packed, batch traceable to the master coil.
+                Export orders ship water-resistant packed, batch traceable to
+                the master coil.
               </p>
             </div>
             <ButtonLink to="/contact" className="shrink-0">

@@ -11,14 +11,22 @@ export function WhyDevSection() {
       <Container>
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-5">
-            <SectionHeader tone="dark" eyebrow="Why buyers stay" title="Three reasons the quote holds" />
+            <SectionHeader
+              tone="dark"
+              eyebrow="Why buyers stay"
+              title="Three reasons the quote holds"
+            />
 
             <div className="mt-10 flex flex-col gap-8">
               {whyDev.map((reason, index) => (
                 <Reveal key={reason.title} index={index}>
                   <div className="border-l-2 border-accent pl-5">
-                    <h3 className="text-lg font-bold text-sheet">{reason.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-steel-300">{reason.body}</p>
+                    <h3 className="text-lg font-bold text-sheet">
+                      {reason.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-steel-300">
+                      {reason.body}
+                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -35,8 +43,12 @@ export function WhyDevSection() {
                       className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
                       aria-hidden="true"
                     />
-                    <h3 className="text-base leading-tight font-bold text-sheet">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-steel-300">{item.body}</p>
+                    <h3 className="text-base leading-tight font-bold text-sheet">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-steel-300">
+                      {item.body}
+                    </p>
                   </li>
                 </Reveal>
               ))}

@@ -44,8 +44,8 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
           <p className="eyebrow text-accent-ink">404</p>
           <h1 className="mt-4 text-display-md text-ink">Product not found</h1>
           <p className="mt-4 text-steel-600">
-            That product page does not exist. All ten current lines are listed on the products
-            page.
+            That product page does not exist. All ten current lines are listed
+            on the products page.
           </p>
           <ButtonLink to="/products" className="mt-8">
             View all products
@@ -55,19 +55,24 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
     );
   }
 
-  const others = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+  const others = products
+    .filter((item) => item.slug !== product.slug)
+    .slice(0, 3);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema(product)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema(product)),
+        }}
       />
 
       <header className="border-b border-steel-300 bg-sheet-raised">
         <Container className="py-10 lg:py-14">
           <Link
             to="/products"
+            viewTransition
             className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.12em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
           >
             <ArrowLeft className="size-3.5" aria-hidden="true" />
@@ -77,7 +82,9 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-7">
               <h1 className="text-display-lg text-ink">{product.name}</h1>
-              <p className="mt-5 font-mono text-sm text-accent-ink">{product.tagline}</p>
+              <p className="mt-5 font-mono text-sm text-accent-ink">
+                {product.tagline}
+              </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-steel-700">
                 {product.summary}
               </p>
@@ -92,6 +99,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
             <div className="lg:col-span-5">
               <img
                 src={asset(product.image)}
+                style={{ viewTransitionName: `product-${product.slug}` }}
                 alt={`${product.name} manufactured by Dev Components`}
                 width={1000}
                 height={750}
@@ -109,7 +117,10 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
               <p className="eyebrow text-steel-500">Detail</p>
               <div className="mt-6 flex flex-col gap-5">
                 {product.description.map((paragraph) => (
-                  <p key={paragraph} className="text-lg leading-relaxed text-steel-700">
+                  <p
+                    key={paragraph}
+                    className="text-lg leading-relaxed text-steel-700"
+                  >
                     {paragraph}
                   </p>
                 ))}
@@ -138,16 +149,17 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                   <p className="eyebrow mb-2 text-accent-ink">Specification</p>
                   <SpecTable specs={product.specs} />
                   <p className="mt-5 text-xs leading-relaxed text-steel-500">
-                    Values as supplied by Dev Components. Anything outside this range is a tooling
-                    conversation, not a limit.
+                    Values as supplied by Dev Components. Anything outside this
+                    range is a tooling conversation, not a limit.
                   </p>
                 </div>
               ) : (
                 <div className="border border-steel-300 bg-sheet-raised p-7">
                   <p className="eyebrow mb-3 text-steel-500">Specification</p>
                   <p className="text-sm leading-relaxed text-steel-600">
-                    This line is built to the application rather than a fixed range. Send the
-                    drawing and the duty, and we will come back with what it takes.
+                    This line is built to the application rather than a fixed
+                    range. Send the drawing and the duty, and we will come back
+                    with what it takes.
                   </p>
                 </div>
               )}
@@ -190,10 +202,15 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
               <li key={other.slug}>
                 <Link
                   to={`/products/${other.slug}`}
+                  viewTransition
                   className="group flex flex-col gap-2 border-t border-steel-400 pt-5 transition-colors hover:border-accent"
                 >
-                  <span className="text-lg leading-tight font-bold text-ink">{other.name}</span>
-                  <span className="font-mono text-xs text-steel-600">{other.tagline}</span>
+                  <span className="text-lg leading-tight font-bold text-ink">
+                    {other.name}
+                  </span>
+                  <span className="font-mono text-xs text-steel-600">
+                    {other.tagline}
+                  </span>
                 </Link>
               </li>
             ))}

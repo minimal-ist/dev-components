@@ -11,15 +11,24 @@ import { company } from "~/data/company";
  */
 export function HeroSection() {
   const headline = capabilities.filter((capability) =>
-    ["Coil thickness", "Stamping diameter", "EI lamination range", "Monthly capacity"].includes(
-      capability.label,
-    ),
+    [
+      "Coil thickness",
+      "Stamping diameter",
+      "EI lamination range",
+      "Monthly capacity",
+    ].includes(capability.label),
   );
 
   return (
     <section className="relative overflow-hidden bg-sheet-raised">
-      <div className="blueprint pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="accent-wash pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div
+        className="blueprint pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
+      <div
+        className="accent-wash pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
       {/* The part itself, cropped by the viewport the way a drawing crops to
           the detail that matters. */}
       <div
@@ -36,12 +45,14 @@ export function HeroSection() {
               Est. {company.founded} — Bangalore, India
             </p>
 
-            <h1 className="mt-6 text-display-xl text-ink">The core of the machine.</h1>
+            <h1 className="mt-6 text-display-xl text-ink">
+              The core of the machine.
+            </h1>
 
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-steel-700 sm:text-xl">
-              Dev Components punches silicon steel into the stator, rotor and transformer cores
-              inside motors, pumps, transformers and electric vehicles — to your drawing, at
-              volume.
+              Dev Components punches silicon steel into the stator, rotor and
+              transformer cores inside motors, pumps, transformers and electric
+              vehicles — to your drawing, at volume.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -61,12 +72,17 @@ export function HeroSection() {
         <Container className="scroll-x">
           <dl className="flex min-w-max divide-x divide-steel-300">
             {headline.map((capability) => (
-              <div key={capability.label} className="flex flex-col gap-1.5 py-5 pr-10 not-first:pl-10">
+              <div
+                key={capability.label}
+                className="flex flex-col gap-1.5 py-5 pr-10 not-first:pl-10"
+              >
                 <dt className="eyebrow text-steel-500">{capability.label}</dt>
                 <dd className="font-mono text-base font-medium text-ink sm:text-lg">
                   {capability.value}
                   {capability.unit ? (
-                    <span className="ml-1 text-steel-500">{capability.unit}</span>
+                    <span className="ml-1 text-steel-500">
+                      {capability.unit}
+                    </span>
                   ) : null}
                 </dd>
               </div>

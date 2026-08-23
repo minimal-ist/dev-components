@@ -40,7 +40,10 @@ export function IndustriesSection() {
     <Section tone="raised" className="relative overflow-hidden">
       {/* Blueprint rule, the grid a part gets drawn on. Sits under the tiles
           at low contrast so it reads as paper, not as decoration. */}
-      <div className="blueprint pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div
+        className="blueprint pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
 
       <Container className="relative">
         <SectionHeader

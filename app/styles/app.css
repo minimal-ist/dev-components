@@ -72,7 +72,8 @@
      measurement, grade and part code.                                    */
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --font-mono:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
   /* Fluid scale. Display sizes are deliberately large — the headline is
      the loudest object on any page, so nothing else has to shout. */
@@ -112,13 +113,11 @@
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+    /* Deliberately not `smooth`. React Router resets scroll to the top on a
+       route change, and a global smooth behaviour turns that instant reset
+       into a visibly animated scroll up the page before the next view
+       appears. Anything wanting a smooth scroll should ask for it per call. */
+    scroll-behavior: auto;
   }
 
   body {
@@ -160,6 +159,60 @@
   .font-mono,
   [class*="font-mono"] {
     font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Route transitions
+
+   Driven by the View Transitions API through React Router's `viewTransition`
+   prop. Browsers without support simply navigate — nothing to polyfill and
+   nothing to clean up.
+--------------------------------------------------------------------------- */
+
+@keyframes view-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes view-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Out is faster than in, so the incoming page is never waiting on the old one
+   and the pair does not read as a dip to blank. */
+::view-transition-old(root) {
+  animation: view-fade-out 140ms ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: view-fade-in 280ms var(--ease-out-quint) both;
+}
+
+/* Header and footer are the same object either side of a navigation, so they
+   are lifted out of the root snapshot and left alone. Without this the whole
+   viewport cross-fades and the chrome flickers against itself. */
+::view-transition-group(site-header),
+::view-transition-group(site-footer) {
+  animation: none;
+}
+
+/* A product thumbnail and the image on its detail page share a name, so the
+   browser morphs one into the other instead of cross-fading them. */
+::view-transition-group(*) {
+  animation-duration: 320ms;
+  animation-timing-function: var(--ease-out-quint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(*) {
+    animation: none !important;
   }
 }
 
@@ -210,17 +263,32 @@
   }
 }
 
-
 /* Blueprint rule — the grid a part gets drawn on. Faint enough to read as
    paper texture rather than as a graphic; masked so it fades out and never
    competes with the content sitting on it. */
 @utility blueprint {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--color-steel-400) 26%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--color-steel-400) 26%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-steel-400) 26%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-steel-400) 26%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 44px 44px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    #000 0%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    #000 0%,
+    transparent 75%
+  );
 }
 
 /* A warm wash of the accent, used once per page at very low strength to stop
@@ -248,7 +316,6 @@
   animation: marquee 42s linear infinite;
 }
 
-
 /* ---------------------------------------------------------------------------
    Dark bands and glass
 
@@ -265,14 +332,26 @@
    into the dark without relying on crimson text, which dies there. */
 @utility band-ink {
   background-image:
-    radial-gradient(ellipse 90% 70% at 12% 0%, color-mix(in oklab, var(--color-teal) 22%, transparent) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 60% at 92% 100%, color-mix(in oklab, var(--color-accent) 26%, transparent) 0%, transparent 62%),
+    radial-gradient(
+      ellipse 90% 70% at 12% 0%,
+      color-mix(in oklab, var(--color-teal) 22%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 92% 100%,
+      color-mix(in oklab, var(--color-accent) 26%, transparent) 0%,
+      transparent 62%
+    ),
     linear-gradient(165deg, #0f3c40 0%, #0e2931 55%, #103539 100%);
 }
 
 @utility band-accent {
   background-image:
-    radial-gradient(ellipse 70% 90% at 90% 10%, color-mix(in oklab, var(--color-accent) 30%, transparent) 0%, transparent 62%),
+    radial-gradient(
+      ellipse 70% 90% at 90% 10%,
+      color-mix(in oklab, var(--color-accent) 30%, transparent) 0%,
+      transparent 62%
+    ),
     linear-gradient(150deg, #0e2931 0%, #0e3438 60%, #0f3c40 100%);
 }
 
@@ -291,14 +370,22 @@
 /* Decorative accent rules — the short bars that open a section or mark a
    step. Crimson swept to a lighter brick so the mark has some life in it. */
 @utility accent-bar {
-  background-image: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent-warm) 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent-warm) 100%
+  );
 }
 
 /* Solid accent surfaces: buttons and chips. Angled so the sweep reads across
    the shape rather than along it. White text sits on these — see the header
    note; navy-on-accent was the previous palette's rule, not this one. */
 @utility accent-fill {
-  background-image: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-warm) 100%);
+  background-image: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-warm) 100%
+  );
 }
 
 /* Frosted panel for use on a dark band. */
@@ -315,7 +402,7 @@
   position: relative;
 }
 @utility sheen-line {
-  content: ;
+  content:;
   position: absolute;
   inset-inline: 0;
   top: 0;

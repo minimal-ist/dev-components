@@ -46,8 +46,12 @@ export default function Operation() {
                   <span className="font-mono text-sm font-medium text-accent-ink">
                     {String(stage.id).padStart(2, "0")}
                   </span>
-                  <h3 className="text-lg leading-tight font-bold text-ink">{stage.name}</h3>
-                  <p className="text-sm leading-relaxed text-steel-600">{stage.body}</p>
+                  <h3 className="text-lg leading-tight font-bold text-ink">
+                    {stage.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-steel-600">
+                    {stage.body}
+                  </p>
                 </li>
               </Reveal>
             ))}
@@ -57,7 +61,10 @@ export default function Operation() {
 
       <Section tone="raised">
         <Container>
-          <SectionHeader eyebrow="Manufacturing envelope" title="Capacity and range" />
+          <SectionHeader
+            eyebrow="Manufacturing envelope"
+            title="Capacity and range"
+          />
 
           <dl className="mt-12 grid gap-px bg-steel-300 sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((capability, index) => (
@@ -67,11 +74,15 @@ export default function Operation() {
                   <dd className="font-mono text-2xl leading-none font-medium text-ink">
                     {capability.value}
                     {capability.unit ? (
-                      <span className="ml-1.5 text-lg text-steel-500">{capability.unit}</span>
+                      <span className="ml-1.5 text-lg text-steel-500">
+                        {capability.unit}
+                      </span>
                     ) : null}
                   </dd>
                   {capability.note ? (
-                    <p className="mt-1 text-sm leading-relaxed text-steel-600">{capability.note}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-steel-600">
+                      {capability.note}
+                    </p>
                   ) : null}
                 </div>
               </Reveal>
@@ -97,8 +108,14 @@ export default function Operation() {
                 <p className="eyebrow mb-5 text-accent-light">Instruments</p>
                 <ul className="flex flex-col gap-3">
                   {qualityControl.instruments.map((instrument) => (
-                    <li key={instrument} className="flex gap-3 text-sm text-steel-300">
-                      <span className="mt-2 size-1 shrink-0 bg-accent" aria-hidden="true" />
+                    <li
+                      key={instrument}
+                      className="flex gap-3 text-sm text-steel-300"
+                    >
+                      <span
+                        className="mt-2 size-1 shrink-0 bg-accent"
+                        aria-hidden="true"
+                      />
                       {instrument}
                     </li>
                   ))}
@@ -108,8 +125,14 @@ export default function Operation() {
                 <p className="eyebrow mb-5 text-accent-light">Practices</p>
                 <ul className="flex flex-col gap-3">
                   {qualityControl.practices.map((practice) => (
-                    <li key={practice} className="flex gap-3 text-sm text-steel-300">
-                      <span className="mt-2 size-1 shrink-0 bg-accent" aria-hidden="true" />
+                    <li
+                      key={practice}
+                      className="flex gap-3 text-sm text-steel-300"
+                    >
+                      <span
+                        className="mt-2 size-1 shrink-0 bg-accent"
+                        aria-hidden="true"
+                      />
                       {practice}
                     </li>
                   ))}

@@ -13,7 +13,11 @@ type SpecTableProps = {
  *
  * Wraps in `scroll-x` so a long value can never push the page sideways.
  */
-export function SpecTable({ specs, tone = "light", className }: SpecTableProps) {
+export function SpecTable({
+  specs,
+  tone = "light",
+  className,
+}: SpecTableProps) {
   if (specs.length === 0) return null;
 
   return (

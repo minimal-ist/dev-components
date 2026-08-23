@@ -5,7 +5,11 @@ type ContainerProps = React.ComponentProps<"div"> & {
   width?: "default" | "wide" | "text";
 };
 
-export function Container({ width = "default", className, ...props }: ContainerProps) {
+export function Container({
+  width = "default",
+  className,
+  ...props
+}: ContainerProps) {
   return (
     <div
       className={cn(

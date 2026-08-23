@@ -17,7 +17,11 @@ type StatorMarkProps = {
  * product on the page is a variation of. The geometry is generated rather than
  * traced, so the slot count can change per placement without a new asset.
  */
-export function StatorMark({ slots = 36, spin = false, className }: StatorMarkProps) {
+export function StatorMark({
+  slots = 36,
+  spin = false,
+  className,
+}: StatorMarkProps) {
   const maskId = useId();
   const size = 400;
   const centre = size / 2;
@@ -72,7 +76,9 @@ export function StatorMark({ slots = 36, spin = false, className }: StatorMarkPr
 
       <g
         mask={`url(#${maskId})`}
-        className={cn(spin && "origin-center animate-[stator-spin_120s_linear_infinite]")}
+        className={cn(
+          spin && "origin-center animate-[stator-spin_120s_linear_infinite]",
+        )}
       >
         <circle cx={centre} cy={centre} r={outerR} className="fill-steel-300" />
         <circle

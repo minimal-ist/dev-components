@@ -8,7 +8,8 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "Highly satisfied with overall business support from Dev Components.",
+    quote:
+      "Highly satisfied with overall business support from Dev Components.",
     name: "Mr. Ravi",
     company: "SaveWatt",
   },
@@ -18,7 +19,8 @@ export const testimonials: Testimonial[] = [
     company: "Salzer",
   },
   {
-    quote: "Timely delivery of products and services at Dev Components is good.",
+    quote:
+      "Timely delivery of products and services at Dev Components is good.",
     name: "Mr. Ramesh C Shastri",
     company: "Trafomec India",
   },
@@ -36,4 +38,10 @@ export const testimonials: Testimonial[] = [
  * TODO(content): the live site shows 15 logos; only these were legible in the
  * page source. Add the rest when the client supplies the list, ideally as SVG.
  */
-export const clients: string[] = ["Elettromil", "V-Guard", "Salzer", "Trafomec India", "SaveWatt"];
+export const clients: string[] = [
+  "Elettromil",
+  "V-Guard",
+  "Salzer",
+  "Trafomec India",
+  "SaveWatt",
+];

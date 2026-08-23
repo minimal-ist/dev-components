@@ -13,10 +13,13 @@ const variants: Record<Variant, string> = {
   // Same crimson as primary, so a second action reads as equally important.
   // Outlined rather than a second solid fill: two identical solid buttons
   // compete for the same click and read as a mistake.
-  outline: "border border-accent text-accent-ink hover:bg-accent hover:text-white",
+  outline:
+    "border border-accent text-accent-ink hover:bg-accent hover:text-white",
   // On a dark band the navy outline text disappears; this one inverts.
-  outlineDark: "border border-white/30 text-sheet hover:border-white hover:bg-sheet hover:text-ink",
-  ghost: "text-ink underline decoration-steel-400 underline-offset-[6px] hover:decoration-accent",
+  outlineDark:
+    "border border-white/30 text-sheet hover:border-white hover:bg-sheet hover:text-ink",
+  ghost:
+    "text-ink underline decoration-steel-400 underline-offset-[6px] hover:decoration-accent",
 };
 
 type ButtonProps = {
@@ -31,15 +34,21 @@ export function ButtonLink({
   className,
   children,
   ...props
-}: ButtonProps & { to: string } & Omit<React.ComponentProps<typeof Link>, "to" | "className">) {
-  const external = to.startsWith("http") || to.startsWith("tel:") || to.startsWith("mailto:");
+}: ButtonProps & { to: string } & Omit<
+    React.ComponentProps<typeof Link>,
+    "to" | "className"
+  >) {
+  const external =
+    to.startsWith("http") || to.startsWith("tel:") || to.startsWith("mailto:");
 
   if (external) {
     return (
       <a
         href={to}
         className={cn(base, variants[variant], className)}
-        {...(to.startsWith("http") ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+        {...(to.startsWith("http")
+          ? { target: "_blank", rel: "noreferrer noopener" }
+          : {})}
       >
         {children}
       </a>
@@ -47,7 +56,12 @@ export function ButtonLink({
   }
 
   return (
-    <Link to={to} className={cn(base, variants[variant], className)} {...props}>
+    <Link
+      to={to}
+      viewTransition
+      className={cn(base, variants[variant], className)}
+      {...props}
+    >
       {children}
     </Link>
   );

@@ -18,7 +18,9 @@ export function MobileContactBar() {
         className="flex min-h-14 flex-col items-center justify-center gap-1 border-r border-steel-300 text-ink"
       >
         <Phone className="size-4" aria-hidden="true" />
-        <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">Call</span>
+        <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">
+          Call
+        </span>
       </a>
       <a
         href={company.whatsappHref}
@@ -27,13 +29,17 @@ export function MobileContactBar() {
         className="flex min-h-14 flex-col items-center justify-center gap-1 border-r border-steel-300 text-ink"
       >
         <MessageCircle className="size-4" aria-hidden="true" />
-        <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">WhatsApp</span>
+        <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">
+          WhatsApp
+        </span>
       </a>
       <Link
         to="/contact"
         className="flex min-h-14 flex-col items-center justify-center gap-1 accent-fill text-white"
       >
-        <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">Enquire</span>
+        <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">
+          Enquire
+        </span>
       </Link>
     </div>
   );

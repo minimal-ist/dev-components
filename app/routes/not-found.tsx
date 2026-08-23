@@ -21,7 +21,8 @@ export default function NotFound() {
           That page came off the line wrong.
         </h1>
         <p className="mt-6 max-w-xl text-lg text-steel-600">
-          The page you asked for does not exist. The product lines are all listed below.
+          The page you asked for does not exist. The product lines are all
+          listed below.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-3">
@@ -34,7 +35,11 @@ export default function NotFound() {
         <ul className="mt-16 grid gap-x-10 gap-y-3 border-t border-steel-300 pt-8 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
             <li key={product.slug}>
-              <ButtonLink to={`/products/${product.slug}`} variant="ghost" className="px-0">
+              <ButtonLink
+                to={`/products/${product.slug}`}
+                variant="ghost"
+                className="px-0"
+              >
                 {product.name}
               </ButtonLink>
             </li>
