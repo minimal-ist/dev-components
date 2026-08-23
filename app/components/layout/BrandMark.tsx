@@ -62,19 +62,19 @@ export function BrandMark({
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" />
-          <stop offset="0.02" stopColor="#071019" />
-          <stop offset="0.06" stopColor="#102134" />
-          <stop offset="0.1" stopColor="#162f4b" />
-          <stop offset="0.14" stopColor="#1c3b5d" />
-          <stop offset="0.2" stopColor="#1f4269" />
-          <stop offset="0.27" stopColor="#214770" />
-          <stop offset="0.45" stopColor="#224872" />
-          <stop offset="0.51" stopColor="#284d76" />
-          <stop offset="0.59" stopColor="#375a80" />
-          <stop offset="0.67" stopColor="#516f90" />
-          <stop offset="0.76" stopColor="#768da7" />
-          <stop offset="0.85" stopColor="#a4b4c5" />
-          <stop offset="0.95" stopColor="#dde2e9" />
+          <stop offset="0.02" stopColor="#071719" />
+          <stop offset="0.06" stopColor="#103034" />
+          <stop offset="0.1" stopColor="#16454b" />
+          <stop offset="0.14" stopColor="#1c555d" />
+          <stop offset="0.2" stopColor="#1f6069" />
+          <stop offset="0.27" stopColor="#216770" />
+          <stop offset="0.45" stopColor="#226972" />
+          <stop offset="0.51" stopColor="#286d76" />
+          <stop offset="0.59" stopColor="#377780" />
+          <stop offset="0.67" stopColor="#518990" />
+          <stop offset="0.76" stopColor="#76a1a7" />
+          <stop offset="0.85" stopColor="#a4c1c5" />
+          <stop offset="0.95" stopColor="#dde8e9" />
           <stop offset="1" stopColor="#fff" />
         </linearGradient>
         <linearGradient
@@ -87,19 +87,19 @@ export function BrandMark({
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" />
-          <stop offset="0.04" stopColor="#060d15" />
-          <stop offset="0.1" stopColor="#102236" />
-          <stop offset="0.17" stopColor="#183351" />
-          <stop offset="0.24" stopColor="#1e3f63" />
-          <stop offset="0.31" stopColor="#21466e" />
-          <stop offset="0.39" stopColor="#224872" />
-          <stop offset="0.49" stopColor="#254b74" />
-          <stop offset="0.58" stopColor="#30537a" />
-          <stop offset="0.66" stopColor="#416185" />
-          <stop offset="0.74" stopColor="#5a7694" />
-          <stop offset="0.81" stopColor="#7a8fa7" />
-          <stop offset="0.89" stopColor="#a2afbe" />
-          <stop offset="0.96" stopColor="#cfd4d9" />
+          <stop offset="0.04" stopColor="#061315" />
+          <stop offset="0.1" stopColor="#103236" />
+          <stop offset="0.17" stopColor="#184a51" />
+          <stop offset="0.24" stopColor="#1e5b63" />
+          <stop offset="0.31" stopColor="#21656e" />
+          <stop offset="0.39" stopColor="#226972" />
+          <stop offset="0.49" stopColor="#256b74" />
+          <stop offset="0.58" stopColor="#30717a" />
+          <stop offset="0.66" stopColor="#417d85" />
+          <stop offset="0.74" stopColor="#5a8d94" />
+          <stop offset="0.81" stopColor="#7aa2a7" />
+          <stop offset="0.89" stopColor="#a2bbbe" />
+          <stop offset="0.96" stopColor="#cfd8d9" />
           <stop offset="0.99" stopColor="#e8e8e8" />
         </linearGradient>
         <linearGradient
@@ -113,15 +113,15 @@ export function BrandMark({
         >
           <stop offset="0" stopColor="#c8c8c8" />
           <stop offset="0.02" stopColor="#b9bcc0" />
-          <stop offset="0.06" stopColor="#919dab" />
-          <stop offset="0.11" stopColor="#6e839a" />
-          <stop offset="0.16" stopColor="#536d8b" />
-          <stop offset="0.22" stopColor="#3d5d80" />
-          <stop offset="0.28" stopColor="#2e5178" />
-          <stop offset="0.35" stopColor="#254a73" />
-          <stop offset="0.45" stopColor="#224872" />
-          <stop offset="0.6" stopColor="#1a3757" />
-          <stop offset="0.92" stopColor="#060c13" />
+          <stop offset="0.06" stopColor="#91a8ab" />
+          <stop offset="0.11" stopColor="#6e959a" />
+          <stop offset="0.16" stopColor="#53848b" />
+          <stop offset="0.22" stopColor="#3d7880" />
+          <stop offset="0.28" stopColor="#2e6f78" />
+          <stop offset="0.35" stopColor="#256a73" />
+          <stop offset="0.45" stopColor="#226972" />
+          <stop offset="0.6" stopColor="#1a5057" />
+          <stop offset="0.92" stopColor="#061113" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -137,11 +137,11 @@ export function BrandMark({
           <stop offset="0.01" stopColor="#181919" />
           <stop offset="0.11" stopColor="#3d4044" />
           <stop offset="0.22" stopColor="#5c6067" />
-          <stop offset="0.32" stopColor="#747a83" />
-          <stop offset="0.43" stopColor="#858c96" />
-          <stop offset="0.53" stopColor="#8f96a2" />
-          <stop offset="0.64" stopColor="#929aa6" />
-          <stop offset="0.71" stopColor="#a5aab2" />
+          <stop offset="0.32" stopColor="#748183" />
+          <stop offset="0.43" stopColor="#859496" />
+          <stop offset="0.53" stopColor="#8fa0a2" />
+          <stop offset="0.64" stopColor="#92a4a6" />
+          <stop offset="0.71" stopColor="#a5b0b2" />
           <stop offset="0.8" stopColor="#b8babe" />
           <stop offset="0.9" stopColor="#c3c4c5" />
           <stop offset="1" stopColor="#c7c7c7" />
@@ -158,12 +158,12 @@ export function BrandMark({
           <stop offset="0" stopColor="#141414" />
           <stop offset="0.13" stopColor="#383b3e" />
           <stop offset="0.28" stopColor="#5f646b" />
-          <stop offset="0.42" stopColor="#7b818b" />
-          <stop offset="0.54" stopColor="#8c939f" />
-          <stop offset="0.62" stopColor="#929aa6" />
-          <stop offset="0.72" stopColor="#a6acb6" />
-          <stop offset="0.92" stopColor="#d9dce1" />
-          <stop offset="0.99" stopColor="#edeff2" />
+          <stop offset="0.42" stopColor="#7b898b" />
+          <stop offset="0.54" stopColor="#8c9d9f" />
+          <stop offset="0.62" stopColor="#92a4a6" />
+          <stop offset="0.72" stopColor="#a6b4b6" />
+          <stop offset="0.92" stopColor="#d9e0e1" />
+          <stop offset="0.99" stopColor="#edf1f2" />
         </linearGradient>
         <linearGradient
           id={`${uid}-g5`}
@@ -177,10 +177,10 @@ export function BrandMark({
           <stop offset="0" stopColor="#141414" />
           <stop offset="0.07" stopColor="#1e1f20" />
           <stop offset="0.19" stopColor="#393b3e" />
-          <stop offset="0.36" stopColor="#636870" />
-          <stop offset="0.52" stopColor="#929aa6" />
-          <stop offset="0.61" stopColor="#a0a7b1" />
-          <stop offset="0.77" stopColor="#c4c9cf" />
+          <stop offset="0.36" stopColor="#636e70" />
+          <stop offset="0.52" stopColor="#92a4a6" />
+          <stop offset="0.61" stopColor="#a0afb1" />
+          <stop offset="0.77" stopColor="#c4cecf" />
           <stop offset="1" stopColor="#fff" />
         </linearGradient>
       </defs>
