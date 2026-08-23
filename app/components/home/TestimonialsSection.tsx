@@ -20,9 +20,14 @@ export function TestimonialsSection() {
                 <blockquote className="text-lg leading-snug font-semibold text-balance text-ink">
                   {testimonial.quote}
                 </blockquote>
-                <figcaption className="flex flex-col gap-0.5">
+                <figcaption className="flex flex-col gap-1">
                   <span className="text-sm font-semibold text-ink">{testimonial.name}</span>
-                  <span className="font-mono text-xs text-steel-600">{testimonial.company}</span>
+                  {/* Role before company: it is the job title that tells a
+                      procurement reader this came from their opposite number
+                      rather than from a managing director. */}
+                  <span className="font-mono text-xs leading-relaxed text-steel-600">
+                    {testimonial.role}, {testimonial.company}
+                  </span>
                 </figcaption>
               </figure>
             </Reveal>
