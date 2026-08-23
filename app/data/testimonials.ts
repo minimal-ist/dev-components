@@ -31,17 +31,3 @@ export const testimonials: Testimonial[] = [
     company: "Prismatic Engineering",
   },
 ];
-
-/**
- * Named customers legible on the live logo wall.
- *
- * TODO(content): the live site shows 15 logos; only these were legible in the
- * page source. Add the rest when the client supplies the list, ideally as SVG.
- */
-export const clients: string[] = [
-  "Elettromil",
-  "V-Guard",
-  "Salzer",
-  "Trafomec India",
-  "SaveWatt",
-];
