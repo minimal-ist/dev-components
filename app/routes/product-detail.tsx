@@ -205,7 +205,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                   viewTransition
                   className="group flex flex-col gap-2 border-t border-steel-400 pt-5 transition-colors hover:border-accent"
                 >
-                  <span className="text-lg leading-tight font-bold text-ink">
+                  <span className="font-display text-lg leading-tight font-bold text-ink">
                     {other.name}
                   </span>
                   <span className="font-mono text-xs text-steel-600">

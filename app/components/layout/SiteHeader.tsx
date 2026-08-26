@@ -93,7 +93,7 @@ export function SiteHeader() {
                         viewTransition
                         className="group flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-sheet-sunk"
                       >
-                        <span className="text-sm font-semibold text-ink">
+                        <span className="font-display text-sm font-semibold text-ink">
                           {product.name}
                         </span>
                         <span className="font-mono text-[0.6875rem] text-steel-500">
