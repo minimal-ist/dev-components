@@ -39,7 +39,7 @@ export default function Contact() {
                 <div className="mt-6 flex flex-col gap-3">
                   <a
                     href={company.phoneHref}
-                    className="flex min-h-12 items-center gap-3 accent-fill px-5 font-mono text-sm tracking-[0.08em] text-on-accent transition-[filter] hover:brightness-95"
+                    className="flex min-h-12 items-center gap-3 accent-fill px-5 text-sm font-semibold tracking-[0.08em] text-on-accent transition-[filter] hover:brightness-95"
                   >
                     <Phone className="size-4" aria-hidden="true" />
                     {company.phone}
@@ -48,14 +48,14 @@ export default function Contact() {
                     href={company.whatsappHref}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="flex min-h-12 items-center gap-3 border border-steel-400 px-5 font-mono text-sm tracking-[0.08em] text-ink transition-colors hover:border-ink"
+                    className="flex min-h-12 items-center gap-3 border border-steel-400 px-5 text-sm font-semibold tracking-[0.08em] text-ink transition-colors hover:border-ink"
                   >
                     <MessageCircle className="size-4" aria-hidden="true" />
                     WhatsApp
                   </a>
                   <a
                     href={company.emailHref}
-                    className="flex min-h-12 items-center gap-3 border border-steel-400 px-5 font-mono text-sm tracking-[0.08em] text-ink transition-colors hover:border-ink"
+                    className="flex min-h-12 items-center gap-3 border border-steel-400 px-5 text-sm font-semibold tracking-[0.08em] text-ink transition-colors hover:border-ink"
                   >
                     <Mail className="size-4" aria-hidden="true" />
                     {company.email}
@@ -72,7 +72,7 @@ export default function Contact() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex min-h-11 items-center font-mono text-xs tracking-[0.1em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
+                        className="inline-flex min-h-11 items-center text-xs font-semibold tracking-[0.1em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
                       >
                         {item.name}
                       </a>

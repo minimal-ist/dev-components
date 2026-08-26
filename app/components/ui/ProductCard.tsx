@@ -49,7 +49,7 @@ export function ProductCard({
         <p className="font-mono text-xs leading-relaxed text-steel-600">
           {product.tagline}
         </p>
-        <span className="mt-auto flex items-center gap-1.5 pt-4 font-mono text-[0.6875rem] tracking-[0.14em] text-accent-ink uppercase">
+        <span className="mt-auto flex items-center gap-1.5 pt-4 text-[0.6875rem] font-semibold tracking-[0.14em] text-accent-ink uppercase">
           View specs
           <ArrowUpRight
             className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

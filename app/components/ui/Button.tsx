@@ -5,7 +5,7 @@ import { cn } from "~/lib/cn";
 type Variant = "primary" | "outline" | "outlineDark" | "ghost";
 
 const base =
-  "inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 font-mono text-xs " +
+  "inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 text-xs font-semibold " +
   "tracking-[0.14em] uppercase transition-[color,background-color,border-color,filter] duration-200 ease-(--ease-out-quint)";
 
 const variants: Record<Variant, string> = {

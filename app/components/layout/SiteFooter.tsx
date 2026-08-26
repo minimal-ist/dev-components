@@ -98,7 +98,7 @@ export function SiteFooter() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex min-h-8 items-center py-1.5 font-mono text-[0.6875rem] tracking-[0.1em] text-steel-400 uppercase transition-colors hover:text-accent-soft"
+                        className="inline-flex min-h-8 items-center py-1.5 text-[0.6875rem] font-semibold tracking-[0.1em] text-steel-400 uppercase transition-colors hover:text-accent-soft"
                       >
                         {item.name}
                       </a>

@@ -73,7 +73,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
           <Link
             to="/products"
             viewTransition
-            className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.12em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
+            className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
           >
             <ArrowLeft className="size-3.5" aria-hidden="true" />
             All products
