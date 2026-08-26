@@ -1,32 +1,105 @@
 /**
- * Which palette the site renders in.
+ * Palettes.
  *
- * Change ACTIVE_THEME and the whole site repaints — surfaces, ink, accent,
- * band gradients and the logo's metallic ramp. The values themselves live in
- * app/styles/themes.css, one block per palette.
+ * Values live in app/styles/themes.css, one block per palette. This file lists
+ * them, picks the default, and carries the labels the preview picker shows.
  *
- * Override at build time without touching code:
+ * Set the default with ACTIVE_THEME below, or at build time:
  *
- *   VITE_THEME=teal-crimson npm run build
+ *   VITE_THEME=marigold-ink npm run build
  */
-export const THEMES = ["navy-amber", "teal-crimson"] as const;
+export type Theme =
+  | "amber-steel"
+  | "marigold-ink"
+  | "saffron-graphite"
+  | "honey-charcoal"
+  | "navy-amber"
+  | "teal-crimson";
 
-export type Theme = (typeof THEMES)[number];
+export type PaletteInfo = {
+  id: Theme;
+  label: string;
+  note: string;
+  /** Shown as the swatch on the picker tab: [ground, accent, dark]. */
+  swatch: [string, string, string];
+  /** Whether the preview picker offers it. */
+  listed: boolean;
+};
 
-const requested = import.meta.env.VITE_THEME as string | undefined;
+export const PALETTES: PaletteInfo[] = [
+  {
+    id: "amber-steel",
+    label: "Amber Steel",
+    note: "Brand orange on warm white over charcoal. Closest to the brand book without the navy.",
+    swatch: ["#f4f3f1", "#ff6f00", "#1c1b19"],
+    listed: true,
+  },
+  {
+    id: "marigold-ink",
+    label: "Marigold",
+    note: "Golden yellow on ivory over brown-black. The warmest of the four.",
+    swatch: ["#faf7f0", "#f5a300", "#1e1a14"],
+    listed: true,
+  },
+  {
+    id: "saffron-graphite",
+    label: "Saffron",
+    note: "Deep saffron on cool white over graphite. Highest contrast, most industrial.",
+    swatch: ["#f2f2f0", "#e8590c", "#232320"],
+    listed: true,
+  },
+  {
+    id: "honey-charcoal",
+    label: "Honey",
+    note: "Honey yellow on cream over near-black. The lightest and softest.",
+    swatch: ["#fbf8f3", "#ffb300", "#17171a"],
+    listed: true,
+  },
+  // Kept so the earlier directions can still be shown on request, but off the
+  // picker: the client asked for white with orange or yellow, and offering a
+  // navy or teal tab invites a decision they have already made.
+  {
+    id: "navy-amber",
+    label: "Navy & Amber",
+    note: "The brand-book palette.",
+    swatch: ["#e6edec", "#ff6f00", "#0e2251"],
+    listed: false,
+  },
+  {
+    id: "teal-crimson",
+    label: "Teal & Crimson",
+    note: "The supplied swatch palette.",
+    swatch: ["#e9e9e7", "#8e1b22", "#0e2931"],
+    listed: false,
+  },
+];
+
+export const THEMES = PALETTES.map((p) => p.id);
+
+/** Where the picker stores the visitor's choice. */
+export const THEME_STORAGE_KEY = "dev-components-theme";
 
 function resolve(value: string | undefined): Theme {
-  // An unknown name would silently fall through to the default palette with
-  // no indication why, so it is worth being loud about in development.
   if (value && !THEMES.includes(value as Theme)) {
     if (import.meta.env.DEV) {
       console.warn(
-        `[theme] Unknown theme "${value}". Expected one of: ${THEMES.join(", ")}. Falling back to navy-amber.`,
+        `[theme] Unknown theme "${value}". Expected one of: ${THEMES.join(", ")}. Falling back to amber-steel.`,
       );
     }
-    return "navy-amber";
+    return "amber-steel";
   }
-  return (value as Theme) ?? "navy-amber";
+  return (value as Theme) ?? "amber-steel";
 }
 
-export const ACTIVE_THEME: Theme = resolve(requested);
+export const ACTIVE_THEME: Theme = resolve(
+  import.meta.env.VITE_THEME as string | undefined,
+);
+
+/**
+ * Whether the floating palette picker is rendered.
+ *
+ * On by default so the client can compare on the deployed preview. Turn it off
+ * for the real launch with VITE_THEME_PICKER=off — one flag, no code change.
+ */
+export const SHOW_THEME_PICKER =
+  (import.meta.env.VITE_THEME_PICKER as string | undefined) !== "off";

@@ -28,7 +28,6 @@
    orange on navy ........... 5.66:1  passes  -> accent works as text on bands
    #9a4100 on paper ......... 5.65:1  passes  -> --p-accent-ink
 -------------------------------------------------------------------------- */
-:root,
 [data-theme="navy-amber"] {
   --p-sheet: #e6edec;
   --p-sheet-raised: #f1f5f4;
@@ -119,5 +118,198 @@
   --p-band-bloom-1: #2b7574;
   --p-band-bloom-1-strength: 22%;
   --p-band-bloom-2-strength: 26%;
+  --p-band-accent-bloom-strength: 30%;
+}
+
+/* --- amber-steel ---------------------------------------------------------------
+   Vivid brand orange on warm white, neutral charcoal dark. Closest to the brand book without the navy.
+   accent on paper 2.52:1 — a FILL, never small text.
+   --p-accent-ink carries accent-coloured text on light; --p-on-accent is what
+   sits on the fill itself.
+-------------------------------------------------------------------------- */
+:root,
+[data-theme="amber-steel"] {
+  --p-sheet: #f4f3f1;
+  --p-sheet-raised: #fafaf9;
+  --p-sheet-sunk: #dedddb;
+
+  --p-ink: #1c1b19;
+  --p-ink-deep: #0f0f0e;
+  --p-steel-900: #363533;
+  --p-steel-800: #434240;
+  --p-steel-700: #535250;
+  --p-steel-600: #61605e;
+  --p-steel-500: #6e6d6b;
+  --p-steel-400: #a2a19f;
+  --p-steel-300: #b8b7b5;
+  --p-steel-200: #c9c8c6;
+  --p-steel-100: #dad9d7;
+
+  --p-accent: #ff6f00;
+  --p-accent-deep: #b54f00;
+  --p-accent-warm: #ffb300;
+  --p-accent-ink: #b54f00;
+  --p-accent-light: #ff7001;
+  --p-accent-soft: #dad9d7;
+  --p-on-accent: #1c1b19;
+
+  --p-brand-blue: #ff6f00;
+  --p-brand-hue: 26;
+
+  --p-band-a: #333230;
+  --p-band-b: #1c1b19;
+  --p-band-c: #272625;
+  --p-band-accent-a: #1c1b19;
+  --p-band-accent-b: #272625;
+  --p-band-accent-c: #333230;
+  --p-footer-a: #333230;
+  --p-footer-b: #1c1b19;
+  --p-band-bloom-1: #ff8f1f;
+  --p-band-bloom-1-strength: 16%;
+  --p-band-bloom-2-strength: 22%;
+  --p-band-accent-bloom-strength: 30%;
+}
+
+/* --- marigold-ink ---------------------------------------------------------------
+   Golden yellow on ivory over a brown-black. Warmest of the four.
+   accent on paper 1.94:1 — a FILL, never small text.
+   --p-accent-ink carries accent-coloured text on light; --p-on-accent is what
+   sits on the fill itself.
+-------------------------------------------------------------------------- */
+[data-theme="marigold-ink"] {
+  --p-sheet: #faf7f0;
+  --p-sheet-raised: #fdfbf8;
+  --p-sheet-sunk: #e4e1da;
+
+  --p-ink: #1e1a14;
+  --p-ink-deep: #110e0b;
+  --p-steel-900: #3b3731;
+  --p-steel-800: #48443e;
+  --p-steel-700: #57534d;
+  --p-steel-600: #66625c;
+  --p-steel-500: #736f69;
+  --p-steel-400: #a6a39c;
+  --p-steel-300: #bcb9b2;
+  --p-steel-200: #cecbc4;
+  --p-steel-100: #e0dcd6;
+
+  --p-accent: #f5a300;
+  --p-accent-deep: #996600;
+  --p-accent-warm: #ffd24d;
+  --p-accent-ink: #996600;
+  --p-accent-light: #f5a300;
+  --p-accent-soft: #e0dcd6;
+  --p-on-accent: #1e1a14;
+
+  --p-brand-blue: #f5a300;
+  --p-brand-hue: 40;
+
+  --p-band-a: #35312c;
+  --p-band-b: #1e1a14;
+  --p-band-c: #292520;
+  --p-band-accent-a: #1e1a14;
+  --p-band-accent-b: #292520;
+  --p-band-accent-c: #35312c;
+  --p-footer-a: #35312c;
+  --p-footer-b: #1e1a14;
+  --p-band-bloom-1: #f5a300;
+  --p-band-bloom-1-strength: 16%;
+  --p-band-bloom-2-strength: 22%;
+  --p-band-accent-bloom-strength: 30%;
+}
+
+/* --- saffron-graphite ---------------------------------------------------------------
+   Deep saffron on cool white over graphite. Highest contrast, most industrial.
+   accent on paper 3.19:1 — a FILL, never small text.
+   --p-accent-ink carries accent-coloured text on light; --p-on-accent is what
+   sits on the fill itself.
+-------------------------------------------------------------------------- */
+[data-theme="saffron-graphite"] {
+  --p-sheet: #f2f2f0;
+  --p-sheet-raised: #f9f9f8;
+  --p-sheet-sunk: #dddddb;
+
+  --p-ink: #232320;
+  --p-ink-deep: #131312;
+  --p-steel-900: #353532;
+  --p-steel-800: #41413e;
+  --p-steel-700: #52524f;
+  --p-steel-600: #60605d;
+  --p-steel-500: #6c6c6a;
+  --p-steel-400: #a3a3a1;
+  --p-steel-300: #b8b8b6;
+  --p-steel-200: #c9c9c6;
+  --p-steel-100: #d9d9d7;
+
+  --p-accent: #e8590c;
+  --p-accent-deep: #bc480a;
+  --p-accent-warm: #fa9b3d;
+  --p-accent-ink: #bc480a;
+  --p-accent-light: #ef8952;
+  --p-accent-soft: #d9d9d7;
+  --p-on-accent: #000000;
+
+  --p-brand-blue: #e8590c;
+  --p-brand-hue: 21;
+
+  --p-band-a: #2c2c29;
+  --p-band-b: #232320;
+  --p-band-c: #2e2e2b;
+  --p-band-accent-a: #232320;
+  --p-band-accent-b: #2e2e2b;
+  --p-band-accent-c: #2c2c29;
+  --p-footer-a: #2c2c29;
+  --p-footer-b: #232320;
+  --p-band-bloom-1: #e8590c;
+  --p-band-bloom-1-strength: 16%;
+  --p-band-bloom-2-strength: 22%;
+  --p-band-accent-bloom-strength: 30%;
+}
+
+/* --- honey-charcoal ---------------------------------------------------------------
+   Honey yellow on cream over near-black. Lightest and softest.
+   accent on paper 1.69:1 — a FILL, never small text.
+   --p-accent-ink carries accent-coloured text on light; --p-on-accent is what
+   sits on the fill itself.
+-------------------------------------------------------------------------- */
+[data-theme="honey-charcoal"] {
+  --p-sheet: #fbf8f3;
+  --p-sheet-raised: #fdfcfa;
+  --p-sheet-sunk: #e4e2dd;
+
+  --p-ink: #17171a;
+  --p-ink-deep: #0d0d0e;
+  --p-steel-900: #383839;
+  --p-steel-800: #464546;
+  --p-steel-700: #565556;
+  --p-steel-600: #636263;
+  --p-steel-500: #717070;
+  --p-steel-400: #a4a3a1;
+  --p-steel-300: #bbb9b6;
+  --p-steel-200: #cdcbc8;
+  --p-steel-100: #e0ddd9;
+
+  --p-accent: #ffb300;
+  --p-accent-deep: #956900;
+  --p-accent-warm: #ffd970;
+  --p-accent-ink: #956900;
+  --p-accent-light: #ffb300;
+  --p-accent-soft: #e0ddd9;
+  --p-on-accent: #17171a;
+
+  --p-brand-blue: #ffb300;
+  --p-brand-hue: 42;
+
+  --p-band-a: #2e2e31;
+  --p-band-b: #17171a;
+  --p-band-c: #232325;
+  --p-band-accent-a: #17171a;
+  --p-band-accent-b: #232325;
+  --p-band-accent-c: #2e2e31;
+  --p-footer-a: #2e2e31;
+  --p-footer-b: #17171a;
+  --p-band-bloom-1: #ffb300;
+  --p-band-bloom-1-strength: 16%;
+  --p-band-bloom-2-strength: 22%;
   --p-band-accent-bloom-strength: 30%;
 }

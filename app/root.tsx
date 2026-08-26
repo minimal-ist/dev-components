@@ -7,10 +7,11 @@ import {
   isRouteErrorResponse,
 } from "react-router";
 
-import { ACTIVE_THEME } from "~/lib/theme";
+import { ACTIVE_THEME, SHOW_THEME_PICKER } from "~/lib/theme";
 import { organizationSchema } from "~/lib/schema";
 
 import { MobileContactBar } from "~/components/layout/MobileContactBar";
+import { ThemePicker } from "~/components/layout/ThemePicker";
 import { SiteFooter } from "~/components/layout/SiteFooter";
 import { SiteHeader } from "~/components/layout/SiteHeader";
 
@@ -64,6 +65,7 @@ export default function App() {
       </main>
       <SiteFooter />
       <MobileContactBar />
+      {SHOW_THEME_PICKER ? <ThemePicker /> : null}
     </div>
   );
 }

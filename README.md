@@ -89,23 +89,39 @@ from generated geometry and is the site's signature element.
 
 ## Changing the palette
 
-The site ships two palettes and switches between them with one constant.
-Edit `ACTIVE_THEME` in `app/lib/theme.ts`:
+Six palettes ship. Four are white-ground with an orange or yellow accent over a
+neutral dark; two earlier directions are kept but hidden from the picker.
 
-```ts
-export const ACTIVE_THEME: Theme = "navy-amber"; // or "teal-crimson"
-```
+| id | ground | accent | dark |
+| --- | --- | --- | --- |
+| `amber-steel` *(default)* | warm white | brand orange | charcoal |
+| `marigold-ink` | ivory | golden yellow | brown-black |
+| `saffron-graphite` | cool white | deep saffron | graphite |
+| `honey-charcoal` | cream | honey yellow | near-black |
+| `navy-amber` | brand book | orange | navy |
+| `teal-crimson` | supplied swatch | crimson | dark teal |
 
-Or override at build time without touching code:
+### The preview picker
+
+A floating picker lets the client compare palettes on the real pages rather
+than in a mockup. It is on by default. **Turn it off for launch:**
 
 ```bash
-VITE_THEME=teal-crimson npm run build
+VITE_THEME_PICKER=off npm run build
 ```
 
-Colour values live in `app/styles/themes.css`, one block per palette, and
-nowhere else. `app/styles/app.css` maps them onto Tailwind with `@theme inline`, which
-emits utilities that *reference* the variable rather than copying its value —
-that indirection is what lets a palette swap without a rebuild.
+It writes `data-theme` on the root element and never re-renders the page — the
+swap is pure CSS variable resolution. `localStorage` is read in an effect,
+never during render, so the pre-rendered HTML is identical for every visitor
+and hydration has nothing to mismatch on.
+
+### Setting the default
+
+Edit `ACTIVE_THEME` in `app/lib/theme.ts`, or:
+
+```bash
+VITE_THEME=marigold-ink npm run build
+```
 
 ### Adding a palette
 
@@ -141,11 +157,16 @@ the sitemap. `app/lib/meta.ts` holds the same value for canonical and OG tags.
 
 ## Outstanding
 
-- The client logo wall lists only the five names legible in the old page source.
-  The full list of sixteen is legible in the company brochure.
+- The preview palette picker is **on**. Build with `VITE_THEME_PICKER=off`
+  before launch.
+- `ISO 14001:2015` is published as a certification but does not appear on the
+  client's own certification medal. Confirm it is current.
+- The contact form has no `VITE_WEB3FORMS_ACCESS_KEY` in CI, so enquiries route
+  to phone and WhatsApp rather than email.
 - `app/lib/meta.ts` sets `SITE_URL` to `https://stampinglaminations.com`, which
   drives every canonical and OG URL. The company email is on `devcomponents.in`
-  — if the site is moving to that domain, change `SITE_URL` before launch.
+  — if the site moves, change it before launch.
+- Seven factory photographs sit in `public/images/factory/` unreferenced.
 - Product photography is reused from the old site and is low resolution. Images
   render with `mix-blend-multiply` so their white backgrounds drop out; higher
   resolution files can be swapped into `public/images/products/` under the same
