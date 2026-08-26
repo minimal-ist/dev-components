@@ -86,22 +86,27 @@
      them, which is what kept columns of measurements aligned. */
   --font-mono: "Figtree", "Helvetica Neue", Arial, sans-serif;
 
-  /* Fluid scale. Display sizes are deliberately large — the headline is
+  /* Line heights are tuned to the display face's ink extent, not picked for
+     looks. Poppins at 72px paints 79px tall; a 0.95 line box is 68.4px, so
+     descenders escaped the element and collided with the text below. Re-measure
+     these if the display face ever changes.
+
+     Fluid scale. Display sizes are deliberately large — the headline is
      the loudest object on any page, so nothing else has to shout. */
   --text-display-xl: clamp(2.75rem, 8.5vw, 7rem);
-  --text-display-xl--line-height: 0.92;
+  --text-display-xl--line-height: 1.1;
   --text-display-xl--letter-spacing: -0.035em;
 
   --text-display-lg: clamp(2.25rem, 6vw, 4.5rem);
-  --text-display-lg--line-height: 0.95;
+  --text-display-lg--line-height: 1.1;
   --text-display-lg--letter-spacing: -0.03em;
 
   --text-display-md: clamp(1.75rem, 4vw, 3rem);
-  --text-display-md--line-height: 1;
+  --text-display-md--line-height: 1.12;
   --text-display-md--letter-spacing: -0.025em;
 
   --text-display-sm: clamp(1.375rem, 2.5vw, 1.875rem);
-  --text-display-sm--line-height: 1.1;
+  --text-display-sm--line-height: 1.2;
   --text-display-sm--letter-spacing: -0.02em;
 
   --text-eyebrow: 0.6875rem;
