@@ -72,8 +72,19 @@
      root.tsx. */
   --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
   --font-sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
-  --font-mono:
-    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+/* Two faces only, by request.
+
+     This slot was IBM Plex Mono and carried every specification, capability
+     figure, stage number and eyebrow. It now resolves to the body face, so the
+     site renders in Poppins and Figtree and nothing else.
+
+     The `font-mono` class names are left in the markup on purpose: they mark
+     the places that were deliberately monospaced, and restoring the mono
+     treatment is this one declaration plus the font link in root.tsx.
+
+     Tabular figures still apply to those elements where the face supports
+     them, which is what kept columns of measurements aligned. */
+  --font-mono: "Figtree", "Helvetica Neue", Arial, sans-serif;
 
   /* Fluid scale. Display sizes are deliberately large — the headline is
      the loudest object on any page, so nothing else has to shout. */
