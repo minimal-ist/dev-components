@@ -1,0 +1,123 @@
+/* ---------------------------------------------------------------------------
+   Palettes
+
+   Every colour the site uses is declared here twice — once per palette — and
+   nowhere else. app.css maps these onto Tailwind's theme with `@theme inline`,
+   which makes the utilities reference the variable rather than copy its value,
+   so a palette swaps at runtime by changing one attribute on <html>.
+
+   Switch with ACTIVE_THEME in app/lib/theme.ts, or VITE_THEME at build time.
+
+   ADDING A PALETTE
+   Copy a block, change the values, and add the name to the union in
+   app/lib/theme.ts. Two rules decide whether it will actually work:
+
+     1. --p-on-accent is the text colour that sits ON an accent fill. It is a
+        per-palette decision, not a constant: navy text clears 5.51:1 on the
+        amber accent, while the same navy is 1.69:1 on crimson and unreadable.
+     2. --p-accent-ink is the accent as text on a LIGHT surface, and
+        --p-accent-light is the accent as text on a DARK band. One palette may
+        need both to differ sharply from --p-accent; another may not.
+
+   Numbers below are measured contrast, not estimates.
+--------------------------------------------------------------------------- */
+
+/* --- Navy and amber — the brand book palette ------------------------------
+   orange on paper .......... 2.27:1  fails, so accent is never small text here
+   navy on orange ........... 5.51:1  passes  -> --p-on-accent is navy
+   orange on navy ........... 5.66:1  passes  -> accent works as text on bands
+   #9a4100 on paper ......... 5.65:1  passes  -> --p-accent-ink
+-------------------------------------------------------------------------- */
+:root,
+[data-theme="navy-amber"] {
+  --p-sheet: #e6edec;
+  --p-sheet-raised: #f1f5f4;
+  --p-sheet-sunk: #d1dcdb;
+
+  --p-ink: #0e2251;
+  --p-ink-deep: #060a14;
+  --p-steel-900: #1c2e5b;
+  --p-steel-800: #2b3d66;
+  --p-steel-700: #3c4e72;
+  --p-steel-600: #4e5e7f;
+  --p-steel-500: #5a6987;
+  --p-steel-400: #94a0b1;
+  --p-steel-300: #aab4c1;
+  --p-steel-200: #bbc4cd;
+  --p-steel-100: #ccd5d9;
+
+  --p-accent: #ff6f00;
+  --p-accent-deep: #cc5800;
+  --p-accent-warm: #ffb300;
+  --p-accent-ink: #9a4100;
+  --p-accent-light: #ff6f00;
+  --p-accent-soft: #ffd9b3;
+  --p-on-accent: #0e2251;
+
+  --p-brand-blue: #1335ff;
+  /* Hue the logo's metallic ramp is rendered at. */
+  --p-brand-hue: 215;
+
+  /* Dark band gradients. `-a` is the lightest stop and therefore the one that
+     decides whether on-dark text passes. */
+  --p-band-a: #0e2251;
+  --p-band-b: #071634;
+  --p-band-c: #0a1c42;
+  --p-band-accent-a: #0e2251;
+  --p-band-accent-b: #14264f;
+  --p-band-accent-c: #1b2c55;
+  --p-footer-a: #0c1c42;
+  --p-footer-b: #09142e;
+  --p-band-bloom-1: var(--p-brand-blue);
+  --p-band-bloom-1-strength: 22%;
+  --p-band-bloom-2-strength: 18%;
+  --p-band-accent-bloom-strength: 34%;
+}
+
+/* --- Teal and crimson — the swatch the client supplied --------------------
+   crimson on paper ......... 7.41:1  passes, so crimson IS a text colour
+   white on crimson ......... 9.01:1  passes  -> --p-on-accent is white
+   crimson on dark teal ..... 1.69:1  FAILS   -> --p-accent-light must differ
+   #ff8a8f on dark teal ..... 5.33:1  passes  -> --p-accent-light
+-------------------------------------------------------------------------- */
+[data-theme="teal-crimson"] {
+  --p-sheet: #e9e9e7;
+  --p-sheet-raised: #f2f2f0;
+  --p-sheet-sunk: #d8d9d6;
+
+  --p-ink: #0e2931;
+  --p-ink-deep: #071a20;
+  --p-steel-900: #183239;
+  --p-steel-800: #284047;
+  --p-steel-700: #3a4f55;
+  --p-steel-600: #4c6065;
+  --p-steel-500: #586a6f;
+  --p-steel-400: #96a0a2;
+  --p-steel-300: #acb3b4;
+  --p-steel-200: #bdc3c3;
+  --p-steel-100: #cfd2d1;
+
+  --p-accent: #8e1b22;
+  --p-accent-deep: #6f141a;
+  --p-accent-warm: #c2454b;
+  --p-accent-ink: #8e1b22;
+  --p-accent-light: #ff8a8f;
+  --p-accent-soft: #f4dadb;
+  --p-on-accent: #ffffff;
+
+  --p-brand-blue: #1335ff;
+  --p-brand-hue: 187;
+
+  --p-band-a: #0f3c40;
+  --p-band-b: #0e2931;
+  --p-band-c: #103539;
+  --p-band-accent-a: #0e2931;
+  --p-band-accent-b: #0e3438;
+  --p-band-accent-c: #0f3c40;
+  --p-footer-a: #0f3c40;
+  --p-footer-b: #0b2429;
+  --p-band-bloom-1: #2b7574;
+  --p-band-bloom-1-strength: 22%;
+  --p-band-bloom-2-strength: 26%;
+  --p-band-accent-bloom-strength: 30%;
+}

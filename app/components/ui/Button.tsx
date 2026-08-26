@@ -9,12 +9,12 @@ const base =
   "tracking-[0.14em] uppercase transition-[color,background-color,border-color,filter] duration-200 ease-(--ease-out-quint)";
 
 const variants: Record<Variant, string> = {
-  primary: "accent-fill text-white hover:brightness-95",
+  primary: "accent-fill text-on-accent hover:brightness-95",
   // Same crimson as primary, so a second action reads as equally important.
   // Outlined rather than a second solid fill: two identical solid buttons
   // compete for the same click and read as a mistake.
   outline:
-    "border border-accent text-accent-ink hover:bg-accent hover:text-white",
+    "border border-accent text-accent-ink hover:bg-accent hover:text-on-accent",
   // On a dark band the navy outline text disappears; this one inverts.
   outlineDark:
     "border border-white/30 text-sheet hover:border-white hover:bg-sheet hover:text-ink",

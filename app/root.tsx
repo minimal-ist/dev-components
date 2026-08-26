@@ -7,6 +7,7 @@ import {
   isRouteErrorResponse,
 } from "react-router";
 
+import { ACTIVE_THEME } from "~/lib/theme";
 import { organizationSchema } from "~/lib/schema";
 
 import { MobileContactBar } from "~/components/layout/MobileContactBar";
@@ -31,7 +32,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme={ACTIVE_THEME}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -16,12 +16,17 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.name} index={index} className="flex">
               <figure className="relative flex w-full flex-col justify-between gap-6 bg-sheet p-7 sm:p-9">
-                <span className="block h-[3px] w-10 accent-bar" aria-hidden="true" />
+                <span
+                  className="block h-[3px] w-10 accent-bar"
+                  aria-hidden="true"
+                />
                 <blockquote className="text-lg leading-snug font-semibold text-balance text-ink">
                   {testimonial.quote}
                 </blockquote>
                 <figcaption className="flex flex-col gap-1">
-                  <span className="text-sm font-semibold text-ink">{testimonial.name}</span>
+                  <span className="text-sm font-semibold text-ink">
+                    {testimonial.name}
+                  </span>
                   {/* Role before company: it is the job title that tells a
                       procurement reader this came from their opposite number
                       rather than from a managing director. */}

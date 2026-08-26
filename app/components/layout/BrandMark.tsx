@@ -23,6 +23,9 @@ export function BrandMark({
   className?: string;
 }) {
   const uid = useId().replace(/:/g, "");
+  // Read from the palette rather than baked in, so the mark re-hues with the
+  // rest of the site. Falls back to the brand-book navy.
+  const hue = "var(--p-brand-hue, 215)";
 
   if (tone === "dark") {
     return (
@@ -62,19 +65,19 @@ export function BrandMark({
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" />
-          <stop offset="0.02" stopColor="#071719" />
-          <stop offset="0.06" stopColor="#103034" />
-          <stop offset="0.1" stopColor="#16454b" />
-          <stop offset="0.14" stopColor="#1c555d" />
-          <stop offset="0.2" stopColor="#1f6069" />
-          <stop offset="0.27" stopColor="#216770" />
-          <stop offset="0.45" stopColor="#226972" />
-          <stop offset="0.51" stopColor="#286d76" />
-          <stop offset="0.59" stopColor="#377780" />
-          <stop offset="0.67" stopColor="#518990" />
-          <stop offset="0.76" stopColor="#76a1a7" />
-          <stop offset="0.85" stopColor="#a4c1c5" />
-          <stop offset="0.95" stopColor="#dde8e9" />
+          <stop offset="0.02" stopColor={`hsl(${hue} 56.3% 6.3%)`} />
+          <stop offset="0.06" stopColor={`hsl(${hue} 52.9% 13.3%)`} />
+          <stop offset="0.1" stopColor={`hsl(${hue} 54.6% 19.0%)`} />
+          <stop offset="0.14" stopColor={`hsl(${hue} 53.7% 23.7%)`} />
+          <stop offset="0.2" stopColor={`hsl(${hue} 54.4% 26.7%)`} />
+          <stop offset="0.27" stopColor={`hsl(${hue} 54.5% 28.4%)`} />
+          <stop offset="0.45" stopColor={`hsl(${hue} 54.1% 29.0%)`} />
+          <stop offset="0.51" stopColor={`hsl(${hue} 49.4% 31.0%)`} />
+          <stop offset="0.59" stopColor={`hsl(${hue} 39.9% 35.9%)`} />
+          <stop offset="0.67" stopColor={`hsl(${hue} 28.0% 44.1%)`} />
+          <stop offset="0.76" stopColor={`hsl(${hue} 21.8% 55.9%)`} />
+          <stop offset="0.85" stopColor={`hsl(${hue} 22.1% 70.8%)`} />
+          <stop offset="0.95" stopColor={`hsl(${hue} 21.4% 89.0%)`} />
           <stop offset="1" stopColor="#fff" />
         </linearGradient>
         <linearGradient
@@ -87,19 +90,19 @@ export function BrandMark({
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" />
-          <stop offset="0.04" stopColor="#061315" />
-          <stop offset="0.1" stopColor="#103236" />
-          <stop offset="0.17" stopColor="#184a51" />
-          <stop offset="0.24" stopColor="#1e5b63" />
-          <stop offset="0.31" stopColor="#21656e" />
-          <stop offset="0.39" stopColor="#226972" />
-          <stop offset="0.49" stopColor="#256b74" />
-          <stop offset="0.58" stopColor="#30717a" />
-          <stop offset="0.66" stopColor="#417d85" />
-          <stop offset="0.74" stopColor="#5a8d94" />
-          <stop offset="0.81" stopColor="#7aa2a7" />
-          <stop offset="0.89" stopColor="#a2bbbe" />
-          <stop offset="0.96" stopColor="#cfd8d9" />
+          <stop offset="0.04" stopColor={`hsl(${hue} 55.6% 5.3%)`} />
+          <stop offset="0.1" stopColor={`hsl(${hue} 54.3% 13.7%)`} />
+          <stop offset="0.17" stopColor={`hsl(${hue} 54.3% 20.6%)`} />
+          <stop offset="0.24" stopColor={`hsl(${hue} 53.5% 25.3%)`} />
+          <stop offset="0.31" stopColor={`hsl(${hue} 53.8% 28.0%)`} />
+          <stop offset="0.39" stopColor={`hsl(${hue} 54.1% 29.0%)`} />
+          <stop offset="0.49" stopColor={`hsl(${hue} 51.6% 30.0%)`} />
+          <stop offset="0.58" stopColor={`hsl(${hue} 43.5% 33.3%)`} />
+          <stop offset="0.66" stopColor={`hsl(${hue} 34.3% 38.8%)`} />
+          <stop offset="0.74" stopColor={`hsl(${hue} 24.4% 46.7%)`} />
+          <stop offset="0.81" stopColor={`hsl(${hue} 20.4% 56.7%)`} />
+          <stop offset="0.89" stopColor={`hsl(${hue} 17.7% 69.0%)`} />
+          <stop offset="0.96" stopColor={`hsl(${hue} 11.6% 83.1%)`} />
           <stop offset="0.99" stopColor="#e8e8e8" />
         </linearGradient>
         <linearGradient
@@ -113,15 +116,15 @@ export function BrandMark({
         >
           <stop offset="0" stopColor="#c8c8c8" />
           <stop offset="0.02" stopColor="#b9bcc0" />
-          <stop offset="0.06" stopColor="#91a8ab" />
-          <stop offset="0.11" stopColor="#6e959a" />
-          <stop offset="0.16" stopColor="#53848b" />
-          <stop offset="0.22" stopColor="#3d7880" />
-          <stop offset="0.28" stopColor="#2e6f78" />
-          <stop offset="0.35" stopColor="#256a73" />
-          <stop offset="0.45" stopColor="#226972" />
-          <stop offset="0.6" stopColor="#1a5057" />
-          <stop offset="0.92" stopColor="#061113" />
+          <stop offset="0.06" stopColor={`hsl(${hue} 13.4% 62.0%)`} />
+          <stop offset="0.11" stopColor={`hsl(${hue} 17.9% 51.8%)`} />
+          <stop offset="0.16" stopColor={`hsl(${hue} 25.2% 43.5%)`} />
+          <stop offset="0.22" stopColor={`hsl(${hue} 35.4% 37.1%)`} />
+          <stop offset="0.28" stopColor={`hsl(${hue} 44.6% 32.5%)`} />
+          <stop offset="0.35" stopColor={`hsl(${hue} 51.3% 29.8%)`} />
+          <stop offset="0.45" stopColor={`hsl(${hue} 54.1% 29.0%)`} />
+          <stop offset="0.6" stopColor={`hsl(${hue} 54.0% 22.2%)`} />
+          <stop offset="0.92" stopColor={`hsl(${hue} 52.0% 4.9%)`} />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -137,11 +140,11 @@ export function BrandMark({
           <stop offset="0.01" stopColor="#181919" />
           <stop offset="0.11" stopColor="#3d4044" />
           <stop offset="0.22" stopColor="#5c6067" />
-          <stop offset="0.32" stopColor="#748183" />
-          <stop offset="0.43" stopColor="#859496" />
-          <stop offset="0.53" stopColor="#8fa0a2" />
-          <stop offset="0.64" stopColor="#92a4a6" />
-          <stop offset="0.71" stopColor="#a5b0b2" />
+          <stop offset="0.32" stopColor={`hsl(${hue} 6.1% 48.4%)`} />
+          <stop offset="0.43" stopColor={`hsl(${hue} 7.5% 55.5%)`} />
+          <stop offset="0.53" stopColor={`hsl(${hue} 9.3% 59.8%)`} />
+          <stop offset="0.64" stopColor={`hsl(${hue} 10.1% 61.2%)`} />
+          <stop offset="0.71" stopColor={`hsl(${hue} 7.8% 67.3%)`} />
           <stop offset="0.8" stopColor="#b8babe" />
           <stop offset="0.9" stopColor="#c3c4c5" />
           <stop offset="1" stopColor="#c7c7c7" />
@@ -158,12 +161,12 @@ export function BrandMark({
           <stop offset="0" stopColor="#141414" />
           <stop offset="0.13" stopColor="#383b3e" />
           <stop offset="0.28" stopColor="#5f646b" />
-          <stop offset="0.42" stopColor="#7b898b" />
-          <stop offset="0.54" stopColor="#8c9d9f" />
-          <stop offset="0.62" stopColor="#92a4a6" />
-          <stop offset="0.72" stopColor="#a6b4b6" />
-          <stop offset="0.92" stopColor="#d9e0e1" />
-          <stop offset="0.99" stopColor="#edf1f2" />
+          <stop offset="0.42" stopColor={`hsl(${hue} 6.5% 51.4%)`} />
+          <stop offset="0.54" stopColor={`hsl(${hue} 9.0% 58.6%)`} />
+          <stop offset="0.62" stopColor={`hsl(${hue} 10.1% 61.2%)`} />
+          <stop offset="0.72" stopColor={`hsl(${hue} 9.9% 68.2%)`} />
+          <stop offset="0.92" stopColor={`hsl(${hue} 11.8% 86.7%)`} />
+          <stop offset="0.99" stopColor={`hsl(${hue} 16.1% 93.9%)`} />
         </linearGradient>
         <linearGradient
           id={`${uid}-g5`}
@@ -177,10 +180,10 @@ export function BrandMark({
           <stop offset="0" stopColor="#141414" />
           <stop offset="0.07" stopColor="#1e1f20" />
           <stop offset="0.19" stopColor="#393b3e" />
-          <stop offset="0.36" stopColor="#636e70" />
-          <stop offset="0.52" stopColor="#92a4a6" />
-          <stop offset="0.61" stopColor="#a0afb1" />
-          <stop offset="0.77" stopColor="#c4cecf" />
+          <stop offset="0.36" stopColor={`hsl(${hue} 6.2% 41.4%)`} />
+          <stop offset="0.52" stopColor={`hsl(${hue} 10.1% 61.2%)`} />
+          <stop offset="0.61" stopColor={`hsl(${hue} 9.8% 66.1%)`} />
+          <stop offset="0.77" stopColor={`hsl(${hue} 10.3% 79.0%)`} />
           <stop offset="1" stopColor="#fff" />
         </linearGradient>
       </defs>

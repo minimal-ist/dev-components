@@ -57,18 +57,18 @@ published spec table is a commercial liability, not a copy problem.
 
 ## Design system
 
-Defined in `app/styles/app.css`.
+Structure lives in `app/styles/app.css`; colour lives in `app/styles/themes.css`
+and is documented under **Changing the palette** below.
 
 The product is a lamination: a sheet of silicon steel 0.20–0.50 mm thick, punched
 and stacked into a core. Two ideas drive the system:
 
-1. **Material.** The base is cold-rolled steel — a cool, faintly blue gray
-   (`--color-sheet`), not paper cream. Ink is a cool near-black.
+1. **Material.** The ground is the palette's paper and the ink is its darkest
+   tone — never a neutral grey. Every neutral in the ramp is the ink mixed
+   toward the paper, so the greys belong to the palette instead of sitting
+   beside it.
 2. **Tolerance.** Every number is a manufacturing claim, so numbers are set in
    mono (IBM Plex Mono) and carry the same weight as headlines.
-
-One accent only: `--color-accent`, an electric blue for the current these cores
-carry. It marks state and sequence, never decoration.
 
 Type is Archivo throughout, using its width axis — `wide` for headings and the
 wordmark, normal for body. `StatorMark` draws a real stator lamination profile
@@ -76,12 +76,57 @@ from generated geometry and is the site's signature element.
 
 ### Rules worth keeping
 
+- **Never hardcode a text colour on an accent fill.** Use `text-on-accent`.
 - **Nothing scrolls sideways.** Wide content goes inside a `scroll-x` container.
 - **Reveals fail open.** `Reveal` renders visible and only hides below-fold
   content after mount. Never ship `opacity: 0` in pre-rendered HTML.
 - **Numbering means order.** The eight process stages are the only numbered
   sequence on the site, because there the order is real.
-- Sections step one tone at a time (`sheet` → `raised` → `sunk` → `ink`).
+- Sections alternate light and dark; the dark ones are gradients, not flat
+  fills, so a large area keeps some depth.
+- The neutral ramp splits at 500: `900–500` are safe for text on that palette's
+  paper, `400–100` are borders only.
+
+## Changing the palette
+
+The site ships two palettes and switches between them with one constant.
+Edit `ACTIVE_THEME` in `app/lib/theme.ts`:
+
+```ts
+export const ACTIVE_THEME: Theme = "navy-amber"; // or "teal-crimson"
+```
+
+Or override at build time without touching code:
+
+```bash
+VITE_THEME=teal-crimson npm run build
+```
+
+Colour values live in `app/styles/themes.css`, one block per palette, and
+nowhere else. `app/styles/app.css` maps them onto Tailwind with `@theme inline`, which
+emits utilities that *reference* the variable rather than copying its value —
+that indirection is what lets a palette swap without a rebuild.
+
+### Adding a palette
+
+Copy a block in `themes.css`, change the values, add the name to `THEMES` in
+`app/lib/theme.ts`. Three tokens decide whether it will actually work:
+
+| Token | Meaning |
+| --- | --- |
+| `--p-on-accent` | Text that sits **on** an accent fill |
+| `--p-accent-ink` | The accent as text on a **light** surface |
+| `--p-accent-light` | The accent as text on a **dark** band |
+
+These are per-palette decisions, not constants. Navy text clears 5.51:1 on the
+amber accent but is 1.69:1 on crimson and unreadable; crimson reads fine on
+paper at 7.41:1 but dies on a dark band. That is why markup says
+`text-on-accent` and never a hardcoded colour — **never hardcode a text colour
+on an accent fill.** Getting it wrong is invisible in one palette and
+illegible in the next.
+
+The logo follows too: its metallic ramp keeps each stop's saturation and
+lightness but takes its hue from `--p-brand-hue`.
 
 ## Configuration
 

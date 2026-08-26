@@ -1,69 +1,63 @@
 @import "tailwindcss";
 
+@import "./themes.css";
+
 /* ---------------------------------------------------------------------------
    Dev Components — design tokens
 
-   Palette supplied by the client:
+   Colour lives in themes.css, one block per palette. This file only maps those
+   variables onto Tailwind's theme.
 
-     #0e2931  darkest teal      #12484c  deep teal      #2b7574  mid teal
-     #8e1b22  crimson           #e9e9e7  paper
+   `@theme inline` is what makes the swap work: it emits utilities that
+   reference the variable rather than copying its value, so changing
+   data-theme on <html> repaints the whole site with no rebuild. A plain
+   `@theme` would bake today's hex into every utility.
 
-   The crimson and paper values are read off the supplied swatch image, whose
-   labels were obscured; the three teals are its stated hexes.
+   The product is a lamination: a sheet of silicon steel 0.20-0.50 mm thick,
+   punched to a profile and stacked into a core. Numbers are manufacturing
+   claims, so they are set in mono and carry the same weight as headlines.
 
-   ACCESSIBILITY — this palette inverts two rules the previous orange one had.
-
-     crimson on paper .......... 7.41:1  passes, so crimson IS a text colour
-     white on crimson .......... 9.01:1  passes, so accent buttons take WHITE
-     crimson on dark teal ...... 1.69:1  FAILS — invisible on the dark bands
-     #ff8a8f on dark teal ...... 6.73:1  passes  <- --color-accent-light
-     mid teal on paper ......... 4.43:1  just short; fills and rules only
-
-   So: crimson for accent text on light and for fills with white text on top;
-   --color-accent-light for accent text on the dark bands, where crimson dies.
+   THE ONE RULE THAT SURVIVES EVERY PALETTE
+   Never hardcode a text colour on an accent fill. Use `text-on-accent`, which
+   each palette defines for itself — navy on amber, white on crimson. Getting
+   this wrong is invisible in one palette and unreadable in the next.
 --------------------------------------------------------------------------- */
 
-@theme {
+@theme inline {
   /* --- Surfaces --------------------------------------------------------- */
-  --color-sheet: #e9e9e7;
-  --color-sheet-raised: #f2f2f0;
-  --color-sheet-sunk: #d8d9d6;
+  --color-sheet: var(--p-sheet);
+  --color-sheet-raised: var(--p-sheet-raised);
+  --color-sheet-sunk: var(--p-sheet-sunk);
 
-  /* --- Ink and the teal-tinted neutral ramp ----------------------------
-     Each step is the darkest teal mixed toward the paper, solved against
-     contrast targets. 900–500 are safe for text; 400–100 are borders only.
-     Contrast on --color-sheet:
+  /* --- Ink and the neutral ramp -----------------------------------------
+     Each palette solves its own ramp against contrast targets: 900-500 are
+     safe for text on that palette's paper, 400-100 are borders only. */
+  --color-ink: var(--p-ink);
+  --color-ink-deep: var(--p-ink-deep);
+  --color-steel-900: var(--p-steel-900);
+  --color-steel-800: var(--p-steel-800);
+  --color-steel-700: var(--p-steel-700);
+  --color-steel-600: var(--p-steel-600);
+  --color-steel-500: var(--p-steel-500);
+  --color-steel-400: var(--p-steel-400);
+  --color-steel-300: var(--p-steel-300);
+  --color-steel-200: var(--p-steel-200);
+  --color-steel-100: var(--p-steel-100);
 
-       ink 12.52   900 11.11   800 9.02   700 7.11   600 5.45   500 4.66
-       400  2.20   300  1.75   200 1.47   100 1.25   <- borders only  */
-  --color-ink: #0e2931;
-  --color-steel-900: #183239;
-  --color-steel-800: #284047;
-  --color-steel-700: #3a4f55;
-  --color-steel-600: #4c6065;
-  --color-steel-500: #586a6f;
-  --color-steel-400: #96a0a2;
-  --color-steel-300: #acb3b4;
-  --color-steel-200: #bdc3c3;
-  --color-steel-100: #cfd2d1;
+  /* --- Accent -----------------------------------------------------------
+     accent      the fill
+     accent-ink  the accent as text on a LIGHT surface
+     accent-light the accent as text on a DARK band
+     on-accent   the text colour that sits ON an accent fill  */
+  --color-accent: var(--p-accent);
+  --color-accent-deep: var(--p-accent-deep);
+  --color-accent-warm: var(--p-accent-warm);
+  --color-accent-ink: var(--p-accent-ink);
+  --color-accent-light: var(--p-accent-light);
+  --color-accent-soft: var(--p-accent-soft);
+  --color-on-accent: var(--p-on-accent);
 
-  /* --- Accent: crimson -------------------------------------------------- */
-  --color-accent: #8e1b22;
-  --color-accent-deep: #6f141a;
-  /* Crimson already clears 7.41:1 on paper, so accent-ink is the same value.
-     The token stays so light-surface intent remains explicit in the markup. */
-  --color-accent-ink: #8e1b22;
-  --color-accent-light: #ff8a8f;
-  --color-accent-warm: #c2454b;
-  --color-accent-soft: #f4dadb;
-
-  /* --- Teals: the bands and their supporting tones ---------------------- */
-  --color-teal-deep: #12484c;
-  --color-teal: #2b7574;
-  --color-ink-deep: #071a20;
-
-  /* Kept so the logo can still be drawn in its own blue if wanted. */
-  --color-brand-blue: #1335ff;
+  --color-brand-blue: var(--p-brand-blue);
 
   /* --- Type ------------------------------------------------------------
      Archivo is a grotesque with a real width axis (62–125). Wide + heavy
@@ -327,48 +321,74 @@
    translucency has nothing to pick up and the border reads as a stray hairline.
 --------------------------------------------------------------------------- */
 
-/* The dark bands. Teal gradients rather than flat fills, so a large area
-   keeps some depth, with a crimson bloom in one corner to carry the accent
-   into the dark without relying on crimson text, which dies there. */
+/* The dark bands. Gradients rather than flat fills, so a large area keeps
+   some depth, with a bloom in one corner to carry the accent into the dark.
+   Every stop comes from the active palette. */
 @utility band-ink {
   background-image:
     radial-gradient(
       ellipse 90% 70% at 12% 0%,
-      color-mix(in oklab, var(--color-teal) 22%, transparent) 0%,
+      color-mix(
+          in oklab,
+          var(--p-band-bloom-1) var(--p-band-bloom-1-strength),
+          transparent
+        )
+        0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 80% 60% at 92% 100%,
-      color-mix(in oklab, var(--color-accent) 26%, transparent) 0%,
+      color-mix(
+          in oklab,
+          var(--color-accent) var(--p-band-bloom-2-strength),
+          transparent
+        )
+        0%,
       transparent 62%
     ),
-    linear-gradient(165deg, #0f3c40 0%, #0e2931 55%, #103539 100%);
+    linear-gradient(
+      165deg,
+      var(--p-band-a) 0%,
+      var(--p-band-b) 55%,
+      var(--p-band-c) 100%
+    );
 }
 
 @utility band-accent {
   background-image:
     radial-gradient(
       ellipse 70% 90% at 90% 10%,
-      color-mix(in oklab, var(--color-accent) 30%, transparent) 0%,
+      color-mix(
+          in oklab,
+          var(--color-accent) var(--p-band-accent-bloom-strength),
+          transparent
+        )
+        0%,
       transparent 62%
     ),
-    linear-gradient(150deg, #0e2931 0%, #0e3438 60%, #0f3c40 100%);
+    linear-gradient(
+      150deg,
+      var(--p-band-accent-a) 0%,
+      var(--p-band-accent-b) 60%,
+      var(--p-band-accent-c) 100%
+    );
 }
 
-/* The footer runs from the deep teal down to almost black, so the page closes
-   rather than simply continuing. The gradient is what separates it from the
-   dark section above; a flat fill would read as one continuous block. */
+/* The footer runs from a tone deeper than any band above it down to almost
+   black, so the page closes rather than simply continuing. The gradient is
+   what separates it from the dark section above; a flat fill would read as one
+   continuous block. */
 @utility band-footer {
   background-image: linear-gradient(
     to bottom,
-    #0f3c40 0%,
-    #0b2429 42%,
+    var(--p-footer-a) 0%,
+    var(--p-footer-b) 42%,
     var(--color-ink-deep) 100%
   );
 }
 
 /* Decorative accent rules — the short bars that open a section or mark a
-   step. Crimson swept to a lighter brick so the mark has some life in it. */
+   step. Swept from the accent to its warm end. */
 @utility accent-bar {
   background-image: linear-gradient(
     to right,
@@ -378,8 +398,7 @@
 }
 
 /* Solid accent surfaces: buttons and chips. Angled so the sweep reads across
-   the shape rather than along it. White text sits on these — see the header
-   note; navy-on-accent was the previous palette's rule, not this one. */
+   the shape rather than along it. Text on these must be `text-on-accent`. */
 @utility accent-fill {
   background-image: linear-gradient(
     135deg,

@@ -138,7 +138,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <a
               href={company.phoneHref}
-              className="hidden min-h-11 items-center accent-fill px-5 font-mono text-xs tracking-[0.14em] text-white uppercase transition-[filter] hover:brightness-95 lg:flex"
+              className="hidden min-h-11 items-center accent-fill px-5 font-mono text-xs tracking-[0.14em] text-on-accent uppercase transition-[filter] hover:brightness-95 lg:flex"
             >
               {company.phone}
             </a>

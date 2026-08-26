@@ -35,7 +35,7 @@ export function MobileContactBar() {
       </a>
       <Link
         to="/contact"
-        className="flex min-h-14 flex-col items-center justify-center gap-1 accent-fill text-white"
+        className="flex min-h-14 flex-col items-center justify-center gap-1 accent-fill text-on-accent"
       >
         <span className="font-mono text-[0.625rem] tracking-[0.12em] uppercase">
           Enquire
