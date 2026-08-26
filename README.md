@@ -87,6 +87,38 @@ from generated geometry and is the site's signature element.
 - The neutral ramp splits at 500: `900–500` are safe for text on that palette's
   paper, `400–100` are borders only.
 
+## Typography
+
+| Role | Face |
+| --- | --- |
+| Display | Poppins |
+| Body | Figtree |
+| Numbers, specs, labels | IBM Plex Mono |
+
+**Figtree stands in for Canva Sans.** Canva Sans is licensed for use inside
+Canva and is not available on Google Fonts or licensable for web embedding, so
+it cannot be linked or self-hosted. Figtree is the closest free geometric sans.
+Swapping it is two lines: `--font-sans` in `app/styles/app.css` and the font
+link in `app/root.tsx`. Other close options: Outfit, DM Sans, Nunito Sans.
+
+Archivo previously carried a real width axis, which drove the `wide` and
+`narrow` utilities. Poppins and Figtree have no width axis, so those utilities
+now adjust tracking instead — a synthetic width transform would distort the
+letterforms.
+
+### Accent style
+
+Accent surfaces can sweep into their warm end or sit flat, switchable in the
+picker or at build time:
+
+```bash
+VITE_ACCENT_STYLE=solid npm run build
+```
+
+Driven by `data-accent` on the root. The gradient is the declared default and
+the solid case overrides it, so a document with no attribute still gets the
+sweep.
+
 ## Changing the palette
 
 Six palettes ship. Four are white-ground with an orange or yellow accent over a

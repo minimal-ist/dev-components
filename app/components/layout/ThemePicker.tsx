@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
 import {
+  ACCENT_STORAGE_KEY,
+  ACCENT_STYLES,
+  ACTIVE_ACCENT_STYLE,
   ACTIVE_THEME,
   PALETTES,
   THEMES,
   THEME_STORAGE_KEY,
+  type AccentStyle,
   type Theme,
 } from "~/lib/theme";
 
@@ -16,8 +20,8 @@ import {
  *
  * Two things keep it from breaking the build:
  *
- *   - It writes data-theme on <html> and never re-renders the page. The
- *     palette swap is pure CSS variable resolution.
+ *   - It writes attributes on <html> and never re-renders the page. Both the
+ *     palette and the accent style resolve purely through CSS variables.
  *   - localStorage is read in an effect, never during render, so the
  *     pre-rendered HTML stays identical for every visitor and hydration has
  *     nothing to mismatch on.
@@ -26,28 +30,44 @@ import {
  */
 export function ThemePicker() {
   const [theme, setTheme] = useState<Theme>(ACTIVE_THEME);
+  const [accent, setAccent] = useState<AccentStyle>(ACTIVE_ACCENT_STYLE);
   const [open, setOpen] = useState(false);
   const options = PALETTES.filter((p) => p.listed);
 
-  // Restore the previous choice after mount.
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(THEME_STORAGE_KEY);
-      if (saved && THEMES.includes(saved as Theme)) apply(saved as Theme);
+      const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+      if (savedTheme && THEMES.includes(savedTheme as Theme)) {
+        applyTheme(savedTheme as Theme);
+      }
+      const savedAccent = localStorage.getItem(ACCENT_STORAGE_KEY);
+      if (savedAccent === "solid" || savedAccent === "gradient") {
+        applyAccent(savedAccent);
+      }
     } catch {
-      // Private browsing and blocked storage both throw; the default palette
-      // is already applied, so there is nothing to recover from.
+      // Private browsing and blocked storage both throw; the defaults are
+      // already applied, so there is nothing to recover from.
     }
   }, []);
 
-  function apply(next: Theme) {
+  function remember(key: string, value: string) {
+    try {
+      localStorage.setItem(key, value);
+    } catch {
+      /* not worth surfacing — the change still applied for this session */
+    }
+  }
+
+  function applyTheme(next: Theme) {
     setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, next);
-    } catch {
-      /* not worth surfacing — the palette still changed for this session */
-    }
+    remember(THEME_STORAGE_KEY, next);
+  }
+
+  function applyAccent(next: AccentStyle) {
+    setAccent(next);
+    document.documentElement.setAttribute("data-accent", next);
+    remember(ACCENT_STORAGE_KEY, next);
   }
 
   const active = options.find((p) => p.id === theme) ?? options[0];
@@ -69,7 +89,7 @@ export function ThemePicker() {
                 <button
                   key={palette.id}
                   type="button"
-                  onClick={() => apply(palette.id)}
+                  onClick={() => applyTheme(palette.id)}
                   aria-pressed={selected}
                   className={`flex items-start gap-3 border p-2.5 text-left transition-colors ${
                     selected
@@ -97,6 +117,39 @@ export function ThemePicker() {
                 </button>
               );
             })}
+          </div>
+
+          <div className="mt-3 border-t border-steel-200 pt-3">
+            <p className="eyebrow mb-2.5 px-1 text-steel-600">Accent</p>
+            <div className="flex gap-1">
+              {ACCENT_STYLES.map((style) => {
+                const selected = style.id === accent;
+                return (
+                  <button
+                    key={style.id}
+                    type="button"
+                    onClick={() => applyAccent(style.id)}
+                    aria-pressed={selected}
+                    title={style.note}
+                    className={`flex flex-1 items-center gap-2 border p-2 transition-colors ${
+                      selected
+                        ? "border-accent bg-sheet"
+                        : "border-steel-200 hover:bg-sheet"
+                    }`}
+                  >
+                    <span
+                      className={`size-4 shrink-0 border border-black/10 ${
+                        style.id === "gradient" ? "accent-fill" : "bg-accent"
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <span className="text-xs font-semibold text-ink">
+                      {style.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           <p className="mt-3 border-t border-steel-200 px-1 pt-2.5 text-xs text-steel-600">

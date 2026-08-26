@@ -64,8 +64,14 @@
      reads like the stamped lettering on a machine nameplate, which is
      exactly the register this brand wants. IBM Plex Mono carries every
      measurement, grade and part code.                                    */
-  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  /* Poppins for display, Figtree for body.
+
+     Figtree stands in for Canva Sans, which is licensed for use inside Canva
+     and cannot be linked or self-hosted; it is the closest free geometric sans
+     with a comparable feel. Swapping it is one line here plus the font link in
+     root.tsx. */
+  --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
   --font-mono:
     "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
@@ -118,7 +124,6 @@
     background-color: var(--color-sheet);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-variation-settings: "wdth" 100;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     /* Nothing on this site may scroll sideways. */
@@ -130,7 +135,6 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-variation-settings: "wdth" 112;
     font-weight: 800;
     text-wrap: balance;
   }
@@ -214,12 +218,15 @@
    Utilities
 --------------------------------------------------------------------------- */
 
+/* Archivo had a width axis; Poppins does not. Widening now means tracking,
+   which is the honest substitute — a fake-wide transform would distort the
+   letterforms. */
 @utility wide {
-  font-variation-settings: "wdth" 125;
+  letter-spacing: 0.04em;
 }
 
 @utility narrow {
-  font-variation-settings: "wdth" 78;
+  letter-spacing: -0.02em;
 }
 
 /* Eyebrow: the small mono label that opens most sections. Carries a real
@@ -387,9 +394,16 @@
   );
 }
 
-/* Decorative accent rules — the short bars that open a section or mark a
-   step. Swept from the accent to its warm end. */
+/* Accent surfaces — rules, buttons and chips.
+
+   Whether these sweep or sit flat is a review decision, so it is driven by
+   data-accent on the root rather than baked in. `solid` uses the accent
+   alone; `gradient` sweeps it into its warm end.
+
+   The gradient is declared as the default and the solid case overrides it,
+   so a document with no data-accent attribute still gets the sweep. */
 @utility accent-bar {
+  background-color: var(--color-accent);
   background-image: linear-gradient(
     to right,
     var(--color-accent) 0%,
@@ -397,14 +411,18 @@
   );
 }
 
-/* Solid accent surfaces: buttons and chips. Angled so the sweep reads across
-   the shape rather than along it. Text on these must be `text-on-accent`. */
 @utility accent-fill {
+  background-color: var(--color-accent);
   background-image: linear-gradient(
     135deg,
     var(--color-accent) 0%,
     var(--color-accent-warm) 100%
   );
+}
+
+[data-accent="solid"] .accent-bar,
+[data-accent="solid"] .accent-fill {
+  background-image: none;
 }
 
 /* Frosted panel for use on a dark band. */

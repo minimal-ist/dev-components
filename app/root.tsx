@@ -7,7 +7,11 @@ import {
   isRouteErrorResponse,
 } from "react-router";
 
-import { ACTIVE_THEME, SHOW_THEME_PICKER } from "~/lib/theme";
+import {
+  ACTIVE_ACCENT_STYLE,
+  ACTIVE_THEME,
+  SHOW_THEME_PICKER,
+} from "~/lib/theme";
 import { organizationSchema } from "~/lib/schema";
 
 import { MobileContactBar } from "~/components/layout/MobileContactBar";
@@ -27,13 +31,13 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
   },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme={ACTIVE_THEME}>
+    <html lang="en" data-theme={ACTIVE_THEME} data-accent={ACTIVE_ACCENT_STYLE}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

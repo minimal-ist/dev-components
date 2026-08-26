@@ -103,3 +103,27 @@ export const ACTIVE_THEME: Theme = resolve(
  */
 export const SHOW_THEME_PICKER =
   (import.meta.env.VITE_THEME_PICKER as string | undefined) !== "off";
+
+/** Whether accent surfaces sweep into their warm end or sit flat. */
+export type AccentStyle = "gradient" | "solid";
+
+export const ACCENT_STYLES: { id: AccentStyle; label: string; note: string }[] =
+  [
+    {
+      id: "gradient",
+      label: "Gradient",
+      note: "Accent sweeps into its warm end. More movement on buttons and rules.",
+    },
+    {
+      id: "solid",
+      label: "Solid",
+      note: "One flat accent throughout. Calmer, and closer to most print collateral.",
+    },
+  ];
+
+export const ACCENT_STORAGE_KEY = "dev-components-accent";
+
+export const ACTIVE_ACCENT_STYLE: AccentStyle =
+  (import.meta.env.VITE_ACCENT_STYLE as AccentStyle | undefined) === "solid"
+    ? "solid"
+    : "gradient";
