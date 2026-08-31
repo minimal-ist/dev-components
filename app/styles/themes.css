@@ -313,3 +313,63 @@
   --p-band-bloom-2-strength: 22%;
   --p-band-accent-bloom-strength: 30%;
 }
+
+/* --- lamnow-green ----------------------------------------------------------
+   Derived from lamnow.com, a direct competitor in electrical steel laminations,
+   at the client's request. Values are their Elementor global colours, not
+   guessed from a screenshot: primary #f3f2ef, accent #0a8543, bright #0fd46c,
+   dark #0d333f.
+
+   Their site runs light throughout with no dark sections. This keeps our band
+   structure and takes the colour, because dropping the bands is a layout
+   change rather than a palette one.
+
+   accent on paper 4.22:1 — just under AA, so --p-accent-ink darkens it a step
+   for text while the fill keeps the true brand green.
+
+   Their bright green #0fd46c holds white text at only 1.97:1, so it cannot be
+   the warm end of a button gradient. The sweep deepens to #097f41 (5.08:1)
+   instead, and the bright green is kept for accent text on dark bands, where
+   it reads at 5.89:1.
+-------------------------------------------------------------------------- */
+[data-theme="lamnow-green"] {
+  --p-sheet: #f3f2ef;
+  --p-sheet-raised: #fafaf9;
+  --p-sheet-sunk: #dee1df;
+
+  --p-ink: #0d333f;
+  --p-ink-deep: #071c23;
+  --p-steel-900: #143944;
+  --p-steel-800: #244651;
+  --p-steel-700: #385660;
+  --p-steel-600: #4b676f;
+  --p-steel-500: #587178;
+  --p-steel-400: #9ca9ac;
+  --p-steel-300: #b3bdbe;
+  --p-steel-200: #c5cccc;
+  --p-steel-100: #d7dbda;
+
+  --p-accent: #0a8543;
+  --p-accent-deep: #076830;
+  --p-accent-warm: #097f41;
+  --p-accent-ink: #097e3f;
+  --p-accent-light: #0fd46c;
+  --p-accent-soft: #d7dbda;
+  --p-on-accent: #ffffff;
+
+  --p-brand-blue: #0a8543;
+  --p-brand-hue: 148;
+
+  --p-band-a: #193d49;
+  --p-band-b: #0d333f;
+  --p-band-c: #173b47;
+  --p-band-accent-a: #0d333f;
+  --p-band-accent-b: #173b47;
+  --p-band-accent-c: #193d49;
+  --p-footer-a: #193d49;
+  --p-footer-b: #0d333f;
+  --p-band-bloom-1: #0fd46c;
+  --p-band-bloom-1-strength: 14%;
+  --p-band-bloom-2-strength: 18%;
+  --p-band-accent-bloom-strength: 26%;
+}

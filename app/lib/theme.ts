@@ -13,6 +13,7 @@ export type Theme =
   | "marigold-ink"
   | "saffron-graphite"
   | "honey-charcoal"
+  | "lamnow-green"
   | "navy-amber"
   | "teal-crimson";
 
@@ -53,6 +54,13 @@ export const PALETTES: PaletteInfo[] = [
     label: "Honey",
     note: "Honey yellow on cream over near-black. The lightest and softest.",
     swatch: ["#fbf8f3", "#ffb300", "#17171a"],
+    listed: true,
+  },
+  {
+    id: "lamnow-green",
+    label: "Lamnow Green",
+    note: "Deep green on warm off-white, taken from lamnow.com's own theme colours.",
+    swatch: ["#f3f2ef", "#0a8543", "#0d333f"],
     listed: true,
   },
   // Kept so the earlier directions can still be shown on request, but off the
