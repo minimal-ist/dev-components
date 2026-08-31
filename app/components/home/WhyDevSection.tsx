@@ -21,7 +21,7 @@ export function WhyDevSection() {
               {whyDev.map((reason, index) => (
                 <Reveal key={reason.title} index={index}>
                   <div className="border-l-2 border-accent pl-5">
-                    <h3 className="text-lg font-bold text-sheet">
+                    <h3 className="text-lg font-semibold text-sheet">
                       {reason.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-steel-300">
@@ -43,7 +43,7 @@ export function WhyDevSection() {
                       className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
                       aria-hidden="true"
                     />
-                    <h3 className="text-base leading-tight font-bold text-sheet">
+                    <h3 className="text-base leading-tight font-semibold text-sheet">
                       {item.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-steel-300">
@@ -59,7 +59,7 @@ export function WhyDevSection() {
               {company.certifications.map((cert) => (
                 <span
                   key={cert}
-                  className="border border-white/25 px-3 py-1.5 font-mono text-[0.6875rem] tracking-[0.1em] text-steel-200"
+                  className="border border-white/25 px-3 py-1.5 font-mono text-xs text-steel-200"
                 >
                   {cert}
                 </span>

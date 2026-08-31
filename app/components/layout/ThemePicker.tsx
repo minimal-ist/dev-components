@@ -162,7 +162,7 @@ export function ThemePicker() {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex min-h-11 items-center gap-2.5 border border-steel-400 bg-sheet-raised px-4 font-mono text-xs tracking-[0.12em] text-ink uppercase shadow-lg transition-colors hover:border-ink"
+        className="flex min-h-11 items-center gap-2.5 border border-steel-400 bg-sheet-raised px-4 font-mono text-xs text-ink shadow-lg transition-colors hover:border-ink"
       >
         <span className="flex" aria-hidden="true">
           {active.swatch.map((colour) => (

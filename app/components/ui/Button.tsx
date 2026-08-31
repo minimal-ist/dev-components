@@ -5,8 +5,8 @@ import { cn } from "~/lib/cn";
 type Variant = "primary" | "outline" | "outlineDark" | "ghost";
 
 const base =
-  "inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 text-xs font-semibold " +
-  "tracking-[0.14em] uppercase transition-[color,background-color,border-color,filter] duration-200 ease-(--ease-out-quint)";
+  "inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 text-sm font-semibold " +
+  "transition-[color,background-color,border-color,filter] duration-200 ease-(--ease-out-quint)";
 
 const variants: Record<Variant, string> = {
   primary: "accent-fill text-on-accent hover:brightness-95",

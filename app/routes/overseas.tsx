@@ -40,7 +40,7 @@ export default function Overseas() {
                 {directMarkets.map((market) => (
                   <li
                     key={market}
-                    className="border-b border-steel-300 py-5 text-2xl font-extrabold text-ink"
+                    className="border-b border-steel-300 py-5 text-2xl font-semibold text-ink"
                   >
                     {market}
                   </li>

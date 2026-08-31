@@ -60,58 +60,55 @@
   --color-brand-blue: var(--p-brand-blue);
 
   /* --- Type ------------------------------------------------------------
-     Archivo is a grotesque with a real width axis (62–125). Wide + heavy
-     reads like the stamped lettering on a machine nameplate, which is
-     exactly the register this brand wants. IBM Plex Mono carries every
-     measurement, grade and part code.                                    */
-  /* Poppins for display, Figtree for body.
+     One face, everywhere. Figtree is a neutral humanist grotesque, chosen
+     against the reference the client pointed at; a single family with no
+     tracked uppercase is what makes a page read clean, far more than the
+     choice of face itself.
 
-     Figtree stands in for Canva Sans, which is licensed for use inside Canva
-     and cannot be linked or self-hosted; it is the closest free geometric sans
-     with a comparable feel. Swapping it is one line here plus the font link in
-     root.tsx. */
-  --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+     All three slots resolve to it on purpose. The `font-display` and
+     `font-mono` class names stay in the markup because they mark what each
+     piece of text IS — a headline, a measurement — and reintroducing a second
+     face or a real mono is these declarations plus the font link in root.tsx,
+     with no markup churn.
+
+     Earlier passes ran Archivo, then Poppins for display with IBM Plex Mono on
+     every specification and part code.                                    */
+  --font-display: "Figtree", "Helvetica Neue", Arial, sans-serif;
   --font-sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
-/* Two faces only, by request.
-
-     This slot was IBM Plex Mono and carried every specification, capability
-     figure, stage number and eyebrow. It now resolves to the body face, so the
-     site renders in Poppins and Figtree and nothing else.
-
-     The `font-mono` class names are left in the markup on purpose: they mark
-     the places that were deliberately monospaced, and restoring the mono
-     treatment is this one declaration plus the font link in root.tsx.
-
-     Tabular figures still apply to those elements where the face supports
-     them, which is what kept columns of measurements aligned. */
   --font-mono: "Figtree", "Helvetica Neue", Arial, sans-serif;
 
   /* Line heights are tuned to the display face's ink extent, not picked for
-     looks. Poppins at 72px paints 79px tall; a 0.95 line box is 68.4px, so
-     descenders escaped the element and collided with the text below. Re-measure
-     these if the display face ever changes.
+     looks. Measured with canvas TextMetrics at 72px: Figtree 600 paints 69px
+     (ascent 53, descent 16), so 0.958 is the floor below which descenders
+     escape the line box and collide with the text underneath.
 
-     Fluid scale. Display sizes are deliberately large — the headline is
-     the loudest object on any page, so nothing else has to shout. */
+     Poppins painted 79px and forced 1.1. Figtree's shorter extenders buy back
+     that headroom, which is why these are tighter now — a headline that sets
+     as a block rather than as separate lines is most of the clean read.
+     Re-measure if the face ever changes again.
+
+     Display sizes stay large. The reference site sets h2 and h3 both at 20px
+     against 16px body, which collapses the heading step; on a site carrying
+     spec tables that hierarchy is worth keeping. */
   --text-display-xl: clamp(2.75rem, 8.5vw, 7rem);
-  --text-display-xl--line-height: 1.1;
-  --text-display-xl--letter-spacing: -0.035em;
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.03em;
 
   --text-display-lg: clamp(2.25rem, 6vw, 4.5rem);
-  --text-display-lg--line-height: 1.1;
-  --text-display-lg--letter-spacing: -0.03em;
+  --text-display-lg--line-height: 1.07;
+  --text-display-lg--letter-spacing: -0.025em;
 
   --text-display-md: clamp(1.75rem, 4vw, 3rem);
   --text-display-md--line-height: 1.12;
-  --text-display-md--letter-spacing: -0.025em;
+  --text-display-md--letter-spacing: -0.02em;
 
   --text-display-sm: clamp(1.375rem, 2.5vw, 1.875rem);
-  --text-display-sm--line-height: 1.2;
-  --text-display-sm--letter-spacing: -0.02em;
+  --text-display-sm--line-height: 1.25;
+  --text-display-sm--letter-spacing: -0.015em;
 
-  --text-eyebrow: 0.6875rem;
-  --text-eyebrow--line-height: 1;
-  --text-eyebrow--letter-spacing: 0.18em;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: normal;
 
   /* --- Rhythm ----------------------------------------------------------- */
   --spacing-section: clamp(4rem, 10vw, 8.5rem);
@@ -151,7 +148,7 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     text-wrap: balance;
   }
 
@@ -234,27 +231,24 @@
    Utilities
 --------------------------------------------------------------------------- */
 
-/* Archivo had a width axis; Poppins does not. Widening now means tracking,
-   which is the honest substitute — a fake-wide transform would distort the
-   letterforms. */
-@utility wide {
-  letter-spacing: 0.04em;
-}
-
 @utility narrow {
   letter-spacing: -0.02em;
 }
 
-/* Eyebrow: the small mono label that opens most sections. Carries a real
-   piece of information (a stage number, a count, a grade) — never a category
-   name repeated from the heading below it. */
+/* Eyebrow: the small label that opens most sections. Carries a real piece of
+   information (a stage number, a count, a grade) — never a category name
+   repeated from the heading below it.
+
+   Set in sentence case at normal tracking. It was tracked uppercase at 11px,
+   which is what made the page read as styled rather than clean; weight and
+   colour carry the distinction now instead. Sentence case needs the extra two
+   pixels to hold its own against the body text under it. */
 @utility eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-eyebrow);
-  line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+  font-weight: 600;
 }
 
 /* The stack: a hairline top edge with a lighter face below it, the way a

@@ -73,7 +73,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
           <Link
             to="/products"
             viewTransition
-            className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] text-steel-600 uppercase transition-colors hover:text-accent-ink"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-steel-600 transition-colors hover:text-accent-ink"
           >
             <ArrowLeft className="size-3.5" aria-hidden="true" />
             All products
@@ -176,7 +176,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                 {product.variants.map((variant, index) => (
                   <Reveal key={variant.name} index={index % 3} className="flex">
                     <article className="flex w-full flex-col gap-3 bg-sheet p-6 sm:p-7">
-                      <h3 className="text-base leading-tight font-bold text-ink">
+                      <h3 className="text-base leading-tight font-semibold text-ink">
                         {variant.name}
                       </h3>
                       <p className="text-sm leading-relaxed text-steel-600">
@@ -205,7 +205,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                   viewTransition
                   className="group flex flex-col gap-2 border-t border-steel-400 pt-5 transition-colors hover:border-accent"
                 >
-                  <span className="font-display text-lg leading-tight font-bold text-ink">
+                  <span className="font-display text-lg leading-tight font-semibold text-ink">
                     {other.name}
                   </span>
                   <span className="font-mono text-xs text-steel-600">

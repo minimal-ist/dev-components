@@ -22,7 +22,7 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "wide text-[0.9375rem] leading-none font-extrabold tracking-tight",
+            "text-[0.9375rem] leading-none font-semibold tracking-tight",
             tone === "light" ? "text-ink" : "text-sheet",
           )}
         >

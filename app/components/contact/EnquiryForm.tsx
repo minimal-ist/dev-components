@@ -88,7 +88,7 @@ export function EnquiryForm() {
     return (
       <div className="border border-accent bg-accent-soft p-8" role="status">
         <p className="eyebrow text-accent-deep">Enquiry sent</p>
-        <h3 className="mt-4 text-xl font-bold text-ink">We have it.</h3>
+        <h3 className="mt-4 text-xl font-semibold text-ink">We have it.</h3>
         <p className="mt-3 text-steel-700">
           Someone from the team will come back to you with a quote. If it is
           urgent, call the number below — that reaches a person faster than

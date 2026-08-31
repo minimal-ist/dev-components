@@ -94,7 +94,7 @@ export function WelcomeSection() {
                 {company.certifications.map((cert) => (
                   <li
                     key={cert}
-                    className="wide font-mono text-sm font-medium tracking-[0.08em] text-ink"
+                    className="font-mono text-sm font-medium text-ink"
                   >
                     {cert}
                   </li>

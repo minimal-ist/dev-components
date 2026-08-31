@@ -54,7 +54,7 @@ export default function About() {
             <div className="lg:col-span-5">
               <div className="border border-steel-300 bg-sheet-raised p-8">
                 <p className="eyebrow text-accent-ink">Founder</p>
-                <p className="mt-4 text-xl font-bold text-ink">
+                <p className="mt-4 text-xl font-semibold text-ink">
                   {company.founder.name}
                 </p>
                 <p className="mt-2 font-mono text-xs leading-relaxed text-steel-600">
@@ -67,7 +67,7 @@ export default function About() {
                     {company.certifications.map((cert) => (
                       <li
                         key={cert}
-                        className="border border-steel-400 px-3 py-1.5 font-mono text-[0.6875rem] tracking-[0.1em] text-steel-700"
+                        className="border border-steel-400 px-3 py-1.5 font-mono text-xs text-steel-700"
                       >
                         {cert}
                       </li>

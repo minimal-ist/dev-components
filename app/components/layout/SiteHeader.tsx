@@ -67,7 +67,7 @@ export function SiteHeader() {
                 onClick={() => setProductsOpen((open) => !open)}
                 aria-expanded={productsOpen}
                 className={cn(
-                  "flex min-h-11 items-center gap-1.5 px-4 text-xs font-semibold tracking-[0.12em] uppercase transition-colors",
+                  "flex min-h-11 items-center gap-1.5 px-4 text-sm font-semibold transition-colors",
                   productsOpen
                     ? "text-accent-ink"
                     : "text-steel-700 hover:text-ink",
@@ -96,7 +96,7 @@ export function SiteHeader() {
                         <span className="font-display text-sm font-semibold text-ink">
                           {product.name}
                         </span>
-                        <span className="font-mono text-[0.6875rem] text-steel-500">
+                        <span className="font-mono text-xs text-steel-500">
                           {product.tagline}
                         </span>
                       </Link>
@@ -105,7 +105,7 @@ export function SiteHeader() {
                   <Link
                     to="/products"
                     viewTransition
-                    className="mt-1 flex items-center justify-between border-t border-steel-200 px-4 py-3 text-[0.6875rem] font-semibold tracking-[0.14em] text-accent-ink uppercase"
+                    className="mt-1 flex items-center justify-between border-t border-steel-200 px-4 py-3 text-sm font-semibold text-accent-ink"
                   >
                     View all products
                     <span aria-hidden="true">→</span>
@@ -123,7 +123,7 @@ export function SiteHeader() {
                   viewTransition
                   className={({ isActive }) =>
                     cn(
-                      "flex min-h-11 items-center px-4 text-xs font-semibold tracking-[0.12em] uppercase transition-colors",
+                      "flex min-h-11 items-center px-4 text-sm font-semibold transition-colors",
                       isActive
                         ? "text-accent-ink"
                         : "text-steel-700 hover:text-ink",
@@ -138,7 +138,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <a
               href={company.phoneHref}
-              className="hidden min-h-11 items-center accent-fill px-5 text-xs font-semibold tracking-[0.14em] text-on-accent uppercase transition-[filter] hover:brightness-95 lg:flex"
+              className="hidden min-h-11 items-center accent-fill px-5 text-sm font-semibold text-on-accent transition-[filter] hover:brightness-95 lg:flex"
             >
               {company.phone}
             </a>
