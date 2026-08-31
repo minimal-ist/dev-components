@@ -72,7 +72,7 @@ export default function Contact() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex min-h-11 items-center text-xs font-semibold text-steel-600 transition-colors hover:text-accent-ink"
+                        className="inline-flex min-h-11 items-center text-sm font-semibold text-steel-600 transition-colors hover:text-accent-ink"
                       >
                         {item.name}
                       </a>

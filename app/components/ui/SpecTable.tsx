@@ -33,7 +33,7 @@ export function SpecTable({
           >
             <dt
               className={cn(
-                "text-sm",
+                "text-base",
                 tone === "light" ? "text-steel-600" : "text-steel-400",
               )}
             >
@@ -41,7 +41,7 @@ export function SpecTable({
             </dt>
             <dd
               className={cn(
-                "font-mono text-sm font-medium",
+                "font-mono text-base font-medium",
                 tone === "light" ? "text-ink" : "text-sheet",
               )}
             >

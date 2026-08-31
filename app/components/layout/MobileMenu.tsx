@@ -130,7 +130,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <div className="mt-8 flex flex-col gap-3">
             <a
               href={company.phoneHref}
-              className="flex min-h-11 items-center justify-center accent-fill px-6 text-sm font-semibold text-on-accent"
+              className="flex min-h-11 items-center justify-center accent-fill px-6 text-base font-semibold text-on-accent"
             >
               Call {company.phone}
             </a>
@@ -138,7 +138,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               href={company.whatsappHref}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex min-h-11 items-center justify-center border border-steel-400 px-6 text-sm font-semibold text-ink"
+              className="flex min-h-11 items-center justify-center border border-steel-400 px-6 text-base font-semibold text-ink"
             >
               WhatsApp
             </a>

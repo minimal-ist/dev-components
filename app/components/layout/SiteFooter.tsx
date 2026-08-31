@@ -22,7 +22,7 @@ export function SiteFooter() {
               {company.certifications.map((cert) => (
                 <li
                   key={cert}
-                  className="border border-steel-700 px-3 py-1.5 font-mono text-xs text-steel-300"
+                  className="border border-steel-700 px-3 py-1.5 font-mono text-sm text-steel-300"
                 >
                   {cert}
                 </li>
@@ -39,7 +39,7 @@ export function SiteFooter() {
                     <Link
                       to={link.to}
                       viewTransition
-                      className="inline-flex min-h-6 items-center py-1 text-sm text-steel-300 transition-colors hover:text-sheet"
+                      className="inline-flex min-h-6 items-center py-1 text-base text-steel-300 transition-colors hover:text-sheet"
                     >
                       {link.label}
                     </Link>
@@ -57,7 +57,7 @@ export function SiteFooter() {
                       <Link
                         to={link.to}
                         viewTransition
-                        className="inline-flex min-h-6 items-center py-1 text-sm text-steel-300 transition-colors hover:text-sheet"
+                        className="inline-flex min-h-6 items-center py-1 text-base text-steel-300 transition-colors hover:text-sheet"
                       >
                         {link.label}
                       </Link>
@@ -98,7 +98,7 @@ export function SiteFooter() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex min-h-8 items-center py-1.5 text-xs font-semibold text-steel-400 transition-colors hover:text-accent-soft"
+                        className="inline-flex min-h-8 items-center py-1.5 text-sm font-semibold text-steel-400 transition-colors hover:text-accent-soft"
                       >
                         {item.name}
                       </a>
@@ -111,10 +111,10 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-steel-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-xs text-steel-300">
+          <p className="font-mono text-sm text-steel-300">
             © {new Date().getFullYear()} {company.name}
           </p>
-          <p className="font-mono text-xs text-steel-300">
+          <p className="font-mono text-sm text-steel-300">
             Manufacturing in Bangalore since {company.founded}
           </p>
         </div>

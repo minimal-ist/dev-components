@@ -332,6 +332,70 @@
    instead, and the bright green is kept for accent text on dark bands, where
    it reads at 5.89:1.
 -------------------------------------------------------------------------- */
+
+/* --- Company profile navy and orange -------------------------------------
+   Taken from the client's own brochure, Dev-LATEST_Company_Profile
+   13.07.2026.pdf, by reading the colour operators out of the PDF content
+   streams rather than sampling a screenshot. Ranked by painted area:
+   #223c6c navy (dominant), #4472c4 mid blue, #232227 near-black, #ff8800
+   orange, #002060 deepest navy, #f5a700 amber.
+
+   Note that #4472c4, #002060 and #ffc000 are PowerPoint's stock theme
+   accents, so not every colour in that deck is a deliberate brand decision.
+   The two that clearly are — the logo navy and the swoosh orange — are what
+   this palette is built on.
+
+   The brochure's own heading style is navy type over an orange rule, which
+   is already how our section headers are built.
+
+   orange on paper .......... 2.21:1  fails, so the accent is never small text
+   navy on orange ........... 4.54:1  passes, but too close to the line
+   #002060 on orange ........ 6.38:1  passes  -> --p-on-accent
+   #002060 on amber ......... 7.57:1  passes  -> gradient warm end is safe
+   #965000 on paper ......... 5.63:1  passes  -> --p-accent-ink
+   #ffa033 on the navy band . 5.35:1  passes  -> --p-accent-light
+-------------------------------------------------------------------------- */
+[data-theme="brochure-navy"] {
+  --p-sheet: #f4f6f9;
+  --p-sheet-raised: #ffffff;
+  --p-sheet-sunk: #e4e9f0;
+
+  --p-ink: #223c6c;
+  --p-ink-deep: #0a1226;
+  --p-steel-900: #16274a;
+  --p-steel-800: #1d3159;
+  --p-steel-700: #243c69;
+  --p-steel-600: #33507f;
+  --p-steel-500: #45608f;
+  --p-steel-400: #9aa9c2;
+  --p-steel-300: #b9c4d6;
+  --p-steel-200: #ccd4e0;
+  --p-steel-100: #dde3ec;
+
+  --p-accent: #ff8800;
+  --p-accent-deep: #8f4c00;
+  --p-accent-warm: #f5a700;
+  --p-accent-ink: #965000;
+  --p-accent-light: #ffa033;
+  --p-accent-soft: #ffe3c2;
+  --p-on-accent: #002060;
+
+  --p-brand-blue: #4472c4;
+  --p-brand-hue: 218;
+
+  --p-band-a: #223c6c;
+  --p-band-b: #142748;
+  --p-band-c: #1a3059;
+  --p-band-accent-a: #223c6c;
+  --p-band-accent-b: #1d3560;
+  --p-band-accent-c: #223c6c;
+  --p-footer-a: #1b3157;
+  --p-footer-b: #101f3c;
+  --p-band-bloom-1: var(--p-brand-blue);
+  --p-band-bloom-1-strength: 22%;
+  --p-band-bloom-2-strength: 18%;
+  --p-band-accent-bloom-strength: 34%;
+}
 [data-theme="lamnow-green"] {
   --p-sheet: #f3f2ef;
   --p-sheet-raised: #fafaf9;

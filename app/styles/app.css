@@ -15,7 +15,9 @@
 
    The product is a lamination: a sheet of silicon steel 0.20-0.50 mm thick,
    punched to a profile and stacked into a core. Numbers are manufacturing
-   claims, so they are set in mono and carry the same weight as headlines.
+   claims, so they are set at the same weight as headlines and never below
+   14px — the size floor is what makes a spec-heavy page read as legible
+   rather than dense.
 
    THE ONE RULE THAT SURVIVES EVERY PALETTE
    Never hardcode a text colour on an accent fill. Use `text-on-accent`, which
@@ -106,7 +108,7 @@
   --text-display-sm--line-height: 1.25;
   --text-display-sm--letter-spacing: -0.015em;
 
-  --text-eyebrow: 0.8125rem;
+  --text-eyebrow: 0.875rem;
   --text-eyebrow--line-height: 1.4;
   --text-eyebrow--letter-spacing: normal;
 

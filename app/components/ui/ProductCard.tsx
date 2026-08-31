@@ -46,10 +46,10 @@ export function ProductCard({
         <h3 className="text-lg leading-tight font-semibold text-ink">
           {product.name}
         </h3>
-        <p className="font-mono text-xs leading-relaxed text-steel-600">
+        <p className="font-mono text-sm leading-relaxed text-steel-600">
           {product.tagline}
         </p>
-        <span className="mt-auto flex items-center gap-1.5 pt-4 text-xs font-semibold text-accent-ink">
+        <span className="mt-auto flex items-center gap-1.5 pt-4 text-sm font-semibold text-accent-ink">
           View specs
           <ArrowUpRight
             className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

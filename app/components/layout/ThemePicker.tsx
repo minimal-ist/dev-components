@@ -110,7 +110,7 @@ export function ThemePicker() {
                     <span className="text-sm font-semibold text-ink">
                       {palette.label}
                     </span>
-                    <span className="text-xs leading-snug text-steel-600">
+                    <span className="text-sm leading-snug text-steel-600">
                       {palette.note}
                     </span>
                   </span>
@@ -143,7 +143,7 @@ export function ThemePicker() {
                       }`}
                       aria-hidden="true"
                     />
-                    <span className="text-xs font-semibold text-ink">
+                    <span className="text-sm font-semibold text-ink">
                       {style.label}
                     </span>
                   </button>
@@ -152,7 +152,7 @@ export function ThemePicker() {
             </div>
           </div>
 
-          <p className="mt-3 border-t border-steel-200 px-1 pt-2.5 text-xs text-steel-600">
+          <p className="mt-3 border-t border-steel-200 px-1 pt-2.5 text-sm text-steel-600">
             Your choice is remembered on this device only.
           </p>
         </div>
@@ -162,7 +162,7 @@ export function ThemePicker() {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex min-h-11 items-center gap-2.5 border border-steel-400 bg-sheet-raised px-4 font-mono text-xs text-ink shadow-lg transition-colors hover:border-ink"
+        className="flex min-h-11 items-center gap-2.5 border border-steel-400 bg-sheet-raised px-4 font-mono text-sm text-ink shadow-lg transition-colors hover:border-ink"
       >
         <span className="flex" aria-hidden="true">
           {active.swatch.map((colour) => (

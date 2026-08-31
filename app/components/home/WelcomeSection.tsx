@@ -12,12 +12,13 @@ import { asset } from "~/lib/asset";
  * ticks, a centred head, the medal above it and the standards ruled off along
  * the foot like a signature line.
  *
- * The three paragraphs stay left-aligned inside a readable measure. Real
- * certificates centre their text because they carry two lines; centring three
- * long paragraphs would look the part and be unreadable.
+ * The prose stays left-aligned inside a readable measure. Real certificates
+ * centre their text because they carry two lines; centring three long
+ * paragraphs would look the part and be unreadable.
  */
 export function WelcomeSection() {
   const medal = company.certificationMarks[0];
+  const [lead, ...rest] = company.welcome.paragraphs;
 
   return (
     <Section>
@@ -69,10 +70,24 @@ export function WelcomeSection() {
               </div>
             </div>
 
-            <div className="relative mx-auto mt-12 flex max-w-3xl flex-col gap-5 text-base leading-relaxed text-steel-700 sm:text-lg">
-              {company.welcome.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+            {/* The opening paragraph carries the introduction on its own, and
+                the rest run in two columns from md up. Same words, roughly
+                half the vertical run of prose — a 200-word single column is
+                what made this section read as a wall of text. */}
+            <div className="relative mx-auto mt-12 max-w-4xl">
+              {lead ? (
+                <p className="mx-auto max-w-3xl text-lg leading-relaxed text-steel-700 sm:text-xl">
+                  {lead}
+                </p>
+              ) : null}
+
+              {rest.length > 0 ? (
+                <div className="mt-8 grid gap-x-12 gap-y-5 text-base leading-relaxed text-steel-700 sm:text-lg md:grid-cols-2">
+                  {rest.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              ) : null}
             </div>
 
             <figure className="relative mx-auto mt-12 max-w-3xl text-center">

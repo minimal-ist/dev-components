@@ -13,6 +13,7 @@ export type Theme =
   | "marigold-ink"
   | "saffron-graphite"
   | "honey-charcoal"
+  | "brochure-navy"
   | "lamnow-green"
   | "navy-amber"
   | "teal-crimson";
@@ -54,6 +55,13 @@ export const PALETTES: PaletteInfo[] = [
     label: "Honey",
     note: "Honey yellow on cream over near-black. The lightest and softest.",
     swatch: ["#fbf8f3", "#ffb300", "#17171a"],
+    listed: true,
+  },
+  {
+    id: "brochure-navy",
+    label: "Company Profile",
+    note: "Navy and orange read straight out of the 2026 company profile PDF. The closest match to the printed brand.",
+    swatch: ["#f4f6f9", "#ff8800", "#223c6c"],
     listed: true,
   },
   {

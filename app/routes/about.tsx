@@ -57,7 +57,7 @@ export default function About() {
                 <p className="mt-4 text-xl font-semibold text-ink">
                   {company.founder.name}
                 </p>
-                <p className="mt-2 font-mono text-xs leading-relaxed text-steel-600">
+                <p className="mt-2 font-mono text-sm leading-relaxed text-steel-600">
                   {company.founder.credentials}
                 </p>
 
@@ -67,7 +67,7 @@ export default function About() {
                     {company.certifications.map((cert) => (
                       <li
                         key={cert}
-                        className="border border-steel-400 px-3 py-1.5 font-mono text-xs text-steel-700"
+                        className="border border-steel-400 px-3 py-1.5 font-mono text-sm text-steel-700"
                       >
                         {cert}
                       </li>

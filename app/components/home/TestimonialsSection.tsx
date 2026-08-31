@@ -30,7 +30,7 @@ export function TestimonialsSection() {
                   {/* Role before company: it is the job title that tells a
                       procurement reader this came from their opposite number
                       rather than from a managing director. */}
-                  <span className="font-mono text-xs leading-relaxed text-steel-600">
+                  <span className="font-mono text-sm leading-relaxed text-steel-600">
                     {testimonial.role}, {testimonial.company}
                   </span>
                 </figcaption>

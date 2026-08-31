@@ -20,3 +20,7 @@ Thumbs.db
 
 # Local dev server logs
 *.log
+
+# Client source documents. Kept local: the repo is public, and these are
+# the client's to publish, not ours.
+references/

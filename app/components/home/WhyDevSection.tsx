@@ -59,7 +59,7 @@ export function WhyDevSection() {
               {company.certifications.map((cert) => (
                 <span
                   key={cert}
-                  className="border border-white/25 px-3 py-1.5 font-mono text-xs text-steel-200"
+                  className="border border-white/25 px-3 py-1.5 font-mono text-sm text-steel-200"
                 >
                   {cert}
                 </span>

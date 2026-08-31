@@ -215,7 +215,7 @@ function Field({
       >
         {label}
         {hint ? (
-          <span className="font-mono text-xs font-normal text-steel-500">
+          <span className="font-mono text-sm font-normal text-steel-500">
             {hint}
           </span>
         ) : null}

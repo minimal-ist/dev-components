@@ -30,7 +30,7 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
         </span>
         <span
           className={cn(
-            "mt-1 font-mono text-[0.5625rem] leading-none tracking-[0.22em]",
+            "mt-1 font-mono text-[0.625rem] leading-none tracking-[0.22em]",
             tone === "light" ? "text-steel-500" : "text-steel-400",
           )}
         >

@@ -73,7 +73,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
           <Link
             to="/products"
             viewTransition
-            className="inline-flex items-center gap-2 text-xs font-semibold text-steel-600 transition-colors hover:text-accent-ink"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-steel-600 transition-colors hover:text-accent-ink"
           >
             <ArrowLeft className="size-3.5" aria-hidden="true" />
             All products
@@ -148,7 +148,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                 <div className="border border-steel-300 bg-sheet-raised p-7">
                   <p className="eyebrow mb-2 text-accent-ink">Specification</p>
                   <SpecTable specs={product.specs} />
-                  <p className="mt-5 text-xs leading-relaxed text-steel-500">
+                  <p className="mt-5 text-sm leading-relaxed text-steel-500">
                     Values as supplied by Dev Components. Anything outside this
                     range is a tooling conversation, not a limit.
                   </p>
@@ -182,7 +182,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                       <p className="text-sm leading-relaxed text-steel-600">
                         {variant.description}
                       </p>
-                      <p className="mt-auto pt-3 font-mono text-xs leading-relaxed text-steel-500">
+                      <p className="mt-auto pt-3 font-mono text-sm leading-relaxed text-steel-500">
                         {variant.application}
                       </p>
                     </article>
@@ -208,7 +208,7 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                   <span className="font-display text-lg leading-tight font-semibold text-ink">
                     {other.name}
                   </span>
-                  <span className="font-mono text-xs text-steel-600">
+                  <span className="font-mono text-sm text-steel-600">
                     {other.tagline}
                   </span>
                 </Link>

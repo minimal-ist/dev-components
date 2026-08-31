@@ -67,7 +67,7 @@ export function SiteHeader() {
                 onClick={() => setProductsOpen((open) => !open)}
                 aria-expanded={productsOpen}
                 className={cn(
-                  "flex min-h-11 items-center gap-1.5 px-4 text-sm font-semibold transition-colors",
+                  "flex min-h-11 items-center gap-1.5 px-4 text-base font-semibold transition-colors",
                   productsOpen
                     ? "text-accent-ink"
                     : "text-steel-700 hover:text-ink",
@@ -96,7 +96,7 @@ export function SiteHeader() {
                         <span className="font-display text-sm font-semibold text-ink">
                           {product.name}
                         </span>
-                        <span className="font-mono text-xs text-steel-500">
+                        <span className="font-mono text-sm text-steel-500">
                           {product.tagline}
                         </span>
                       </Link>
@@ -123,7 +123,7 @@ export function SiteHeader() {
                   viewTransition
                   className={({ isActive }) =>
                     cn(
-                      "flex min-h-11 items-center px-4 text-sm font-semibold transition-colors",
+                      "flex min-h-11 items-center px-4 text-base font-semibold transition-colors",
                       isActive
                         ? "text-accent-ink"
                         : "text-steel-700 hover:text-ink",
@@ -138,7 +138,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <a
               href={company.phoneHref}
-              className="hidden min-h-11 items-center accent-fill px-5 text-sm font-semibold text-on-accent transition-[filter] hover:brightness-95 lg:flex"
+              className="hidden min-h-11 items-center accent-fill px-5 text-base font-semibold text-on-accent transition-[filter] hover:brightness-95 lg:flex"
             >
               {company.phone}
             </a>
