@@ -16,6 +16,11 @@ export type Variant = {
   name: string;
   description: string;
   application: string;
+  /**
+   * Illustration from the old site's product page, one per variant, in the
+   * same order the page listed them. Only three lines had them there.
+   */
+  image?: string;
 };
 
 export type Product = {
@@ -58,34 +63,40 @@ export const products: Product[] = [
         description:
           "The standard interleaved E and I profile across the full type range.",
         application: "Distribution and control transformers",
+        image: "/images/products/variants/electrical-laminations/1.webp",
       },
       {
         name: "UI Laminations",
         description: "U and I profile for cores requiring a longer window.",
         application: "Transformers with extended winding windows",
+        image: "/images/products/variants/electrical-laminations/2.webp",
       },
       {
         name: "Inverter Laminations",
         description:
           "Punched to hold 20,000 Gs saturation magnetic induction intensity.",
         application: "Inverters and converters",
+        image: "/images/products/variants/electrical-laminations/3.webp",
       },
       {
         name: "Medical Grade Isolation Transformer Laminations",
         description:
           "Cores for isolation transformers built to medical supply requirements.",
         application: "Medical isolation transformers",
+        image: "/images/products/variants/electrical-laminations/4.webp",
       },
       {
         name: "Stabilizer Laminations",
         description: "Cores for voltage stabilisation equipment.",
         application: "Voltage stabilizers",
+        image: "/images/products/variants/electrical-laminations/5.webp",
       },
       {
         name: "3 Phase Lamination Cores",
         description:
           "Three-limb cores for three-phase transformer construction.",
         application: "Industrial and power generation",
+        image: "/images/products/variants/electrical-laminations/6.webp",
       },
     ],
     applications: [
@@ -122,73 +133,86 @@ export const products: Product[] = [
         description:
           "Made of electrical steel for traction motors in electric vehicles.",
         application: "EV automotive industry",
+        image: "/images/products/variants/motor-stamping/1.webp",
       },
       {
         name: "Induction Motor Stampings",
         description:
           "Rotors and stators made of electrical steel for alternating current machines.",
         application: "Pumps, compressors, electrical appliances",
+        image: "/images/products/variants/motor-stamping/2.webp",
       },
       {
         name: "BLDC Motor Stampings",
         description: "Brushless DC motor cores made of electrical steel.",
         application: "Computer peripherals, power tools, aircraft, automobiles",
+        image: "/images/products/variants/motor-stamping/3.webp",
       },
       {
         name: "Stepper Motor Stampings",
         description: "Stepper motor cores made of electrical steel.",
         application:
           "Scanners, printers, CNC, 3D printers, intelligent lighting",
+        image: "/images/products/variants/motor-stamping/4.webp",
       },
       {
         name: "Servo Motor Stampings",
         description: "Servo motor cores made of electrical steel.",
         application: "Robotics, elevators, in-line manufacturing",
+        image: "/images/products/variants/motor-stamping/5.webp",
       },
       {
         name: "Alternator Stator Stampings",
         description:
           "Stator cores made of electrical steel for alternator assemblies.",
         application: "Internal combustion automotives, locomotives",
+        image: "/images/products/variants/motor-stamping/6.webp",
       },
       {
         name: "Segmented Cores",
         description:
           "Segments of lamination core that form a complete circle when assembled — 4, 6, 8, 10 or 12 per core.",
         application: "Cost-sensitive electrical devices and equipment",
+        image: "/images/products/variants/motor-stamping/7.webp",
       },
       {
         name: "Mixer Rotor & Stator Stampings",
         description:
           "Electrical steel with heat resistance and high tensile strength characteristics.",
         application: "Hand tools, grinders, mixing appliances",
+        image: "/images/products/variants/motor-stamping/8.webp",
       },
       {
         name: "Armature Stampings",
         description: "The rotating member that turns on its own axis.",
         application: "Hand tools, grinders, grinding appliances",
+        image: "/images/products/variants/motor-stamping/9.webp",
       },
       {
         name: "Washing Machine Motor Stampings",
         description: "Square in profile rather than the traditional round.",
         application:
           "Washing machines, cooler pumps and motors, air conditioner motors",
+        image: "/images/products/variants/motor-stamping/10.webp",
       },
       {
         name: "Submersible Pump Stampings",
         description: "High grade electrical steel, 20 mm to 800 mm.",
         application: "Submersible pumps",
+        image: "/images/products/variants/motor-stamping/11.webp",
       },
       {
         name: "Shaded Pole Motor Stampings",
         description: "Small format cores, ratings from 20 watts upward.",
         application:
           "Toys, hair dryers, desk fans, cooling fans, projectors, displays",
+        image: "/images/products/variants/motor-stamping/12.webp",
       },
       {
         name: "Pole Shoe Stampings",
         description: "Thickness between 0.25 and 0.50 mm.",
         application: "DC machine applications",
+        image: "/images/products/variants/motor-stamping/13.webp",
       },
     ],
     applications: [
@@ -248,30 +272,35 @@ export const products: Product[] = [
         description:
           "Bound with special glue. Raises production speed while holding the required precision, and protects the core from moisture and dust.",
         application: "All motor core types, to requirement",
+        image: "/images/products/variants/bonded-special-purpose-cores/1.webp",
       },
       {
         name: "Electric Vehicle Stamping Cores",
         description:
           "Bound with special glue to precision requirement, coated where the application calls for it.",
         application: "High-efficiency EV motors",
+        image: "/images/products/variants/bonded-special-purpose-cores/2.webp",
       },
       {
         name: "Welded Stator Cores",
         description:
           "Bound by organic or TIG welding to hold the stack intact, maintaining precision and the lowest achievable watt loss.",
         application: "Larger and thicker industrial stators",
+        image: "/images/products/variants/bonded-special-purpose-cores/3.webp",
       },
       {
         name: "Cleated Stator Cores",
         description:
           "Stacked by galvanized or cold rolled strips up to 2 mm. Cleating notches align with the lamination tooth or slot opening — 2 to 16 per stator depending on motor size.",
         application: "An alternative to interlocked cores",
+        image: "/images/products/variants/bonded-special-purpose-cores/4.webp",
       },
       {
         name: "Interlock Magnetic Cores",
         description:
           "Stacked automatically in the die system, produced faster while holding precision for higher motor efficiency.",
         application: "Almost all industrial applications",
+        image: "/images/products/variants/bonded-special-purpose-cores/5.webp",
       },
     ],
     applications: [

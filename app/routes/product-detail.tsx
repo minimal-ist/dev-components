@@ -176,6 +176,19 @@ export default function ProductDetail({ params }: Route.ComponentProps) {
                 {product.variants.map((variant, index) => (
                   <Reveal key={variant.name} index={index % 3} className="flex">
                     <article className="flex w-full flex-col gap-3 bg-sheet p-6 sm:p-7">
+                      {/* The old site showed one illustration per variant on
+                          three of the lines; those are carried over. Shot on
+                          white, so multiply drops the box into the card. */}
+                      {variant.image ? (
+                        <img
+                          src={asset(variant.image)}
+                          alt={`${variant.name} — ${product.name}`}
+                          width={800}
+                          height={600}
+                          loading="lazy"
+                          className="mb-2 aspect-4/3 w-full object-contain mix-blend-multiply"
+                        />
+                      ) : null}
                       <h3 className="text-base leading-tight font-semibold text-ink">
                         {variant.name}
                       </h3>

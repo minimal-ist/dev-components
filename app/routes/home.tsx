@@ -1,12 +1,11 @@
 import { CapabilitiesSection } from "~/components/home/CapabilitiesSection";
+import { ClientsSection } from "~/components/home/ClientsSection";
 import { ContactCta } from "~/components/home/ContactCta";
 import { HeroSection } from "~/components/home/HeroSection";
 import { IndustriesSection } from "~/components/home/IndustriesSection";
-import { ProcessSection } from "~/components/home/ProcessSection";
+import { InvestorsSection } from "~/components/home/InvestorsSection";
 import { ProductsSection } from "~/components/home/ProductsSection";
 import { StatsBar } from "~/components/home/StatsBar";
-import { TestimonialsSection } from "~/components/home/TestimonialsSection";
-import { WhyDevSection } from "~/components/home/WhyDevSection";
 import { WelcomeSection } from "~/components/home/WelcomeSection";
 import { company } from "~/data/company";
 import { meta as buildMeta } from "~/lib/meta";
@@ -20,18 +19,23 @@ export function meta() {
   });
 }
 
+/**
+ * Page order, as the client set it: hero, the certificate, the Japanese
+ * investment block straight after it, the figures, the product lines, the
+ * envelope, the sectors, then who buys. The process flow moved to Operation
+ * and the pledge and reviews moved to About.
+ */
 export default function Home() {
   return (
     <>
       <HeroSection />
       <WelcomeSection />
+      <InvestorsSection />
       <StatsBar />
       <ProductsSection />
       <CapabilitiesSection />
-      <ProcessSection />
       <IndustriesSection />
-      <WhyDevSection />
-      <TestimonialsSection />
+      <ClientsSection />
       <ContactCta />
     </>
   );

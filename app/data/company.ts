@@ -94,6 +94,49 @@ export const company = {
     height: number;
   }>,
 
+  /**
+   * The badges the client shows on the cover of their own company profile,
+   * lifted from that PDF. These carry the ISO / AS9100 lettering the medal
+   * above does not, so they are what the "Registered to" row renders.
+   * ISO 14001:2015 has no badge in the brochure and stays typographic.
+   */
+  certificationBadges: [
+    {
+      standard: "AS 9100 Rev. D",
+      src: "/images/certifications/as9100d-badge.webp",
+      width: 544,
+      height: 187,
+    },
+    {
+      standard: "ISO 9001:2015",
+      src: "/images/certifications/iso9001-2015-badge.webp",
+      width: 586,
+      height: 252,
+    },
+  ] as Array<{
+    /** Standard the badge attests to, matching an entry in `certifications`. */
+    standard: string;
+    src: string;
+    width: number;
+    height: number;
+  }>,
+
+  /**
+   * Japanese investment — TODO(content).
+   *
+   * The client asked for this block on the home page, after the certificate,
+   * and will send the content. Until `body` is set, InvestorsSection renders a
+   * visibly marked placeholder rather than anything that could be read as a
+   * claim. The flags on the factory in the brochure (Singapore, Taiwan, Japan)
+   * suggest the relationship is real; what it is exactly is theirs to state.
+   */
+  investors: {
+    eyebrow: "Japanese investment",
+    heading: "Backed from Japan",
+    body: "",
+    facts: [] as Array<{ label: string; value: string }>,
+  },
+
   phone: "+91 99456 71218",
   phoneHref: "tel:+919945671218",
   whatsappHref: "https://wa.me/919945671218",

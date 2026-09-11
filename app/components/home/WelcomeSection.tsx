@@ -19,6 +19,9 @@ import { asset } from "~/lib/asset";
 export function WelcomeSection() {
   const medal = company.certificationMarks[0];
   const [lead, ...rest] = company.welcome.paragraphs;
+  // Standards that have no badge artwork render as a chip beside the badges.
+  const badged = new Set(company.certificationBadges.map((b) => b.standard));
+  const unbadged = company.certifications.filter((cert) => !badged.has(cert));
 
   return (
     <Section>
@@ -100,16 +103,32 @@ export function WelcomeSection() {
               </blockquote>
             </figure>
 
-            {/* Foot of the certificate: the standards, ruled off. */}
+            {/* Foot of the certificate: the registrations, ruled off. The
+                client asked for the marks here and for weight — this is the
+                claim buyers check, so it gets the badges from their brochure
+                at a size that reads, plus a typographic chip for the standard
+                that has no badge. */}
             <div className="relative mx-auto mt-14 max-w-3xl border-t border-steel-300 pt-8">
               <p className="eyebrow text-center text-steel-500">
                 Registered to
               </p>
-              <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-                {company.certifications.map((cert) => (
+              <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+                {company.certificationBadges.map((badge) => (
+                  <li key={badge.standard}>
+                    <img
+                      src={asset(badge.src)}
+                      alt={`${badge.standard} certified`}
+                      width={badge.width}
+                      height={badge.height}
+                      loading="lazy"
+                      className="h-16 w-auto sm:h-20"
+                    />
+                  </li>
+                ))}
+                {unbadged.map((cert) => (
                   <li
                     key={cert}
-                    className="font-mono text-sm font-medium text-ink"
+                    className="border-2 border-ink px-4 py-2.5 text-base font-semibold text-ink"
                   >
                     {cert}
                   </li>

@@ -52,7 +52,7 @@ export function ScrollProgress() {
     >
       <div
         ref={ref}
-        className="h-full w-full origin-left bg-gradient-to-r from-accent to-accent-warm"
+        className="h-full w-full origin-left bg-accent"
         style={{ scale: "0 1" }}
       />
     </div>

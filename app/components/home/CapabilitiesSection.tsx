@@ -3,10 +3,17 @@ import { Container } from "~/components/ui/Container";
 import { Reveal } from "~/components/ui/Reveal";
 import { Section } from "~/components/ui/Section";
 import { SectionHeader } from "~/components/ui/SectionHeader";
-import { capabilities, qualityControl } from "~/data/capabilities";
+import { capabilities } from "~/data/capabilities";
+import { cn } from "~/lib/cn";
 
 /**
  * The manufacturing envelope, on the page's deepest band.
+ *
+ * This is the one place the capacity and range figures appear. The hero strip
+ * and the Operation page used to repeat them; the client asked for a single
+ * location. Monthly capacity is left out here because the stats band above
+ * already carries 400+ tons, and the quality-control list moved to Operation
+ * where the rest of QC lives.
  *
  * The figures are the most-read content on the site, so they get the strongest
  * treatment: frosted panels over a navy gradient, each with a gradient sheen
@@ -14,6 +21,10 @@ import { capabilities, qualityControl } from "~/data/capabilities";
  * this section is dark rather than raised.
  */
 export function CapabilitiesSection() {
+  const envelope = capabilities.filter(
+    (capability) => capability.label !== "Monthly capacity",
+  );
+
   return (
     <Section tone="band" className="overflow-hidden">
       <div
@@ -32,30 +43,23 @@ export function CapabilitiesSection() {
               title="The numbers, before the conversation"
               lede="If your part falls inside this envelope, the tooling conversation is short. If it falls outside, the tool room is the next call."
             />
-
-            <div className="mt-10 border-t border-white/15 pt-8">
-              <p className="eyebrow mb-4 text-accent-light">Checked against</p>
-              <ul className="flex flex-col gap-2">
-                {qualityControl.instruments.map((instrument) => (
-                  <li
-                    key={instrument}
-                    className="flex gap-3 text-sm text-steel-300"
-                  >
-                    <span
-                      className="mt-2 size-1 shrink-0 bg-accent"
-                      aria-hidden="true"
-                    />
-                    {instrument}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           <div className="lg:col-span-7">
             <dl className="grid gap-4 sm:grid-cols-2">
-              {capabilities.map((capability, index) => (
-                <Reveal key={capability.label} index={index} className="flex">
+              {envelope.map((capability, index) => (
+                <Reveal
+                  key={capability.label}
+                  index={index}
+                  className={cn(
+                    "flex",
+                    // An odd count would leave the last card alone on the
+                    // left; let it take the full row instead.
+                    index === envelope.length - 1 &&
+                      envelope.length % 2 === 1 &&
+                      "sm:col-span-2",
+                  )}
+                >
                   <div className="glass lift group relative flex w-full flex-col gap-2 overflow-hidden p-6 hover:-translate-y-1 hover:border-white/25 sm:p-7">
                     <span
                       className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"

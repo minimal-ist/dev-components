@@ -1,3 +1,5 @@
+import { TestimonialsSection } from "~/components/about/TestimonialsSection";
+import { WhyDevSection } from "~/components/about/WhyDevSection";
 import { Container } from "~/components/ui/Container";
 import { PageHero } from "~/components/ui/PageHero";
 import { Reveal } from "~/components/ui/Reveal";
@@ -116,6 +118,12 @@ export default function About() {
           </div>
         </Container>
       </Section>
+
+      {/* Light between two dark bands: mission/vision/values above is navy,
+          the pledge below is the accent band. */}
+      <TestimonialsSection />
+
+      <WhyDevSection />
 
       <Section tone="raised">
         <Container>

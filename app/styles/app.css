@@ -5,13 +5,13 @@
 /* ---------------------------------------------------------------------------
    Dev Components — design tokens
 
-   Colour lives in themes.css, one block per palette. This file only maps those
-   variables onto Tailwind's theme.
+   Colour lives in themes.css. This file only maps those variables onto
+   Tailwind's theme.
 
-   `@theme inline` is what makes the swap work: it emits utilities that
-   reference the variable rather than copying its value, so changing
-   data-theme on <html> repaints the whole site with no rebuild. A plain
-   `@theme` would bake today's hex into every utility.
+   `@theme inline` is what keeps a colour change cheap: it emits utilities
+   that reference the variable rather than copying its value, so editing a
+   hex in themes.css repaints the whole site with no component touched. A
+   plain `@theme` would bake today's hex into every utility.
 
    The product is a lamination: a sheet of silicon steel 0.20-0.50 mm thick,
    punched to a profile and stacked into a core. Numbers are manufacturing
@@ -19,10 +19,10 @@
    14px — the size floor is what makes a spec-heavy page read as legible
    rather than dense.
 
-   THE ONE RULE THAT SURVIVES EVERY PALETTE
+   THE ONE RULE
    Never hardcode a text colour on an accent fill. Use `text-on-accent`, which
-   each palette defines for itself — navy on amber, white on crimson. Getting
-   this wrong is invisible in one palette and unreadable in the next.
+   themes.css defines for the accent it carries. Getting
+   this wrong is invisible until the accent changes, then unreadable.
 --------------------------------------------------------------------------- */
 
 @theme inline {
@@ -32,8 +32,8 @@
   --color-sheet-sunk: var(--p-sheet-sunk);
 
   /* --- Ink and the neutral ramp -----------------------------------------
-     Each palette solves its own ramp against contrast targets: 900-500 are
-     safe for text on that palette's paper, 400-100 are borders only. */
+     Solved against contrast targets: 900-500 are safe for text on the paper,
+     400-100 are borders only. */
   --color-ink: var(--p-ink);
   --color-ink-deep: var(--p-ink-deep);
   --color-steel-900: var(--p-steel-900);
@@ -53,7 +53,6 @@
      on-accent   the text colour that sits ON an accent fill  */
   --color-accent: var(--p-accent);
   --color-accent-deep: var(--p-accent-deep);
-  --color-accent-warm: var(--p-accent-warm);
   --color-accent-ink: var(--p-accent-ink);
   --color-accent-light: var(--p-accent-light);
   --color-accent-soft: var(--p-accent-soft);
@@ -127,6 +126,10 @@
 
 @layer base {
   html {
+    /* 18px root. Everything in rem scales with it, so this is the one knob
+       for "the type looks small on a normal screen". The fluid display sizes
+       clamp between rem bounds and follow it too. */
+    font-size: 112.5%;
     -webkit-text-size-adjust: 100%;
     /* Deliberately not `smooth`. React Router resets scroll to the top on a
        route change, and a global smooth behaviour turns that instant reset
@@ -406,35 +409,16 @@
   );
 }
 
-/* Accent surfaces — rules, buttons and chips.
-
-   Whether these sweep or sit flat is a review decision, so it is driven by
-   data-accent on the root rather than baked in. `solid` uses the accent
-   alone; `gradient` sweeps it into its warm end.
-
-   The gradient is declared as the default and the solid case overrides it,
-   so a document with no data-accent attribute still gets the sweep. */
+/* Accent surfaces — rules, buttons and chips. Solid, by decision: the
+   orange-to-amber sweep was offered as an option during review and the
+   client chose the flat fill. Kept as utilities rather than plain
+   `bg-accent` so the choice stays one place. */
 @utility accent-bar {
   background-color: var(--color-accent);
-  background-image: linear-gradient(
-    to right,
-    var(--color-accent) 0%,
-    var(--color-accent-warm) 100%
-  );
 }
 
 @utility accent-fill {
   background-color: var(--color-accent);
-  background-image: linear-gradient(
-    135deg,
-    var(--color-accent) 0%,
-    var(--color-accent-warm) 100%
-  );
-}
-
-[data-accent="solid"] .accent-bar,
-[data-accent="solid"] .accent-fill {
-  background-image: none;
 }
 
 /* Frosted panel for use on a dark band. */

@@ -61,30 +61,55 @@ export function SiteHeader() {
             className="hidden items-center gap-1 lg:flex"
             aria-label="Primary"
           >
-            <div ref={productsRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setProductsOpen((open) => !open)}
-                aria-expanded={productsOpen}
-                className={cn(
-                  "flex min-h-11 items-center gap-1.5 px-4 text-base font-semibold transition-colors",
-                  productsOpen
-                    ? "text-accent-ink"
-                    : "text-steel-700 hover:text-ink",
-                )}
-              >
-                Products
-                <ChevronDown
+            {/* "Products" is a link to the index, the way every other item
+                is a link. The dropdown opens on hover for a mouse and from
+                the chevron for keyboard and touch, so the label itself never
+                has two jobs. */}
+            <div
+              ref={productsRef}
+              className="relative"
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+            >
+              <div className="flex items-center">
+                <NavLink
+                  to="/products"
+                  viewTransition
+                  className={({ isActive }) =>
+                    cn(
+                      "flex min-h-11 items-center pr-1 pl-4 text-base font-semibold transition-colors",
+                      isActive || productsOpen
+                        ? "text-accent-ink"
+                        : "text-steel-700 hover:text-ink",
+                    )
+                  }
+                >
+                  Products
+                </NavLink>
+                <button
+                  type="button"
+                  onClick={() => setProductsOpen((open) => !open)}
+                  aria-expanded={productsOpen}
+                  aria-label="Show product lines"
                   className={cn(
-                    "size-3.5 transition-transform duration-200",
-                    productsOpen && "rotate-180",
+                    "flex min-h-11 items-center pr-3 pl-1 transition-colors",
+                    productsOpen
+                      ? "text-accent-ink"
+                      : "text-steel-700 hover:text-ink",
                   )}
-                  aria-hidden="true"
-                />
-              </button>
+                >
+                  <ChevronDown
+                    className={cn(
+                      "size-3.5 transition-transform duration-200",
+                      productsOpen && "rotate-180",
+                    )}
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
 
               {productsOpen ? (
-                <div className="absolute top-full left-0 mt-px w-[42rem] border border-steel-300 bg-sheet-raised p-2 shadow-xl">
+                <div className="absolute top-full left-0 w-[42rem] border border-steel-300 bg-sheet-raised p-2 shadow-xl">
                   <div className="grid grid-cols-2 gap-x-2">
                     {products.map((product) => (
                       <Link
