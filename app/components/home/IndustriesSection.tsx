@@ -41,10 +41,24 @@ const ICONS: Record<Industry["icon"], LucideIcon> = {
  *
  * Hexagons because the shape is the argument: laminations are punched from a
  * sheet and nest without waste, and the sectors do the same. Alternate
- * columns drop by half a tile so the points interlock — only where the
- * column count is even, since a three-across grid staggers into a mess. The
- * row gap is nearly closed for the same reason: hexagons carry their own
- * visual spacing in the 25% of each corner that is clipped away.
+ * columns drop by half a tile so the points interlock, and every breakpoint
+ * uses an even column count — a three-across grid staggers into a mess.
+ *
+ * The tiles are small on purpose. Each holds an icon and one word, so a
+ * large hexagon is mostly dead area; six across keeps the honeycomb dense
+ * and the whole set to two rows. The aspect is close to a regular hexagon
+ * (1 : 0.88) rather than stretched tall.
+ *
+ * The comb actually tessellates: a hexagon spends the outer 25% of its box
+ * on the clipped points, so columns at full width leave a visible wedge
+ * between tiles even with no gap. Each tile is therefore a third wider than
+ * its grid track and pulled back by half that on each side, giving a column
+ * pitch of three quarters of a tile — the real honeycomb pitch. The 2% scale
+ * is what keeps a hairline between neighbours instead of one navy mass.
+ *
+ * Navy fill, not a pale tint: twelve washed-out tiles on a near-white
+ * section read as placeholders. The icon carries the accent, and hovering
+ * flips the whole tile to the accent fill.
  *
  * A sector with `image` set shows that photograph behind a navy scrim; one
  * without shows a plain tile. Both carry the icon and the name, so the set
@@ -78,9 +92,9 @@ export function IndustriesSection() {
           {industriesIntro.body}
         </p>
 
-        {/* Bottom padding carries the offset column, which would otherwise
+        {/* Bottom padding carries the dropped columns, which would otherwise
             run past the section's edge. */}
-        <ul className="mt-14 grid grid-cols-2 gap-x-2 gap-y-1 pb-24 sm:grid-cols-3 sm:gap-3 sm:pb-0 lg:grid-cols-4 lg:gap-x-3 lg:gap-y-1 lg:pb-36">
+        <ul className="mt-14 grid grid-cols-2 gap-0 pb-24 sm:grid-cols-4 sm:pb-20 lg:grid-cols-6 lg:pb-16">
           {industries.map((industry, index) => {
             const Icon = ICONS[industry.icon];
 
@@ -88,9 +102,9 @@ export function IndustriesSection() {
               <Reveal
                 key={industry.name}
                 index={index % 4}
-                className="flex even:translate-y-1/2 sm:even:translate-y-0 lg:even:translate-y-1/2"
+                className="flex w-[133.333%] -mx-[16.667%] even:translate-y-1/2"
               >
-                <li className="hex group relative flex aspect-[1/1.08] w-full flex-col items-center justify-center gap-2.5 bg-sheet-sunk p-4 text-center transition-colors duration-300 ease-(--ease-out-quint) hover:bg-accent sm:aspect-[1/1.02]">
+                <li className="hex group relative flex aspect-[1/0.88] w-full scale-[0.98] flex-col items-center justify-center gap-2 bg-ink px-[18%] text-center transition-colors duration-300 ease-(--ease-out-quint) hover:bg-accent">
                   {industry.image ? (
                     <>
                       <img
@@ -104,31 +118,19 @@ export function IndustriesSection() {
                           tile cannot rely on any one of them being dark
                           enough — this holds the text regardless. */}
                       <span
-                        className="absolute inset-0 bg-ink/75 transition-colors duration-300 group-hover:bg-accent/85"
+                        className="absolute inset-0 bg-ink/70 transition-colors duration-300 group-hover:bg-accent/85"
                         aria-hidden="true"
                       />
                     </>
                   ) : null}
 
-                  <span className="relative flex size-11 items-center justify-center bg-accent/12 transition-colors duration-300 group-hover:bg-transparent">
-                    <Icon
-                      className={
-                        industry.image
-                          ? "size-6 text-sheet transition-colors duration-300 group-hover:text-on-accent"
-                          : "size-6 text-accent-ink transition-colors duration-300 group-hover:text-on-accent"
-                      }
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                  </span>
+                  <Icon
+                    className="relative size-7 text-accent-light transition-colors duration-300 group-hover:text-on-accent"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
 
-                  <span
-                    className={
-                      industry.image
-                        ? "relative px-1 text-sm leading-tight font-semibold text-balance text-sheet transition-colors duration-300 group-hover:text-on-accent sm:text-base"
-                        : "relative px-1 text-sm leading-tight font-semibold text-balance text-ink transition-colors duration-300 group-hover:text-on-accent sm:text-base"
-                    }
-                  >
+                  <span className="relative text-sm leading-tight font-semibold text-balance text-sheet transition-colors duration-300 group-hover:text-on-accent">
                     {industry.name}
                   </span>
                 </li>
