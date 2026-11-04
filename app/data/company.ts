@@ -131,10 +131,24 @@ export const company = {
    * suggest the relationship is real; what it is exactly is theirs to state.
    */
   investors: {
-    eyebrow: "Japanese investment",
-    heading: "Backed from Japan",
-    body: "",
-    facts: [] as Array<{ label: string; value: string }>,
+    eyebrow: "Strategic investment",
+    heading: "Our Strategic Investment and Growth Partners",
+    /**
+     * Transcribed verbatim from the client's brief of 29 October 2026.
+     *
+     * The brief names two entities — Hosoda Co., Ltd and Hosoda Holdings
+     * Co., Ltd — and attributes the 1927 founding and the trading-company
+     * description to Hosoda Holdings specifically. That split is kept exactly
+     * as written: the relationship between the two is not stated and is not
+     * ours to infer. The brief also does not describe the form the investment
+     * takes, so nothing here characterises it beyond "partners".
+     */
+    partners: ["Hosoda Co., Ltd", "Hosoda Holdings Co., Ltd"],
+    location: "Osaka, Japan",
+    paragraphs: [
+      "Hosoda Holdings Co., Ltd, established in 1927, is a globally recognized Japanese trading company with nearly a century of experience in import and export across diverse industries.",
+      "Hosoda's diverse portfolio spans automotive and industrial batteries, motor pumps, control switches, connection devices, epoxy adhesives, and a comprehensive range of electric wires and specialized processed products.",
+    ],
   },
 
   phone: "+91 99456 71218",
