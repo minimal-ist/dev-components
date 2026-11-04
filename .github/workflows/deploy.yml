@@ -61,8 +61,17 @@ jobs:
           touch .nojekyll
 
           test -f index.html || { echo "no index.html at artifact root"; exit 1; }
-          grep -q "The core of the machine" index.html \
-            || { echo "index.html is not the pre-rendered home page"; exit 1; }
+          # Assert the root really is the pre-rendered home page and not the
+          # shell. Tested structurally, not against a phrase: this guard was
+          # pinned to the old headline and broke the deploy the day that copy
+          # changed. The shell carries no <h1> and is byte-identical to the
+          # 404 we just moved, so either check catches a bad lay-out and
+          # neither depends on what the page says.
+          grep -q "<h1" index.html || { echo "index.html has no <h1>: it is the SPA shell"; exit 1; }
+          if cmp -s index.html 404.html; then
+            echo "index.html is identical to the shell: routes did not move up"
+            exit 1
+          fi
           echo "artifact root:"
           ls
 
