@@ -20,6 +20,14 @@ export const industriesIntro = {
 
 export type Industry = {
   name: string;
+  /**
+   * Photograph behind the hexagon, path under public/, e.g.
+   * "/images/industries/automotive.webp". Optional: a sector without one
+   * renders as a plain tile with its icon, so the set can be filled in a
+   * few at a time. Nothing here is a stock image chosen by us — a wrong
+   * photograph against a sector misrepresents what the company supplies.
+   */
+  image?: string;
   icon:
     | "automotive"
     | "robotics"

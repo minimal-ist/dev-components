@@ -449,6 +449,17 @@
   );
 }
 
+/* Flat-top hexagon. Used for the industry tiles, where the honeycomb is the
+   point: a lamination is punched from a sheet and the sectors nest the same
+   way. Clip-path rather than a border trick, so a photograph behind it is
+   clipped too.
+
+   Note that clip-path also clips a focus ring, so anything focusable inside
+   a hex needs its own visible focus treatment. */
+@utility hex {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
 /* Cards rise slightly on hover. Transform only, so it stays on the compositor. */
 @utility lift {
   transition:
