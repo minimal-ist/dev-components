@@ -48,7 +48,7 @@ export function IndustriesSection() {
       <Container className="relative">
         <SectionHeader
           eyebrow={`${industries.length} sectors`}
-          title="Where the parts end up"
+          title="Industries we serve"
           lede="The same press that stamps a ceiling fan rotor stamps a traction motor core. The tolerance is what changes, not the process."
         />
 
