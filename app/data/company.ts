@@ -148,6 +148,7 @@ export const company = {
     paragraphs: [
       "Hosoda Holdings Co., Ltd, established in 1927, is a globally recognized Japanese trading company with nearly a century of experience in import and export across diverse industries.",
       "Hosoda's diverse portfolio spans automotive and industrial batteries, motor pumps, control switches, connection devices, epoxy adhesives, and a comprehensive range of electric wires and specialized processed products.",
+      "Backed by a robust global network, Hosoda Holdings maintains a strong presence across key international markets, including Thailand, Singapore, Taiwan, Dubai, Vietnam, and Egypt.",
     ],
   },
 
