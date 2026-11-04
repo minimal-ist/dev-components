@@ -18,7 +18,7 @@ import { Container } from "~/components/ui/Container";
 import { Reveal } from "~/components/ui/Reveal";
 import { Section } from "~/components/ui/Section";
 import { SectionHeader } from "~/components/ui/SectionHeader";
-import { industries, type Industry } from "~/data/industries";
+import { industries, industriesIntro, type Industry } from "~/data/industries";
 
 const ICONS: Record<Industry["icon"], LucideIcon> = {
   automotive: Car,
@@ -49,8 +49,17 @@ export function IndustriesSection() {
         <SectionHeader
           eyebrow={`${industries.length} sectors`}
           title="Industries we serve"
-          lede="The same press that stamps a ceiling fan rotor stamps a traction motor core. The tolerance is what changes, not the process."
         />
+
+        {/* A real subheading under the section title, not a styled
+            paragraph: it sits between the h2 and the tiles, so it belongs in
+            the document outline. */}
+        <h3 className="mt-7 max-w-3xl text-display-sm text-balance text-ink">
+          {industriesIntro.statement}
+        </h3>
+        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-steel-700">
+          {industriesIntro.body}
+        </p>
 
         <ul className="mt-14 grid grid-cols-2 gap-px bg-steel-300 sm:grid-cols-3 lg:grid-cols-4">
           {industries.map((industry, index) => {

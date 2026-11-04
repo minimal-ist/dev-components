@@ -6,6 +6,18 @@
  * IndustriesSection owns the key-to-icon mapping.
  */
 
+/**
+ * Introduction to the sectors, transcribed from the client's brief.
+ *
+ * The statement renders as a subheading under the section title — it is the
+ * claim, and the paragraph below it is the evidence. It replaces the lede
+ * written during the build.
+ */
+export const industriesIntro = {
+  statement: "At the heart of every motor and transformer, you will find us.",
+  body: "Our products form the critical core of various industries. From fans, mixer grinders, transformers, stabilizers, elevators, pumps to advanced technologies like drone motors and EV motor segments, at the heart of it all, you will find us.",
+};
+
 export type Industry = {
   name: string;
   icon:
