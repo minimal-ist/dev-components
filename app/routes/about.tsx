@@ -141,8 +141,8 @@ export default function About() {
       <Section tone="raised">
         <Container>
           <SectionHeader
-            eyebrow={`${company.addresses.length} locations`}
-            title="Where the work happens"
+            eyebrow="3 manufacturing facilities"
+            title="Where we are located"
             lede="A registered office in Padmanabha Nagar and three factories across Bangalore."
           />
 
