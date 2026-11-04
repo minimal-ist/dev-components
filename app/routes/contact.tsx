@@ -87,9 +87,7 @@ export default function Contact() {
 
       <Section tone="raised">
         <Container>
-          <p className="eyebrow text-steel-500">
-            {company.addresses.length} locations
-          </p>
+          <p className="eyebrow text-steel-500">3 manufacturing facilities</p>
           <ul className="mt-8 grid gap-px bg-steel-300 sm:grid-cols-2 lg:grid-cols-4">
             {company.addresses.map((address, index) => (
               <Reveal key={address.label} index={index} className="flex">
