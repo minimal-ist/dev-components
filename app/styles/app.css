@@ -317,21 +317,6 @@
   );
 }
 
-/* Client marquee. The track holds the list twice, so translating it by half
-   its width loops seamlessly. */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@utility marquee-track {
-  animation: marquee 42s linear infinite;
-}
-
 /* ---------------------------------------------------------------------------
    Dark bands and glass
 
@@ -460,6 +445,16 @@
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
+/* Hide the native scrollbar on a scroller that provides its own controls.
+   Only use this where arrow buttons exist: otherwise it removes the only
+   visible cue that a region scrolls at all. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Cards rise slightly on hover. Transform only, so it stays on the compositor. */
 @utility lift {
   transition:
@@ -477,13 +472,6 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
-    }
-
-    /* The global rule above would fast-forward the marquee to its end frame;
-       stop it where it stands instead. */
-    .marquee-track {
-      animation: none !important;
-      transform: none !important;
     }
   }
 }
