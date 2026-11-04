@@ -24,8 +24,8 @@ export default function About() {
     <>
       <PageHero
         eyebrow={`Est. ${company.founded}`}
-        title="Thirty-five years of the same discipline."
-        lede={company.description}
+        title={company.about.title}
+        lede={company.about.lede}
       />
 
       <Section edge={false}>

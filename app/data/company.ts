@@ -122,6 +122,22 @@ export const company = {
   }>,
 
   /**
+   * About-page hero, from the client.
+   *
+   * Their heading says three decades and their paragraph says over
+   * thirty-five years; the company was founded in 1991, so the paragraph is
+   * the one that matches. Both are left exactly as written — which figure
+   * they want to lead with is their call, not a typo to quietly fix.
+   *
+   * Kept separate from `description`, which the footer uses and which still
+   * reads as a standalone summary.
+   */
+  about: {
+    title: "3 decades of experience",
+    lede: "With over 35 years of industry experience, we manufacture high-precision electrical stampings, laminations, and allied components. Since 1991, we have been a trusted partner to leading OEMs across India and international markets, supporting applications in motors, transformers, pumps, and electric vehicles.",
+  },
+
+  /**
    * Hero copy, from the client brief of 29 October 2026.
    *
    * The brief sets the company name as the main title and the trade
