@@ -1,3 +1,5 @@
+import { Scale, Target, Telescope } from "lucide-react";
+
 import { TestimonialsSection } from "~/components/about/TestimonialsSection";
 import { WhyDevSection } from "~/components/about/WhyDevSection";
 import { Container } from "~/components/ui/Container";
@@ -98,18 +100,29 @@ export default function About() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-3">
             {[
-              { label: "Mission", body: company.mission },
-              { label: "Vision", body: company.vision },
-              { label: "Values", body: company.values },
+              // A mark each: an aim, a long look ahead, a balance. They carry
+              // no information the label does not, so they are decorative and
+              // hidden from assistive technology — their job is to stop three
+              // columns of text on navy reading as a wall.
+              { label: "Mission", body: company.mission, icon: Target },
+              { label: "Vision", body: company.vision, icon: Telescope },
+              { label: "Values", body: company.values, icon: Scale },
             ].map((item, index) => (
               <Reveal key={item.label} index={index}>
-                <div className="relative border-t border-steel-700 pt-6">
+                <div className="relative h-full border-t border-steel-700 pt-7">
                   <span
                     className="absolute -top-[3px] left-0 h-[5px] w-8 accent-bar"
                     aria-hidden="true"
                   />
-                  <p className="eyebrow text-accent-light">{item.label}</p>
-                  <p className="mt-5 text-lg leading-relaxed text-steel-300">
+                  <span className="flex size-14 items-center justify-center border border-white/15 bg-white/[0.06]">
+                    <item.icon
+                      className="size-7 text-accent-light"
+                      strokeWidth={1.6}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p className="eyebrow mt-6 text-accent-light">{item.label}</p>
+                  <p className="mt-4 text-lg leading-relaxed text-steel-300">
                     {item.body}
                   </p>
                 </div>

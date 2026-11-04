@@ -12,7 +12,7 @@ export function TestimonialsSection() {
   return (
     <Section>
       <Container>
-        <SectionHeader eyebrow="In their words" title="What the buyers say" />
+        <SectionHeader eyebrow="In their words" title="Client Testimonials" />
 
         <div className="mt-14 grid gap-px bg-steel-300 sm:grid-cols-2">
           {testimonials.map((testimonial, index) => (
