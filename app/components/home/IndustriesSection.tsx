@@ -77,18 +77,16 @@ export function IndustriesSection() {
       />
 
       <Container className="relative">
+        {/* "Industries we serve" is the label; the claim is the heading.
+            Running both as the eyebrow and the h2 would print the same words
+            twice, so the statement carries the heading and keeps the section
+            to one h2. */}
         <SectionHeader
-          eyebrow={`${industries.length} sectors`}
-          title="Industries we serve"
+          eyebrow="Industries we serve"
+          title={industriesIntro.statement}
+          className="max-w-4xl"
         />
-
-        {/* A real subheading under the section title, not a styled
-            paragraph: it sits between the h2 and the tiles, so it belongs in
-            the document outline. */}
-        <h3 className="mt-7 max-w-3xl text-display-sm text-balance text-ink">
-          {industriesIntro.statement}
-        </h3>
-        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-steel-700">
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-steel-700">
           {industriesIntro.body}
         </p>
 
