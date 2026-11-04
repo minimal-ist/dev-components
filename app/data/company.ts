@@ -122,6 +122,31 @@ export const company = {
   }>,
 
   /**
+   * Hero copy, from the client brief of 29 October 2026.
+   *
+   * The brief sets the company name as the main title and the trade
+   * description under it, with the product lines as a rule beneath. It
+   * writes both in capitals; they are set here in title and sentence case
+   * because the client had already asked for every uppercase run on the site
+   * to go — a 70px all-caps headline would reintroduce exactly that. The
+   * wording is theirs, untouched.
+   *
+   * The brief also asks for a swipe gallery in this hero. That needs images
+   * and is not built yet — TODO(content).
+   */
+  hero: {
+    eyebrow: "Established in 1991",
+    title: "Dev Components Private Limited",
+    subtitle: "Manufacturers of Electrical Stampings and Laminations",
+    lines: [
+      "EI and Strip Lamination",
+      "Stator & Rotors",
+      "Mitre Cut",
+      "Slit Coils",
+    ],
+  },
+
+  /**
    * Japanese investment — TODO(content).
    *
    * The client asked for this block on the home page, after the certificate,
