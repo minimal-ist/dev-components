@@ -14,7 +14,7 @@ export function WhyDevSection() {
             <SectionHeader
               tone="dark"
               eyebrow="Why buyers stay"
-              title="Three reasons the quote holds"
+              title="Why Choose Us"
             />
 
             <div className="mt-10 flex flex-col gap-8">
