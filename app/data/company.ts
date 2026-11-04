@@ -131,7 +131,7 @@ export const company = {
    * suggest the relationship is real; what it is exactly is theirs to state.
    */
   investors: {
-    eyebrow: "Strategic investment",
+    eyebrow: "Japanese Investment",
     heading: "Our Strategic Investment and Growth Partners",
     /**
      * Transcribed verbatim from the client's brief of 29 October 2026.
