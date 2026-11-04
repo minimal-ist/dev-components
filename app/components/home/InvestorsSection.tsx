@@ -31,17 +31,15 @@ export function InvestorsSection() {
 
         <div className="mt-10 max-w-4xl border-l-4 border-accent bg-sheet py-6 pr-8 pl-7">
           <p className="eyebrow text-steel-500">Investment partners</p>
-          <ul className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            {investors.partners.map((partner, index) => (
+          {/* One per line. The names carry their own commas — "Co., Ltd" —
+              so any inline separator either reads as part of a name or has
+              to be set so faintly it fails contrast. */}
+          <ul className="mt-3 flex flex-col gap-1">
+            {investors.partners.map((partner) => (
               <li
                 key={partner}
-                className="flex items-baseline gap-3 text-xl leading-snug font-semibold text-ink"
+                className="text-xl leading-snug font-semibold text-ink"
               >
-                {index > 0 ? (
-                  <span className="text-steel-400" aria-hidden="true">
-                    ·
-                  </span>
-                ) : null}
                 {partner}
               </li>
             ))}

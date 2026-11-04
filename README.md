@@ -60,7 +60,7 @@ published spec table is a commercial liability, not a copy problem.
 Structure lives in `app/styles/app.css`; colour lives in `app/styles/themes.css`
 and is documented under **Changing the palette** below.
 
-The product is a lamination: a sheet of silicon steel 0.20–0.50 mm thick, punched
+The product is a lamination: a sheet of silicon steel 0.15–0.65 mm thick, punched
 and stacked into a core. Two ideas drive the system:
 
 1. **Material.** The ground is the palette's paper and the ink is its darkest

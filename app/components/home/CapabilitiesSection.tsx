@@ -21,10 +21,6 @@ import { cn } from "~/lib/cn";
  * this section is dark rather than raised.
  */
 export function CapabilitiesSection() {
-  const envelope = capabilities.filter(
-    (capability) => capability.label !== "Monthly capacity",
-  );
-
   return (
     <Section tone="band" className="overflow-hidden">
       <div
@@ -40,23 +36,23 @@ export function CapabilitiesSection() {
             <SectionHeader
               tone="dark"
               eyebrow="Manufacturing envelope"
-              title="The numbers, before the conversation"
-              lede="If your part falls inside this envelope, the tooling conversation is short. If it falls outside, the tool room is the next call."
+              title="Capabilities At A Glance"
+              lede="High-volume production or specialized custom components, our manufacturing setup is designed to deliver quality components across a wide range of thicknesses and material grades."
             />
           </div>
 
           <div className="lg:col-span-7">
             <dl className="grid gap-4 sm:grid-cols-2">
-              {envelope.map((capability, index) => (
+              {capabilities.map((capability, index) => (
                 <Reveal
-                  key={capability.label}
+                  key={capability.id}
                   index={index}
                   className={cn(
                     "flex",
                     // An odd count would leave the last card alone on the
                     // left; let it take the full row instead.
-                    index === envelope.length - 1 &&
-                      envelope.length % 2 === 1 &&
+                    index === capabilities.length - 1 &&
+                      capabilities.length % 2 === 1 &&
                       "sm:col-span-2",
                   )}
                 >
@@ -68,14 +64,33 @@ export function CapabilitiesSection() {
                     <dt className="eyebrow text-steel-300">
                       {capability.label}
                     </dt>
-                    <dd className="font-mono text-2xl leading-none font-medium text-sheet">
-                      {capability.value}
-                      {capability.unit ? (
-                        <span className="ml-1.5 text-lg text-steel-400">
-                          {capability.unit}
-                        </span>
-                      ) : null}
-                    </dd>
+                    {capability.value ? (
+                      <dd className="font-mono text-2xl leading-none font-medium text-sheet">
+                        {capability.value}
+                        {capability.unit ? (
+                          <span className="ml-1.5 text-lg text-steel-400">
+                            {capability.unit}
+                          </span>
+                        ) : null}
+                      </dd>
+                    ) : null}
+                    {/* Where the brief gives a figure per steel grade, both
+                        are shown against their grade rather than merged into
+                        one range. */}
+                    {capability.rows ? (
+                      <dd className="mt-1 flex flex-col gap-2.5">
+                        {capability.rows.map((row) => (
+                          <span key={row.grade} className="flex flex-col gap-1">
+                            <span className="text-sm font-semibold text-accent-light">
+                              {row.grade}
+                            </span>
+                            <span className="font-mono text-xl leading-none font-medium text-sheet">
+                              {row.value}
+                            </span>
+                          </span>
+                        ))}
+                      </dd>
+                    ) : null}
                     {capability.note ? (
                       <p className="mt-1 text-sm leading-relaxed text-steel-300">
                         {capability.note}

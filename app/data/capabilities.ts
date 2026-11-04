@@ -1,49 +1,84 @@
 /**
  * Manufacturing envelope — the numbers a buyer checks first.
- * Source: stampinglaminations.com /operation and /about.
+ *
+ * Source: the client's brief of 29 October 2026, which supersedes the figures
+ * originally transcribed from stampinglaminations.com. Two values changed in
+ * that brief and are recorded here as the client wrote them:
+ *
+ *   - Coil thickness was a single "0.20 – 0.50 mm". It is now split by grade:
+ *     0.15 – 0.65 mm for CRNO and 0.23 – 0.35 mm for CRGO.
+ *   - Grades handled was "CRGO, CRNGO". It is now the actual grade
+ *     designations, again split by material.
+ *
+ * The brief writes "CRNO" in this table and "CRNGO" in the product-line copy
+ * on the page before it. Both are transcribed as written rather than
+ * normalised — which spelling the company uses is theirs to settle.
+ *
+ * Monthly capacity is deliberately absent: the stats band already carries
+ * 400+ tons a month, and the client asked for each figure in one place only.
  */
 
 export type Capability = {
+  /** Stable key — two entries can share a label. */
+  id: string;
   label: string;
-  value: string;
+  value?: string;
   unit?: string;
   note?: string;
+  /**
+   * Per-grade breakdown, where the brief gives one value per steel grade
+   * rather than a single figure.
+   */
+  rows?: Array<{ grade: string; value: string }>;
 };
 
 export const capabilities: Capability[] = [
   {
+    id: "presses",
+    label: "High speed presses",
+    value: "25T – 200T",
+    note: "Press range across the shop floor",
+  },
+  {
+    id: "stamping-diameter",
     label: "Stamping diameter",
     value: "30 – 400",
     unit: "mm",
     note: "Round stampings across the standard tool range",
   },
   {
+    id: "ei-range",
     label: "EI lamination range",
     value: "EI19 – EI350",
     note: "Transformer core types",
   },
   {
+    id: "coil-thickness",
     label: "Coil thickness",
-    value: "0.20 – 0.50",
-    unit: "mm",
-    note: "CRGO and CRNGO grades",
+    rows: [
+      { grade: "CRNO", value: "0.15 – 0.65 mm" },
+      { grade: "CRGO", value: "0.23 – 0.35 mm" },
+    ],
   },
   {
+    id: "grades",
+    label: "Grades handled",
+    rows: [
+      { grade: "CRNO", value: "250, 310, 350, 400, 470, 530, 600, 700, 1000" },
+      { grade: "CRGO", value: "120, 110, 90, 85 & ZDKH" },
+    ],
+  },
+  {
+    id: "coil-width",
     label: "Maximum coil width",
     value: "Up to 1000",
     unit: "mm",
     note: "Slitting line capacity",
   },
   {
-    label: "Monthly capacity",
-    value: "400+",
-    unit: "tons",
-    note: "Bulk orders accepted at short notice",
-  },
-  {
-    label: "Grades handled",
-    value: "CRGO, CRNGO",
-    note: "Grain oriented and non grain oriented silicon steel",
+    id: "customised",
+    label: "Customized for you",
+    note: "We design the component according to your drawings and specifications",
   },
 ];
 

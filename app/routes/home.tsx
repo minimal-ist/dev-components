@@ -14,7 +14,7 @@ export function meta() {
   return buildMeta({
     title: `${company.shortName} — Electrical Stampings & Laminations, Bangalore`,
     description:
-      "Precision electrical stampings and laminations for motors, pumps, transformers and EVs. CRGO and CRNGO, 0.20–0.50 mm, 400+ tons a month. ISO 9001:2015. Manufacturing in Bangalore since 1991.",
+      "Precision electrical stampings and laminations for motors, pumps, transformers and EVs. CRGO and CRNGO, 0.15–0.65 mm, 400+ tons a month. ISO 9001:2015. Manufacturing in Bangalore since 1991.",
     path: "/",
   });
 }

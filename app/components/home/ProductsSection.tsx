@@ -4,7 +4,8 @@ import { ProductCard } from "~/components/ui/ProductCard";
 import { Reveal } from "~/components/ui/Reveal";
 import { Section } from "~/components/ui/Section";
 import { SectionHeader } from "~/components/ui/SectionHeader";
-import { products } from "~/data/products";
+import { productLineIntro, products } from "~/data/products";
+import { rich } from "~/lib/rich";
 
 export function ProductsSection() {
   return (
@@ -12,9 +13,8 @@ export function ProductsSection() {
       <Container>
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeader
-            eyebrow={`${products.length} product lines`}
-            title="What comes off the press"
-            lede="Every line below is punched on tooling designed and built in house. If the profile is not here, it is a drawing away."
+            eyebrow="Product line"
+            title="Customized Products & Specialization"
           />
           <ButtonLink
             to="/products"
@@ -23,6 +23,12 @@ export function ProductsSection() {
           >
             All products
           </ButtonLink>
+        </div>
+
+        <div className="mt-10 flex max-w-3xl flex-col gap-5 text-lg leading-relaxed text-steel-700">
+          {productLineIntro.map((paragraph) => (
+            <p key={paragraph}>{rich(paragraph)}</p>
+          ))}
         </div>
 
         <div className="mt-14 grid gap-px bg-steel-300 sm:grid-cols-2 lg:grid-cols-3">

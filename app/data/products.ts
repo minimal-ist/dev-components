@@ -38,6 +38,19 @@ export type Product = {
   image: string;
 };
 
+/**
+ * Product-line introduction, transcribed from the client's brief of
+ * 29 October 2026. `**` marks the terms the brief bolds; see app/lib/rich.tsx.
+ *
+ * The brief notes that per-product specifications are still to be settled
+ * with their team — TODO(content). Existing spec tables are unchanged until
+ * those arrive.
+ */
+export const productLineIntro = [
+  "We manufacture all kinds of motor stampings and EI laminations. Our capabilities include cut-to-length strip laminations with holing in **CRNGO and CRGO**, including step laminations, mitre-cut laminations, and other precision profiles. We also develop **custom-designed stampings and laminations** tailored to specific customer requirements.",
+  "Our R&D initiatives are focused on adopting advanced technologies and processes such as **Epoxy Coating, Bonding, ED Coating** to elevate performance and longevity.",
+];
+
 export const products: Product[] = [
   {
     slug: "electrical-laminations",
