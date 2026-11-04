@@ -6,9 +6,14 @@ import { company } from "~/data/company";
 /**
  * The Japanese investment block, directly after the certificate.
  *
+ * The brief puts the companies and their location on their own line between
+ * the title and the prose, so that is where they sit: a labelled card, ahead
+ * of the paragraphs rather than beside them. Naming them first is what tells
+ * a reader who the rest of the section is about.
+ *
  * Copy is transcribed from the client's brief; see the note on
  * `company.investors`. The brief names two Hosoda entities and describes only
- * one of them, so the panel lists both and the prose says exactly what the
+ * one of them, so the card lists both and the prose says exactly what the
  * brief says about each — nothing here asserts a relationship between them,
  * or the form the investment takes.
  */
@@ -18,41 +23,36 @@ export function InvestorsSection() {
   return (
     <Section tone="raised">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
-            <SectionHeader
-              eyebrow={investors.eyebrow}
-              title={investors.heading}
-            />
-            <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-steel-700">
-              {investors.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </div>
+        <SectionHeader
+          eyebrow={investors.eyebrow}
+          title={investors.heading}
+          className="max-w-4xl"
+        />
 
-          <div className="lg:col-span-5">
-            <div className="relative border border-steel-300 bg-sheet p-8">
-              <span
-                className="absolute -top-[3px] left-8 h-[5px] w-12 accent-bar"
-                aria-hidden="true"
-              />
-              <p className="eyebrow text-steel-500">Partners</p>
-              <ul className="mt-4 flex flex-col gap-2">
-                {investors.partners.map((partner) => (
-                  <li
-                    key={partner}
-                    className="text-lg leading-snug font-semibold text-ink"
-                  >
-                    {partner}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 border-t border-steel-300 pt-6 text-base text-steel-600">
-                {investors.location}
-              </p>
-            </div>
-          </div>
+        <div className="mt-10 max-w-4xl border-l-4 border-accent bg-sheet py-6 pr-8 pl-7">
+          <p className="eyebrow text-steel-500">Investment partners</p>
+          <ul className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            {investors.partners.map((partner, index) => (
+              <li
+                key={partner}
+                className="flex items-baseline gap-3 text-xl leading-snug font-semibold text-ink"
+              >
+                {index > 0 ? (
+                  <span className="text-steel-400" aria-hidden="true">
+                    ·
+                  </span>
+                ) : null}
+                {partner}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 text-base text-steel-600">{investors.location}</p>
+        </div>
+
+        <div className="mt-10 flex max-w-3xl flex-col gap-5 text-lg leading-relaxed text-steel-700">
+          {investors.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </Container>
     </Section>
